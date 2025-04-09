@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Эксперт Качества | Подбор лучших товаров и услуг</title>
+    <meta name="description" content="Мы помогаем вам найти исключительное качество. Профессиональный подбор товаров и услуг, основанный на глубоком анализе и экспертизе.">
+    <meta name="keywords" content="подбор качества, экспертный выбор, лучшие товары, лучшие услуги, консалтинг, рекомендации, премиум качество">
+
+    <!-- Favicon (Пример - Замените на свой) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
+    <!-- Или используйте ваш логотип как фавикон -->
+    <!-- <link rel="icon" href="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" type="image/svg+xml"> -->
+
+    <!-- === CDN Libraries: CSS === -->
+    <!-- 1. Google Fonts: Poppins (Sans-serif) & Merriweather (Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- 2. Bootstrap 5 (CSS) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 3. Font Awesome 6 (CSS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- 4. AOS (Animate On Scroll) Library (CSS) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- 5. Swiper.js (CSS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- 6. FancyBox (CSS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <!-- === Custom CSS === -->
+    <style>
+        /* --- Base Styles & Variables --- */
+        :root {
+            --primary-color: #292d30;   /* Темно-серый фон лого */
+            --secondary-color: #f8f9fa; /* Очень светлый серый (оставим для контраста секций) */
+            --accent-color: #32bcf6;     /* Голубой из лого */
+            --accent-color-secondary: #d7277b; /* Розовый из лого */
+            --text-color: #343a40;       /* Темно-серый текст (для светлых фонов) */
+            --light-text: #6c757d;       /* Светлый серый текст */
+            --white-text: #ffffff;       /* Белый текст (для темных фонов) */
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Merriweather', serif;
+            --base-font-size: 16px;
+            --transition-speed: 0.3s;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px; /* Учитываем высоту фиксированной шапки */
+        }
+
+        body {
+            font-family: var(--body-font);
+            font-size: var(--base-font-size);
+            color: var(--text-color);
+            line-height: 1.7;
+            background-color: var(--white-text); /* Основной фон сайта - белый */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            color: var(--primary-color); /* Заголовки темные по умолчанию */
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.8rem; font-weight: 700; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.8rem; }
+
+        a {
+            color: var(--accent-color); /* Ссылки по умолчанию голубые */
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+        a:hover {
+            color: #1c9ddb; /* Темнее голубой при наведении */
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--white-text); /* Белый текст на голубой кнопке */
+            font-family: var(--heading-font);
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease, color var(--transition-speed) ease;
+            border-radius: 50px; /* Закругленные кнопки */
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-color-secondary); /* Розовый при наведении */
+            border-color: var(--accent-color-secondary);
+            color: var(--white-text);
+            transform: translateY(-2px);
+        }
+        .btn-outline-primary {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            font-family: var(--heading-font);
+             padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+             border-radius: 50px;
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--accent-color);
+            color: var(--white-text); /* Белый текст при наведении */
+             transform: translateY(-2px);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        section:nth-of-type(even) { /* Секции с четным номером */
+            background-color: var(--secondary-color); /* Светло-серый фон */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title h2 {
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            color: var(--primary-color); /* Темный заголовок секции */
+        }
+         .section-title h2::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color); /* Голубое подчеркивание */
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+         }
+
+        .section-title p {
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Header / Navigation --- */
+        .navbar {
+            padding: 0.8rem 0; /* Уменьшим паддинг по умолчанию */
+            background-color: var(--primary-color); /* Темно-серый фон шапки */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease;
+        }
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(41, 45, 48, 0.95); /* Слегка прозрачный темно-серый при скролле */
+            backdrop-filter: blur(5px);
+        }
+        .navbar-brand img {
+            height: 40px; /* Задаем высоту логотипа */
+            width: auto;
+        }
+        /* Стили для кнопки-бургера на темном фоне */
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .navbar-toggler-icon {
+             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-nav .nav-link {
+            font-family: var(--heading-font);
+            font-weight: 500;
+            color: var(--white-text); /* Белые ссылки в шапке */
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color var(--transition-speed) ease;
+        }
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color); /* Голубой цвет для активной/наведенной ссылки */
+        }
+         .navbar-nav .nav-link::before { /* Подчеркивание при наведении */
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background-color: var(--accent-color); /* Голубое подчеркивание */
+            transform: scaleX(0);
+            transition: transform var(--transition-speed) ease-in-out;
+            transform-origin: bottom right;
+         }
+         .navbar-nav .nav-link:hover::before,
+         .navbar-nav .nav-link.active::before {
+             transform: scaleX(1);
+             transform-origin: bottom left;
+         }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-text); /* Белый текст на темном фоне */
+             /* Используем новый primary color для градиента */
+            background: linear-gradient(rgba(41, 45, 48, 0.8), rgba(41, 45, 48, 0.8)), url('https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/image_fx%20(4).jpg?v=1743777071758') center center/cover no-repeat; /* Заменил плейсхолдер на более релевантное изображение */
+            position: relative;
+            padding: 0; /* Убираем стандартный паддинг секции */
+        }
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--white-text); /* Белый заголовок */
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9); /* Слегка прозрачный белый */
+        }
+        .typed-cursor { /* Стилизация курсора Typed.js */
+            opacity: 1;
+            animation: blink 0.7s infinite;
+            color: var(--accent-color-secondary); /* Розовый курсор */
+            font-weight: bold;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- About Section --- */
+        #about { background-color: var(--white-text); } /* Явно зададим белый фон */
+        #about .about-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        #about .content h3 {
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--primary-color); /* Темный заголовок */
+        }
+        #about .content ul {
+            list-style: none;
+            padding: 0;
+        }
+        #about .content ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        #about .content ul i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 20px;
+            color: var(--accent-color); /* Голубые иконки */
+        }
+
+        /* --- Services / How We Work Section --- */
+        #services { background-color: var(--secondary-color); } /* Светло-серый фон */
+        .service-item {
+            background-color: var(--white-text); /* Белые карточки */
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            height: 100%;
+            border: 1px solid #eee; /* Легкая рамка */
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(41, 45, 48, 0.1); /* Тень с оттенком primary */
+        }
+        .service-item .icon {
+            font-size: 3rem;
+            color: var(--accent-color); /* Голубые иконки */
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+         .service-item:hover .icon {
+             transform: scale(1.1);
+             color: var(--accent-color-secondary); /* Розовые при наведении */
+         }
+        .service-item h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .service-item p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        /* --- Team Section --- */
+         #team { background-color: var(--white-text); } /* Белый фон */
+        .team-member {
+            background: var(--white-text);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            height: 100%;
+             border: 1px solid #eee;
+        }
+        .team-member:hover {
+             transform: translateY(-8px);
+             box-shadow: 0 12px 25px rgba(41, 45, 48, 0.12);
+        }
+        .team-member img {
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1; /* Делаем фото квадратными */
+            object-fit: cover;
+        }
+        .team-member .member-info {
+            padding: 25px 20px;
+        }
+        .team-member h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        .team-member span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .team-member .social a {
+            color: var(--primary-color); /* Темные иконки соцсетей */
+            margin: 0 8px;
+            font-size: 1.1rem;
+            transition: color var(--transition-speed) ease;
+        }
+        .team-member .social a:hover {
+            color: var(--accent-color-secondary); /* Розовые при наведении */
+        }
+
+         /* --- Cases Section --- */
+         #cases { background-color: var(--secondary-color); } /* Светло-серый фон */
+        .cases-slider .swiper-slide {
+            background: var(--white-text); /* Белый фон слайда */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+             border: 1px solid #eee;
+        }
+        .cases-slider img {
+            display: block;
+            width: 100%;
+            height: 250px; /* Фиксированная высота для изображений кейсов */
+            object-fit: cover;
+        }
+        .cases-slider .case-info {
+            padding: 20px;
+        }
+         .cases-slider .case-info h5 {
+             font-size: 1.2rem;
+             margin-bottom: 10px;
+             color: var(--primary-color);
+         }
+         .cases-slider .case-info p {
+             font-size: 0.9rem;
+             color: var(--light-text);
+             margin-bottom: 15px;
+         }
+         /* Кнопка в кейсе */
+         .cases-slider .case-info .btn-outline-primary {
+             padding: 0.4rem 1rem; /* Поменьше кнопка */
+             font-size: 0.9rem;
+         }
+
+         .cases-slider .swiper-pagination-bullet-active {
+             background-color: var(--accent-color); /* Голубая активная точка */
+         }
+         .cases-slider .swiper-button-next,
+         .cases-slider .swiper-button-prev {
+             color: var(--accent-color); /* Голубые стрелки */
+             background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон для видимости */
+             border-radius: 50%;
+             width: 40px;
+             height: 40px;
+             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+         }
+         .cases-slider .swiper-button-next:hover,
+         .cases-slider .swiper-button-prev:hover {
+              color: var(--white-text);
+              background-color: var(--accent-color);
+         }
+         .cases-slider .swiper-button-next::after,
+         .cases-slider .swiper-button-prev::after {
+             font-size: 1rem; /* Размер иконки стрелки */
+             font-weight: bold;
+         }
+
+        /* --- Testimonials Section --- */
+        #testimonials { background-color: var(--primary-color); } /* Темно-серый фон */
+        .testimonials-slider .swiper-slide {
+            padding: 40px 20px; /* Увеличим паддинг */
+            color: var(--white-text); /* Белый текст */
+            text-align: center;
+        }
+        .testimonials-slider .testimonial-item {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .testimonials-slider .testimonial-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto 20px auto; /* Увеличим отступ снизу */
+        }
+        .testimonials-slider h3 { /* Имя клиента */
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--white-text);
+        }
+        .testimonials-slider h4 { /* Должность клиента */
+            font-size: 0.9rem;
+            font-weight: normal;
+            font-style: italic;
+            margin-bottom: 20px; /* Увеличим отступ */
+            color: rgba(255, 255, 255, 0.7);
+        }
+         .testimonials-slider p { /* Текст отзыва */
+             font-style: italic;
+             margin: 0 auto 15px auto;
+             font-family: var(--body-font); /* Используем шрифт для основного текста */
+             line-height: 1.8;
+             max-width: 600px;
+         }
+        .testimonials-slider .quote-icon-left,
+        .testimonials-slider .quote-icon-right {
+            color: var(--accent-color-secondary); /* Розовые кавычки */
+            font-size: 26px;
+        }
+        .testimonials-slider .quote-icon-left {
+            display: inline-block;
+            left: -5px;
+            position: relative;
+            top: -8px;
+        }
+        .testimonials-slider .quote-icon-right {
+            display: inline-block;
+            right: -5px;
+            position: relative;
+            top: 8px;
+            transform: scaleX(-1); /* Зеркалим иконку */
+        }
+        .testimonials-slider .swiper-pagination-bullet {
+            background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачные белые точки */
+        }
+         .testimonials-slider .swiper-pagination-bullet-active {
+             background-color: var(--accent-color); /* Голубая активная точка */
+         }
+
+        /* --- Contact Section --- */
+        #contact { background-color: var(--white-text); } /* Белый фон */
+        .contact-info { margin-bottom: 30px; } /* Добавим отступ */
+        .contact-info i {
+            font-size: 1.5rem; /* Уменьшим иконки */
+            color: var(--accent-color); /* Голубые иконки */
+            float: left;
+            width: 44px;
+            height: 44px;
+            background: #eafaff; /* Очень светлый голубой фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            transition: all var(--transition-speed) ease-in-out;
+        }
+         .contact-info:hover i {
+             background: var(--accent-color);
+             color: var(--white-text);
+         }
+        .contact-info h4 {
+            padding: 0 0 0 60px;
+            font-size: 1.3rem; /* Слегка уменьшим */
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        .contact-info p {
+            padding: 0 0 10px 60px; /* Добавим отступ снизу */
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: var(--light-text);
+            line-height: 1.5;
+        }
+         .contact-info a { /* Стилизация ссылок в контактах */
+            color: var(--light-text);
+         }
+         .contact-info a:hover {
+             color: var(--accent-color);
+         }
+        /* Карта */
+        .contact .info iframe {
+            border-radius: 8px; /* Скруглим углы карты */
+        }
+
+        /* Форма */
+        .contact-form .form-label {
+            font-family: var(--heading-font);
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        .contact-form .form-control {
+            border-radius: 8px; /* Скруглим поля */
+            box-shadow: none;
+            font-size: 0.95rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ced4da;
+            transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+         .contact-form .form-control:focus {
+             border-color: var(--accent-color); /* Голубая рамка при фокусе */
+             box-shadow: 0 0 0 0.2rem rgba(50, 188, 246, 0.25); /* Голубое свечение */
+         }
+         .contact-form textarea.form-control {
+             min-height: 140px;
+         }
+         .contact-form .btn-primary { /* Кнопка отправки */
+             width: auto;
+             padding: 12px 35px; /* Слегка увеличим кнопку */
+         }
+         /* Parsley Validation Styles (Example) */
+         .parsley-errors-list {
+            margin: 5px 0 0 0;
+            padding: 0;
+            list-style-type: none;
+            font-size: 0.85em;
+            color: #dc3545; /* Bootstrap danger color */
+         }
+         input.parsley-error, textarea.parsley-error {
+            border-color: #dc3545;
+         }
+          input.parsley-error:focus, textarea.parsley-error:focus {
+             border-color: #dc3545;
+             box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+          }
+         #form-message {
+             margin-top: 15px;
+             font-weight: 500;
+         }
+         #form-message.alert { padding: 0.8rem 1rem; }
+         .success-message { color: #198754; background-color: #d1e7dd; border-color: #badbcc;}
+         .error-message { color: #dc3545; background-color: #f8d7da; border-color: #f5c2c7;}
+
+        /* --- Footer --- */
+        #footer {
+            background: var(--primary-color); /* Темно-серый фон */
+            color: rgba(255, 255, 255, 0.7); /* Светлый текст */
+            font-size: 0.9rem;
+            padding: 60px 0 40px 0; /* Увеличим верхний паддинг */
+        }
+        #footer .footer-logo img {
+            height: 45px; /* Чуть больше лого в футере */
+            width: auto;
+            margin-bottom: 20px; /* Отступ под лого */
+        }
+        #footer p {
+            margin-bottom: 15px;
+            font-family: var(--body-font);
+            line-height: 1.7;
+        }
+        #footer .social-links a {
+            display: inline-flex; /* Используем flex для центрирования иконки */
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+            color: var(--white-text);
+            margin-right: 8px;
+            width: 38px; /* Чуть больше иконки */
+            height: 38px;
+            border-radius: 50%;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+        #footer .social-links a:hover {
+            background: var(--accent-color); /* Голубой фон при наведении */
+            color: var(--white-text);
+        }
+        #footer .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Разделитель */
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6); /* Еще светлее копирайт */
+        }
+         #footer .copyright strong {
+             color: var(--white-text);
+         }
+         #footer .copyright a {
+             color: var(--accent-color); /* Голубая ссылка */
+         }
+          #footer .copyright a:hover {
+             color: var(--accent-color-secondary); /* Розовая при наведении */
+         }
+         #footer .copyright i.fa-heart {
+             color: var(--accent-color-secondary); /* Розовое сердце */
+             margin: 0 3px;
+         }
+
+        /* --- Back to top button --- */
+        .back-to-top {
+          position: fixed;
+          visibility: hidden;
+          opacity: 0;
+          right: 15px;
+          bottom: 15px;
+          z-index: 996;
+          background: var(--accent-color); /* Голубой фон */
+          width: 40px;
+          height: 40px;
+          border-radius: 50px;
+          transition: all 0.4s;
+        }
+        .back-to-top i {
+          font-size: 24px;
+          color: var(--white-text); /* Белая стрелка */
+          line-height: 0;
+        }
+        .back-to-top:hover {
+          background: var(--accent-color-secondary); /* Розовый при наведении */
+          color: var(--white-text);
+        }
+        .back-to-top.active {
+          visibility: visible;
+          opacity: 1;
+        }
+
+
+        /* --- Responsive Adjustments (Mobile First) --- */
+
+        /* Планшеты (>= 768px) */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.5rem; }
+            .hero-content h1 { font-size: 4rem; }
+            .hero-content .subtitle { font-size: 1.5rem; }
+            .navbar-nav .nav-link { padding: 0.5rem 1.2rem; }
+        }
+
+        /* Десктопы (>= 992px) */
+        @media (min-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.8rem; }
+             .hero-content h1 { font-size: 4.5rem; }
+             .hero-content .subtitle { font-size: 1.6rem; }
+            section { padding: 100px 0; }
+            .navbar { padding: 1rem 0; } /* Вернем чуть больший паддинг на десктопе */
+             .navbar.scrolled { padding: 0.8rem 0; }
+        }
+
+         /* Большие десктопы (>= 1200px) */
+        @media (min-width: 1200px) {
+             .container, .container-lg, .container-md, .container-sm, .container-xl {
+                max-width: 1140px; /* Стандартная ширина Bootstrap для lg */
+            }
+        }
+
+        /* Стили для AOS анимаций */
+        [data-aos] {
+          /* Можно добавить базовый стиль, если нужно */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <nav class="navbar navbar-expand-lg w-100"> <!-- Убрал navbar-light, т.к. фон темный -->
+            <div class="container">
+                 <!-- Заменяем текстовый логотип на изображение -->
+                <a class="navbar-brand" href="#hero">
+                    <img src="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" alt="Ikeber Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#hero">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">О нас</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#services">Как мы работаем</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#team">Команда</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cases">Примеры</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Отзывы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Находим <span class="typed" data-typed-items="лучшее для вас, исключительное качество, проверенные решения"></span></h1>
+                <p class="subtitle">Ваш надежный партнер в мире качественных товаров и услуг. Мы экономим ваше время и гарантируем лучший выбор.</p>
+                <a href="#contact" class="btn btn-primary scrollto">Начать подбор</a>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>О компании "Эксперт Качества"</h2>
+                    <p>Наша миссия — избавить вас от сложного выбора и предложить только проверенные, высококачественные решения.</p>
+                </div>
+
+                <div class="row content align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                         <!-- Можно заменить изображение на более соответствующее стилю -->
+                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" class="img-fluid about-img" alt="Команда экспертов работает вместе">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+                        <h3>Почему выбирают нас?</h3>
+                        <p>
+                            В современном мире изобилия бывает сложно отличить настоящее качество от маркетинговых уловок. Мы берем эту задачу на себя. Наша команда профессионалов использует строгие критерии отбора и глубокий анализ рынка.
+                        </p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <strong>Экспертиза:</strong> Глубокие знания в различных нишах и постоянное изучение рынка.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Объективность:</strong> Независимая оценка и ориентация исключительно на интересы клиента.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Экономия времени:</strong> Мы делаем всю сложную работу по поиску и анализу за вас.</li>
+                             <li><i class="fas fa-check-circle"></i> <strong>Гарантия качества:</strong> Мы рекомендуем только то, в чем уверены сами.</li>
+                        </ul>
+                        <p>
+                            Мы верим, что каждый заслуживает лучшего, и наша цель - помочь вам это лучшее найти без лишних усилий и риска ошибиться.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Services Section / How We Work ======= -->
+        <section id="services" class="services">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Как мы работаем</h2>
+                    <p>Наш процесс подбора прозрачен и ориентирован на ваши индивидуальные потребности.</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                            <h4>1. Заявка и Консультация</h4>
+                            <p>Вы оставляете заявку или связываетесь с нами. Мы подробно обсуждаем ваши потребности, ожидания и бюджет.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-search-plus"></i></div>
+                            <h4>2. Анализ и Исследование</h4>
+                            <p>Наша команда проводит глубокий анализ рынка, изучает варианты, сравнивает характеристики и отзывы.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-award"></i></div>
+                            <h4>3. Подбор и Рекомендация</h4>
+                            <p>Мы формируем шорт-лист лучших вариантов, соответствующих вашим критериям, и предоставляем подробные рекомендации.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-handshake"></i></div>
+                            <h4>4. Сопровождение (опционально)</h4>
+                            <p>При необходимости мы можем помочь с процессом приобретения или заказа выбранного товара/услуги.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-thumbs-up"></i></div>
+                            <h4>5. Контроль качества</h4>
+                            <p>Мы ценим обратную связь и следим за тем, чтобы рекомендованные нами решения оправдали ваши ожидания.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                            <h4>6. Постоянное обновление</h4>
+                            <p>Мы непрерывно отслеживаем новинки и изменения на рынке, чтобы наши рекомендации всегда были актуальны.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Services Section -->
+
+         <!-- ======= Team Section ======= -->
+        <section id="team" class="team">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Наша Команда Экспертов</h2>
+                    <p>Профессионалы, увлеченные поиском настоящего качества в каждой детали.</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80" alt="Фото члена команды: Анна Иванова">
+                            <div class="member-info">
+                                <h4>Анна Иванова</h4>
+                                <span>Главный эксперт</span>
+                                <div class="social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                         <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80" alt="Фото члена команды: Петр Смирнов">
+                            <div class="member-info">
+                                <h4>Петр Смирнов</h4>
+                                <span>Аналитик рынка</span>
+                                <div class="social">
+                                     <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                         <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Фото члена команды: Ольга Васильева">
+                            <div class="member-info">
+                                <h4>Ольга Васильева</h4>
+                                <span>Менеджер по работе с клиентами</span>
+                                 <div class="social">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                         <div class="team-member">
+                             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Фото члена команды: Дмитрий Кузнецов">
+                            <div class="member-info">
+                                <h4>Дмитрий Кузнецов</h4>
+                                <span>Технический эксперт</span>
+                                <div class="social">
+                                     <a href="#"><i class="fab fa-github"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Team Section -->
+
+        <!-- ======= Cases Section ======= -->
+        <section id="cases" class="cases">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Примеры Нашей Работы</h2>
+                    <p>Ознакомьтесь с категориями и примерами успешного подбора, выполненного нашими экспертами.</p>
+                </div>
+
+                <!-- Swiper -->
+                <div class="swiper cases-slider" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                             <a href="https://images.unsplash.com/photo-1593344484962-796b55d4ea40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" data-fancybox="gallery" data-caption="Подбор премиальной бытовой техники">
+                                <img src="https://images.unsplash.com/photo-1593344484962-796b55d4ea40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Пример кейса 1: Подбор техники">
+                             </a>
+                            <div class="case-info">
+                                <h5>Подбор бытовой техники</h5>
+                                <p>Помогли клиенту выбрать комплект надежной и энергоэффективной техники для кухни.</p>
+                                <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-fancybox="gallery" data-caption="Выбор надежного IT-оборудования для офиса">
+                                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Пример кейса 2: IT-оборудование">
+                             </a>
+                            <div class="case-info">
+                                <h5>IT-оборудование для бизнеса</h5>
+                                <p>Подобрали оптимальное по цене и производительности оборудование для нового офиса.</p>
+                               <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                            </div>
+                        </div>
+                         <div class="swiper-slide">
+                             <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80" data-fancybox="gallery" data-caption="Поиск уникальных туристических услуг">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Пример кейса 3: Туристические услуги">
+                             </a>
+                            <div class="case-info">
+                                <h5>Эксклюзивные туристические услуги</h5>
+                                <p>Нашли для клиента уникальный тур, полностью соответствующий его нестандартным запросам.</p>
+                                <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                             <a href="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-fancybox="gallery" data-caption="Рекомендации по выбору образовательных курсов">
+                                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Пример кейса 4: Образовательные курсы">
+                             </a>
+                            <div class="case-info">
+                                <h5>Выбор образовательных программ</h5>
+                                <p>Проанализировали рынок онлайн-курсов и подобрали наиболее эффективную программу для специалиста.</p>
+                                <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-fancybox="gallery" data-caption="Подбор специализированного ПО">
+                               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Пример кейса 5: Программное обеспечение">
+                            </a>
+                           <div class="case-info">
+                               <h5>Специализированное ПО</h5>
+                               <p>Подобрали и помогли с внедрением программного обеспечения для автоматизации бизнес-процессов.</p>
+                              <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                           </div>
+                       </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination position-relative mt-4"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section><!-- End Cases Section -->
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                     <!-- Т.к. фон темный, сделаем заголовок светлым -->
+                    <h2 style="color: var(--white-text);">Что говорят наши клиенты</h2>
+                     <!-- И подзаголовок тоже светлым -->
+                    <p style="color: rgba(255, 255, 255, 0.8);">Мы гордимся доверием, которое нам оказывают, и результатами, которых мы достигаем вместе.</p>
+                      <!-- Подчеркивание сделаем голубым для контраста -->
+                     <style> #testimonials .section-title h2::after { background: var(--accent-color); } </style>
+                </div>
+
+                <!-- Swiper -->
+                <div class="swiper testimonials-slider" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img" alt="Фото клиента 1">
+                                <h3>Мария Захарова</h3>
+                                <h4>Предприниматель</h4>
+                                <p>
+                                    <i class="fas fa-quote-left quote-icon-left"></i>
+                                    Обратилась за помощью в подборе оборудования для кофейни. Быстро, профессионально, учли все нюансы. Сэкономили мне кучу времени и нервов! Очень довольна результатом.
+                                    <i class="fas fa-quote-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonial-img" alt="Фото клиента 2">
+                                <h3>Алексей Попов</h3>
+                                <h4>IT-специалист</h4>
+                                <p>
+                                    <i class="fas fa-quote-left quote-icon-left"></i>
+                                    Искал специфический софт для проекта. Эксперты компании не только нашли идеальное решение, но и подсказали аналоги, о которых я не знал. Отличный сервис!
+                                    <i class="fas fa-quote-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                         <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="https://randomuser.me/api/portraits/women/90.jpg" class="testimonial-img" alt="Фото клиента 3">
+                                <h3>Елена Сидорова</h3>
+                                <h4>Дизайнер интерьеров</h4>
+                                <p>
+                                    <i class="fas fa-quote-left quote-icon-left"></i>
+                                   Регулярно пользуюсь услугами для подбора качественных отделочных материалов и мебели для своих проектов. Всегда находят интересные и надежные варианты. Рекомендую!
+                                    <i class="fas fa-quote-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination position-relative mt-4"></div>
+                </div>
+            </div>
+        </section><!-- End Testimonials Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Свяжитесь с нами</h2>
+                    <p>Готовы начать поиск лучшего для вас? Заполните форму или позвоните нам!</p>
+                </div>
+
+                <div class="row gy-4"> <!-- Используем gy-4 для отступов между колонками на мобильных -->
+                    <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+                        <div class="info"> <!-- Убрали d-flex align-items-stretch и w-100 -->
+                            <div class="address contact-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div> <!-- Обернули текст в div для лучшего контроля -->
+                                    <h4>Адрес:</h4>
+                                    <p>ул. Примерная, д. 10, офис 505,<br>г. Москва, 123456</p>
+                                </div>
+                            </div>
+
+                            <div class="email contact-info">
+                                <i class="fas fa-envelope"></i>
+                                 <div>
+                                     <h4>Email:</h4>
+                                     <p><a href="mailto:info@expert-quality.ru">info@expert-quality.ru</a></p>
+                                 </div>
+                            </div>
+
+                            <div class="phone contact-info">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Телефон:</h4>
+                                    <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                                </div>
+                            </div>
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.4200000000003!2d37.615522!3d55.75222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d7f3c7%3A0x420c447efe6d4b4a!2sMoscow%2C%20Russia!5e0!3m2!1sen!2sus!4v1678886400000!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200"> <!-- Убрали mt-5 mt-lg-0 d-flex align-items-stretch -->
+                        <form action="#" method="post" role="form" class="php-email-form" id="contact-form" data-parsley-validate> <!-- Убрали w-100 -->
+                             <div id="form-message" class="mb-3"></div> <!-- Сообщение об успехе/ошибке -->
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-3">
+                                    <label for="name" class="form-label">Ваше имя</label>
+                                    <input type="text" name="name" class="form-control" id="name" required data-parsley-minlength="2" data-parsley-trigger="change">
+                                </div>
+                                <div class="form-group col-md-6 mb-3">
+                                    <label for="email" class="form-label">Ваш Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required data-parsley-type="email" data-parsley-trigger="change">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="subject" class="form-label">Тема</label>
+                                <input type="text" class="form-control" name="subject" id="subject" required data-parsley-minlength="5" data-parsley-trigger="change">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="message" class="form-label">Сообщение</label>
+                                <textarea class="form-control" name="message" rows="7" id="message" required data-parsley-minlength="10" data-parsley-trigger="change"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row justify-content-center text-center"> <!-- Центрируем контент в футере -->
+                 <div class="col-lg-6">
+                       <!-- Заменяем текстовый логотип на изображение -->
+                      <a href="#hero" class="footer-logo d-inline-block"> <!-- Используем inline-block для центрирования -->
+                           <img src="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" alt="Ikeber Logo Footer">
+                      </a>
+                      <p>Ваш навигатор в мире качества. Мы помогаем делать осознанный выбор и находить лучшее.</p>
+                      <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                 </div>
+            </div>
+
+            <div class="copyright">
+                © Copyright <strong id="copyright-year"></strong> <span>Эксперт Качества</span>. Все права защищены.
+                 <br>Дизайн разработан с <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
+
+
+    <!-- === CDN Libraries: JavaScript === -->
+
+    <!-- 7. Popper.js (Required by Bootstrap 5) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+    <!-- 8. Bootstrap 5 (JS Bundle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <!-- 9. Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- 10. AOS (Animate On Scroll) Library (JS) -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- 11. Swiper.js (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 12. FancyBox (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <!-- 13. Day.js (for Copyright Year) -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- 14. Parsley.js (Form Validation) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Добавляем русскую локализацию для Parsley (опционально) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/i18n/ru.min.js" integrity="sha512-Lb8P0J1QvRUQ3U6t8XlnZ9W0888/xHVZFLoUfPLzz8c456Q9Y9fJ9oG/fI9h+0s/wxtkU5vj7jE4G+yHqPqOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- === Custom JavaScript === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /**
+             * Initialize AOS (Animate on Scroll)
+             */
+            AOS.init({
+                duration: 800, // Animation duration
+                easing: 'ease-in-out', // Animation timing function
+                once: true, // Whether animation should happen only once - while scrolling down
+                mirror: false // Whether elements should animate out while scrolling past them
+            });
+
+            /**
+             * Typed.js Initialization for Hero Section
+             */
+            const typedElement = document.querySelector('.typed');
+            if (typedElement) {
+                let typed_strings = typedElement.getAttribute('data-typed-items');
+                typed_strings = typed_strings.split(',');
+                new Typed('.typed', {
+                    strings: typed_strings,
+                    loop: true,
+                    typeSpeed: 70,
+                    backSpeed: 50,
+                    backDelay: 2000
+                });
+            }
+
+            /**
+             * Header Scrolled Effect
+             */
+            const header = document.getElementById('header');
+            if (header) {
+                const headerScrolled = () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+                window.addEventListener('load', headerScrolled);
+                document.addEventListener('scroll', headerScrolled);
+            }
+
+             /**
+             * Navbar Links Active State on Scroll
+             */
+             let navbarlinks = document.querySelectorAll('#navbarNav .nav-link');
+             const navbarlinksActive = () => {
+                let position = window.scrollY + 200; // Adjust offset as needed
+                navbarlinks.forEach(navbarlink => {
+                    if (!navbarlink.hash) return;
+                    let section = document.querySelector(navbarlink.hash);
+                    if (!section) return;
+                    if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+                        navbarlink.classList.add('active');
+                    } else {
+                        navbarlink.classList.remove('active');
+                    }
+                })
+             }
+            window.addEventListener('load', navbarlinksActive);
+            document.addEventListener('scroll', navbarlinksActive);
+
+             /**
+             * Smooth scroll for links with hashes & Close mobile nav on click
+             */
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Smooth scroll is handled by CSS, just close the menu if open
+                    if (navbarToggler && !navbarToggler.classList.contains('collapsed') && navbarCollapse.classList.contains('show')) {
+                         // Use Bootstrap's Collapse instance to hide the menu
+                         const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
+                         if (collapseInstance) {
+                             collapseInstance.hide();
+                         }
+                     }
+                    // Allow default anchor behavior if it's just navigating to the section
+                    // e.preventDefault(); // Prevent default only if doing custom JS scrolling
+                });
+            });
+
+            // Ensure the collapse menu instance is created if needed after initial load
+            if (navbarCollapse) {
+                 // Ensure an instance exists for toggler clicks
+                 if (!bootstrap.Collapse.getInstance(navbarCollapse)) {
+                     new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                 }
+             }
+
+             /**
+             * Cases Slider (Swiper.js) Initialization
+             */
+             new Swiper('.cases-slider', {
+                speed: 600,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                slidesPerView: 'auto', // Let Swiper determine based on breakpoints
+                pagination: {
+                    el: '.cases-slider .swiper-pagination',
+                    type: 'bullets',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.cases-slider .swiper-button-next',
+                    prevEl: '.cases-slider .swiper-button-prev',
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    992: {
+                         slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                     1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 40 // Increased space on larger screens
+                    }
+                }
+            });
+
+             /**
+             * Testimonials Slider (Swiper.js) Initialization
+             */
+            new Swiper('.testimonials-slider', {
+                speed: 600,
+                loop: true,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false
+                },
+                slidesPerView: 1, // Always show 1 testimonial at a time
+                spaceBetween: 30, // Add some space if needed
+                 pagination: {
+                    el: '.testimonials-slider .swiper-pagination',
+                    type: 'bullets',
+                    clickable: true
+                },
+                // No breakpoints needed if always 1 slide
+            });
+
+            /**
+             * FancyBox Initialization
+             */
+            Fancybox.bind("[data-fancybox]", {
+              // Custom options if needed
+              Thumbs: false, // Example: disable thumbnails
+              Toolbar: { // Example: customize toolbar buttons
+                display: [
+                  "zoom",
+                  //"share",
+                  "slideShow",
+                  //"fullscreen",
+                  //"download",
+                  "close",
+                ],
+              },
+            });
+
+             /**
+             * Back to top button
+             */
+            const backtotop = document.querySelector('.back-to-top');
+            if (backtotop) {
+                const toggleBacktotop = () => {
+                    if (window.scrollY > 100) {
+                        backtotop.classList.add('active');
+                    } else {
+                        backtotop.classList.remove('active');
+                    }
+                }
+                window.addEventListener('load', toggleBacktotop);
+                document.addEventListener('scroll', toggleBacktotop);
+
+                backtotop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            /**
+             * Dynamic Copyright Year
+             */
+             const copyrightYear = document.getElementById('copyright-year');
+             if (copyrightYear) {
+                 copyrightYear.textContent = dayjs().format('YYYY'); // Используем Day.js
+             }
+
+
+            /**
+             * Contact Form Validation & Submission (Using Parsley.js)
+             */
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+             if(contactForm) {
+                // Initialize Parsley with Russian locale
+                window.Parsley.setLocale('ru');
+                const parsleyInstance = $(contactForm).parsley();
+
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent default form submission
+
+                    parsleyInstance.validate(); // Trigger Parsley validation
+
+                    if (parsleyInstance.isValid()) {
+                        // --- Form is valid, proceed with submission (simulation) ---
+                        formMessage.textContent = 'Отправка...';
+                        formMessage.className = 'alert alert-info'; // Styling for loading
+                        formMessage.style.display = 'block'; // Make sure message area is visible
+
+
+                        // Replace with your actual AJAX/Fetch submission logic
+                        // Example simulation:
+                        setTimeout(() => {
+                            formMessage.textContent = 'Ваше сообщение успешно отправлено! Мы скоро свяжемся с вами.';
+                            formMessage.className = 'alert alert-success success-message'; // Success styling
+                            contactForm.reset(); // Clear the form fields
+                            parsleyInstance.reset(); // Reset Parsley validation state
+                        }, 2000); // Simulate 2 seconds delay
+
+                    } else {
+                        // --- Form is invalid ---
+                        formMessage.textContent = 'Пожалуйста, исправьте ошибки в форме.';
+                        formMessage.className = 'alert alert-danger error-message'; // Error styling
+                        formMessage.style.display = 'block'; // Make sure message area is visible
+                        // Parsley automatically adds error messages to fields
+                    }
+                });
+
+                 // Clear messages when user starts typing again
+                 contactForm.querySelectorAll('input, textarea').forEach(input => {
+                     input.addEventListener('input', () => {
+                         if (formMessage.textContent !== '' && formMessage.textContent !== 'Отправка...') {
+                             formMessage.textContent = '';
+                             formMessage.style.display = 'none';
+                         }
+                     });
+                 });
+             }
+
+        });
+    </script>
+
+</body>
+</html>
