@@ -11,7 +11,6 @@
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
-    <!-- <link rel="icon" href="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" type="image/svg+xml"> -->
 
     <!-- === CDN Libraries: CSS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
-    <!-- === Custom CSS (С исправлениями для Hero и Mobile) === -->
+    <!-- === Custom CSS === -->
     <style>
         /* --- Base Styles & Variables --- */
         :root {
@@ -82,9 +81,9 @@
 
         /* --- Hero Section --- */
         #hero {
-            min-height: 550px; /* Минимальная высота для мобильных */
+            min-height: 550px;
             height: auto;
-            padding: 120px 0 80px 0; /* Вертикальные отступы для мобильных */
+            padding: 120px 0 80px 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -99,30 +98,23 @@
             margin: 0 auto;
             animation: fadeIn 1s ease-in-out;
         }
-
-        /* --- ИСПРАВЛЕНО: Обертка для H1 и установка min-height на нее --- */
         .hero-h1-wrapper {
-            /* Этот блок будет занимать высоту, необходимую для самой длинной фразы */
-            min-height: 100px; /* Базовая высота для мобильных */
+            min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem; /* Отступ как у H1 */
+            margin-bottom: 1rem;
         }
-
         .hero-content h1 {
-            font-size: 2.5rem; /* Шрифт для мобильных */
+            font-size: 2.5rem;
             color: var(--white-text);
-            margin-bottom: 0; /* Убираем margin с H1, т.к. он на обертке */
+            margin-bottom: 0;
             font-weight: 700;
             line-height: 1.3;
-            /* min-height удален отсюда, теперь он на .hero-h1-wrapper */
-            display: inline; /* Позволяет .typed быть рядом */
+            display: inline;
             word-break: break-word;
             overflow-wrap: break-word;
         }
-
-        /* Адаптация шрифта H1 и высоты обертки для больших экранов */
         @media (min-width: 576px) {
             .hero-h1-wrapper { min-height: 120px; }
             .hero-content h1 { font-size: 3rem; }
@@ -130,52 +122,41 @@
         @media (min-width: 768px) {
             #hero { height: 100vh; min-height: 600px; padding: 0; }
             .hero-content { max-width: 800px; }
-            .hero-h1-wrapper { min-height: 170px; } /* Увеличиваем min-height */
+            .hero-h1-wrapper { min-height: 170px; }
             .hero-content h1 { font-size: 4rem; }
         }
         @media (min-width: 992px) {
-            .hero-h1-wrapper { min-height: 190px; } /* Увеличиваем min-height */
+            .hero-h1-wrapper { min-height: 190px; }
             .hero-content h1 { font-size: 4.5rem; }
         }
-        /* --- Конец исправления для H1 --- */
-
-
         .hero-content .subtitle {
-            font-size: 1.1rem; /* Подзаголовок на мобильных */
+            font-size: 1.1rem;
             font-weight: 400;
             margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
-        /* Адаптация подзаголовка */
         @media (min-width: 768px) {
             .hero-content .subtitle { font-size: 1.5rem; }
         }
         @media (min-width: 992px) {
             .hero-content .subtitle { font-size: 1.6rem; }
         }
-
-        /* --- ИСПРАВЛЕНО: Стилизация Typed.js --- */
-        .hero-h1-wrapper .typed { /* Стилизуем внутри обертки */
+        .hero-h1-wrapper .typed {
              margin-left: 0.3rem;
              display: inline-block;
-             vertical-align: baseline; /* Выравнивание по базовой линии */
-             /* Возможно, потребуется подстроить font-size/line-height, если .typed скачет */
-             font-size: inherit; /* Наследуем размер от h1 */
-             line-height: inherit; /* Наследуем line-height от h1 */
+             vertical-align: baseline;
+             font-size: inherit;
+             line-height: inherit;
         }
         @media (min-width: 768px) {
             .hero-h1-wrapper .typed { margin-left: 0.5rem; }
         }
-
         .typed-cursor { opacity: 1; animation: blink 0.7s infinite; color: var(--accent-color-secondary); font-weight: bold; }
         @keyframes blink{ 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- Остальные стили без изменений --- */
-
         /* --- About Section --- */
-        #about { background-color: var(--white-text); }
         #about .about-img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
         #about .content h3 { font-weight: 700; font-size: 2rem; color: var(--primary-color); }
         #about .content ul { list-style: none; padding: 0; }
@@ -183,7 +164,6 @@
         #about .content ul i { position: absolute; left: 0; top: 2px; font-size: 20px; color: var(--accent-color); }
 
         /* --- Services / How We Work Section --- */
-        #services { background-color: var(--secondary-color); }
         .service-item { background-color: var(--white-text); padding: 30px; border-radius: 8px; text-align: center; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: 100%; border: 1px solid #eee; }
         .service-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(41, 45, 48, 0.1); }
         .service-item .icon { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; display: inline-block; transition: transform var(--transition-speed) ease, color var(--transition-speed) ease; }
@@ -192,7 +172,6 @@
         .service-item p { color: var(--light-text); font-size: 0.95rem; }
 
         /* --- Team Section --- */
-         #team { background-color: var(--white-text); }
         .team-member { background: var(--white-text); border-radius: 8px; overflow: hidden; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: 100%; border: 1px solid #eee; }
         .team-member:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(41, 45, 48, 0.12); }
         .team-member img { max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
@@ -203,14 +182,12 @@
         .team-member .social a:hover { color: var(--accent-color-secondary); }
 
          /* --- Cases Section --- */
-         #cases { background-color: var(--secondary-color); }
-        .cases-slider .swiper-slide { background: var(--white-text); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); border: 1px solid #eee; }
+        .cases-slider .swiper-slide { background: var(--white-text); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); border: 1px solid #eee; display: flex; flex-direction: column; height: auto; }
         .cases-slider img { display: block; width: 100%; height: 250px; object-fit: cover; }
-        .cases-slider .case-info { padding: 20px; }
+        .cases-slider .case-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
          .cases-slider .case-info h5 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-color); }
          .cases-slider .case-info p { font-size: 0.9rem; color: var(--light-text); margin-bottom: 15px; }
-         .cases-slider .case-info .btn-outline-primary { padding: 0.4rem 1rem; font-size: 0.9rem; }
-
+         .cases-slider .case-info .btn-outline-primary { padding: 0.4rem 1rem; font-size: 0.9rem; margin-top: 1rem; align-self: flex-start; }
          .cases-slider .swiper-pagination-bullet-active { background-color: var(--accent-color); }
          .cases-slider .swiper-button-next, .cases-slider .swiper-button-prev { color: var(--accent-color); background-color: rgba(255, 255, 255, 0.7); border-radius: 50%; width: 40px; height: 40px; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; }
          .cases-slider .swiper-button-next:hover, .cases-slider .swiper-button-prev:hover { color: var(--white-text); background-color: var(--accent-color); }
@@ -218,6 +195,9 @@
 
         /* --- Testimonials Section --- */
         #testimonials { background-color: var(--primary-color); }
+        #testimonials .section-title h2 { color: var(--white-text); }
+        #testimonials .section-title h2::after { background: var(--accent-color); }
+        #testimonials .section-title p { color: rgba(255, 255, 255, 0.8); }
         .testimonials-slider .swiper-slide { padding: 40px 20px; color: var(--white-text); text-align: center; }
         .testimonials-slider .testimonial-item { max-width: 700px; margin: 0 auto; }
         .testimonials-slider .testimonial-img { width: 90px; height: 90px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.2); margin: 0 auto 20px auto; }
@@ -232,27 +212,6 @@
 
         /* --- Contact Section --- */
         #contact { background-color: var(--white-text); }
-        .contact-info { margin-bottom: 30px; }
-        .contact-info i { font-size: 1.5rem; color: var(--accent-color); float: left; width: 44px; height: 44px; background: #eafaff; display: flex; justify-content: center; align-items: center; border-radius: 50px; transition: all var(--transition-speed) ease-in-out; }
-         .contact-info:hover i { background: var(--accent-color); color: var(--white-text); }
-        .contact-info h4 { padding: 0 0 0 60px; font-size: 1.3rem; font-weight: 600; margin-bottom: 5px; color: var(--primary-color); }
-        .contact-info p { padding: 0 0 10px 60px; margin-bottom: 0; font-size: 1rem; color: var(--light-text); line-height: 1.5; }
-         .contact-info a { color: var(--light-text); }
-         .contact-info a:hover { color: var(--accent-color); }
-        .contact .info iframe { border-radius: 8px; }
-
-        .contact-form .form-label { font-family: var(--heading-font); font-weight: 500; margin-bottom: 5px; font-size: 0.9rem; color: var(--primary-color); }
-        .contact-form .form-control { border-radius: 8px; box-shadow: none; font-size: 0.95rem; padding: 0.75rem 1rem; border: 1px solid #ced4da; transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; }
-         .contact-form .form-control:focus { border-color: var(--accent-color); box-shadow: 0 0 0 0.2rem rgba(50, 188, 246, 0.25); }
-         .contact-form textarea.form-control { min-height: 140px; }
-         .contact-form .btn-primary { width: auto; padding: 12px 35px; }
-         .parsley-errors-list { margin: 5px 0 0 0; padding: 0; list-style-type: none; font-size: 0.85em; color: #dc3545; }
-         input.parsley-error, textarea.parsley-error { border-color: #dc3545; }
-          input.parsley-error:focus, textarea.parsley-error:focus { border-color: #dc3545; box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
-         #form-message { margin-top: 15px; font-weight: 500; display: none; }
-         #form-message.alert { padding: 0.8rem 1rem; }
-         .success-message { color: #198754; background-color: #d1e7dd; border-color: #badbcc;}
-         .error-message { color: #dc3545; background-color: #f8d7da; border-color: #f5c2c7;}
 
         /* --- Footer --- */
         #footer { background: var(--primary-color); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; padding: 60px 0 40px 0; }
@@ -273,7 +232,186 @@
         .back-to-top.active { visibility: visible; opacity: 1; }
 
 
-        /* --- Responsive Adjustments (Кроме Hero) --- */
+        /* --- Chat Modal --- */
+        .chat-modal {
+            position: fixed;
+            z-index: 1055;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--heading-font);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .chat-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .chat-modal-content {
+            background-color: var(--white-text);
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            max-height: 80vh;
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+        .chat-modal.active .chat-modal-content {
+            transform: scale(1);
+        }
+
+        .chat-header {
+            background-color: var(--primary-color);
+            color: var(--white-text);
+            padding: 15px 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .chat-header h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--white-text);
+        }
+        .chat-header p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0;
+        }
+
+        .chat-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--white-text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+        }
+        .chat-close-btn:hover {
+            color: var(--accent-color);
+        }
+
+
+        .chat-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-body .chat-message {
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            line-height: 1.4;
+            word-wrap: break-word;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: messageFadeIn 0.3s forwards;
+        }
+
+        @keyframes messageFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-body .bot-message {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        .chat-body .user-message {
+            background-color: var(--accent-color);
+            color: var(--white-text);
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+        #chatInput {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            outline: none;
+        }
+        #chatInput:focus {
+            border-color: var(--accent-color);
+        }
+        #chatSendBtn {
+            background-color: var(--accent-color);
+            color: var(--white-text);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chatSendBtn:hover {
+            background-color: var(--accent-color-secondary);
+        }
+        #chatSendBtn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 576px) {
+            .chat-modal-content {
+                width: 95%;
+                max-height: 90vh;
+            }
+            .chat-header {
+                padding: 10px 15px;
+            }
+            .chat-header h4 {
+                font-size: 1.1rem;
+            }
+             .chat-close-btn {
+                top: 8px;
+                right: 10px;
+                font-size: 1.8rem;
+            }
+            .chat-body {
+                padding: 15px;
+            }
+            .chat-footer {
+                padding: 10px;
+            }
+        }
+
+        /* --- Responsive Adjustments --- */
         @media (min-width: 768px) {
             h2 { font-size: 2.5rem; }
             .navbar-nav .nav-link { padding: 0.5rem 1.2rem; }
@@ -288,7 +426,6 @@
              .container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 1140px; }
         }
         [data-aos] { }
-
     </style>
 </head>
 
@@ -324,7 +461,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#testimonials">Отзывы</a>
                         </li>
-                       
                     </ul>
                 </div>
             </div>
@@ -335,18 +471,18 @@
     <section id="hero">
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
-                 <!-- ИСПРАВЛЕНО: H1 обернут в div с min-height -->
                  <div class="hero-h1-wrapper">
                     <h1>Находим<span class="typed" data-typed-items=" лучшее для вас, качество, решения"></span></h1>
                  </div>
                 <p class="subtitle">Ваш надежный партнер в мире качественных товаров и услуг. Мы экономим Ваше время и гарантируем лучший выбор.</p>
-                <a href="#contact" class="btn btn-primary scrollto">Начать подбор</a>
+                <a href="#contact" class="btn btn-primary scrollto js-open-chat">Начать подбор</a>
             </div>
         </div>
     </section><!-- End Hero -->
 
     <main id="main">
 
+        <!-- Sections from About to Testimonials are unchanged -->
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container">
@@ -444,44 +580,40 @@
                 <div class="row gy-4">
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="team-member">
-                            <img src="444.jpg" alt="Фото члена команды: Анна Иванова">
+                            <img src="444.jpg" alt="Фото члена команды: Руслан Насибов">
                             <div class="member-info">
                                 <h4>Руслан Насибов </h4>
                                 <span>Главный эксперт</span>
-                                
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                          <div class="team-member">
-                            <img src="111.jpg" alt="Фото члена команды: Петр Смирнов">
+                            <img src="111.jpg" alt="Фото члена команды: Алия Галимова">
                             <div class="member-info">
                                 <h4>Алия Галимова</h4>
                                 <span>Аналитик рынка</span>
-                               
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                          <div class="team-member">
-                            <img src="222.jpg" alt="Фото члена команды: Ольга Васильева">
+                            <img src="222.jpg" alt="Фото члена команды: Элина Гайсина">
                             <div class="member-info">
                                 <h4>Элина Гайсина</h4>
                                 <span>Менеджер по работе с клиентами</span>
-                               
                             </div>
                         </div>
                     </div>
 
                      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                          <div class="team-member">
-                             <img src="333.jpg" alt="Фото члена команды: Дмитрий Кузнецов">
+                             <img src="333.jpg" alt="Фото члена команды: Айдар Гареев">
                             <div class="member-info">
                                 <h4>Айдар Гареев</h4>
                                 <span>Технический эксперт</span>
-                               
                             </div>
                         </div>
                     </div>
@@ -500,53 +632,43 @@
                 <div class="swiper cases-slider" data-aos="fade-up" data-aos-delay="100">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                             <a href="https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" data-fancybox="gallery" data-caption="Подбор надежной бытовой техники для дома">
-                                <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Подбор бытовой техники">
-                             </a>
+                             <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Подбор бытовой техники">
                             <div class="case-info">
                                 <h5>Подбор бытовой техники</h5>
                                 <p>Помогаем выбрать надежный холодильник, стиральную машину или пылесос по лучшему соотношению цена/качество.</p>
-                                <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <a href="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" data-fancybox="gallery" data-caption="Выбор оптимального ноутбука или смартфона">
-                                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Выбор ноутбука/смартфона">
-                             </a>
+                            <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Выбор ноутбука/смартфона">
                             <div class="case-info">
                                 <h5>Выбор ноутбука/смартфона</h5>
                                 <p>Подбираем гаджеты под ваши задачи и бюджет: для учебы, работы или просто для жизни.</p>
-                               <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                               <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
                             </div>
                         </div>
                          <div class="swiper-slide">
-                             <a href="https://avatars.mds.yandex.net/i?id=54304e306defa94e9ef94abebe6951358d913081-5579113-images-thumbs&n=13" data-fancybox="gallery" data-caption="Поиск проверенных мастеров для ремонта">
-                                <img src="https://avatars.mds.yandex.net/i?id=54304e306defa94e9ef94abebe6951358d913081-5579113-images-thumbs&n=13" alt="Поиск мастеров для ремонта">
-                             </a>
+                             <img src="https://avatars.mds.yandex.net/i?id=54304e306defa94e9ef94abebe6951358d913081-5579113-images-thumbs&n=13" alt="Поиск мастеров для ремонта">
                             <div class="case-info">
                                 <h5>Поиск мастеров для ремонта</h5>
                                 <p>Нужен сантехник, электрик или плиточник? Найдем надежного специалиста с хорошими отзывами.</p>
-                                <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                             <a href="https://avatars.mds.yandex.net/i?id=3a3bcf798fda991eace7eb197d97373cf36be6e7-4809557-images-thumbs&n=13" data-fancybox="gallery" data-caption="Подбор выгодных тарифов и услуг связи">
-                                <img src="https://avatars.mds.yandex.net/i?id=3a3bcf798fda991eace7eb197d97373cf36be6e7-4809557-images-thumbs&n=13" alt="Выбор тарифа связи">
-                             </a>
+                             <img src="https://avatars.mds.yandex.net/i?id=3a3bcf798fda991eace7eb197d97373cf36be6e7-4809557-images-thumbs&n=13" alt="Выбор тарифа связи">
                             <div class="case-info">
                                 <h5>Выбор тарифов и услуг</h5>
                                 <p>Анализируем предложения операторов связи и интернет-провайдеров, чтобы вы не переплачивали.</p>
-                                <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <a href="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80" data-fancybox="gallery" data-caption="Помощь в выборе страховых продуктов">
-                               <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Выбор страховки">
-                            </a>
+                           <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Выбор страховки">
                            <div class="case-info">
                                <h5>Подбор страховки</h5>
                                <p>Поможем разобраться в условиях ОСАГО, КАСКО, страхования жилья или здоровья и выбрать оптимальный полис.</p>
-                              <a href="#contact" class="btn btn-sm btn-outline-primary">Узнать больше</a>
+                              <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
                            </div>
                        </div>
                     </div>
@@ -561,33 +683,8 @@
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
-                    <h2 style="color: var(--white-text);">Что говорят наши клиенты</h2>
-                    <p style="color: rgba(255, 255, 255, 0.8);">Мы гордимся доверием, которое нам оказывают, и результатами, которых мы достигаем вместе.</p>
-                      <style> #testimonials .section-title h2::after { background: var(--accent-color); } 
-/* --- Cases Section Height Fix --- */
-
-.cases-slider .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    height: auto; /* Let flexbox determine height, override potential Swiper fixed height */
-}
-
-.cases-slider .case-info {
-    flex-grow: 1; /* Allow the info section to expand */
-    display: flex;
-    flex-direction: column; /* Stack title, text, button vertically */
-    justify-content: space-between; /* Push button to bottom if needed */
-}
-
-.cases-slider .case-info .btn {
-    margin-top: 1rem; /* Add some space above the button */
-    align-self: flex-start; /* Prevent button from stretching full width */
-    /* If justify-content: space-between isn't enough, use margin-top: auto */
-    /* margin-top: auto; */
-}
-
-/* --- End Cases Section Height Fix --- */
-</style>
+                    <h2>Что говорят наши клиенты</h2>
+                    <p>Мы гордимся доверием, которое нам оказывают, и результатами, которых мы достигаем вместе.</p>
                 </div>
 
                 <div class="swiper testimonials-slider" data-aos="fade-up" data-aos-delay="100">
@@ -638,6 +735,20 @@
             </div>
         </section><!-- End Testimonials Section -->
 
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Свяжитесь с нами</h2>
+                    <p>Мы всегда готовы помочь вам с выбором. Оставьте заявку через наш онлайн-чат!</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <button class="btn btn-primary btn-lg js-open-chat">Начать консультацию в чате</button>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Contact Section -->
        
     </main><!-- End #main -->
 
@@ -668,6 +779,24 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
 
+    <!-- ======= Chat Modal ======= -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-modal-content">
+            <button class="chat-close-btn" id="chatCloseBtn">×</button>
+            <div class="chat-header">
+                <h4>Эксперт Качества</h4>
+                <p>Онлайн-консультант</p>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Сообщения будут добавляться сюда через JS -->
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Напишите ваш вопрос...">
+                <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- === CDN Libraries: JavaScript === -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -677,23 +806,19 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <!-- Parsley требует jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/i18n/ru.min.js" integrity="sha512-Lb8P0J1QvRUQ3U6t8XlnZ9W0888/xHVZFLoUfPLzz8c456Q9Y9fJ9oG/fI9h+0s/wxtkU5vj7jE4G+yHqPqOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-    <!-- === Custom JavaScript (С исправлениями) === -->
+    <!-- === Custom JavaScript === -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
             AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
 
+            // ... (остальной код инициализации: Typed, Header scroll, Navbar, Swipers, Fancybox, Back-to-top, Copyright) ...
             const typedElement = document.querySelector('.typed');
             if (typedElement) {
                 let typed_strings = typedElement.getAttribute('data-typed-items');
                 typed_strings = typed_strings.split(',');
-                typed_strings = typed_strings.map(s => s.trim()); // Убираем лишние пробелы
+                typed_strings = typed_strings.map(s => s.trim());
                 new Typed('.typed', {
                     strings: typed_strings,
                     loop: true,
@@ -737,7 +862,7 @@
             }
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    if (navbarToggler && !navbarToggler.classList.contains('collapsed') && navbarCollapse.classList.contains('show')) {
+                     if (navbarToggler && !navbarToggler.classList.contains('collapsed') && navbarCollapse.classList.contains('show')) {
                          const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
                          if (collapseInstance) { collapseInstance.hide(); }
                      }
@@ -769,42 +894,130 @@
              const copyrightYear = document.getElementById('copyright-year');
              if (copyrightYear) { copyrightYear.textContent = dayjs().format('YYYY'); }
 
-            const contactForm = document.getElementById('contact-form');
-            const formMessage = document.getElementById('form-message');
-             if(contactForm) {
-                window.Parsley.setLocale('ru');
-                const parsleyInstance = $(contactForm).parsley();
 
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    parsleyInstance.validate();
+            // --- Chat Modal Logic ---
+            const chatModal = document.getElementById('chatModal');
+            const chatCloseBtn = document.getElementById('chatCloseBtn');
+            const chatBody = document.getElementById('chatBody');
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const openChatTriggerButtons = document.querySelectorAll('.js-open-chat');
 
-                    if (parsleyInstance.isValid()) {
-                        formMessage.textContent = 'Отправка...';
-                        formMessage.className = 'alert alert-info d-block';
-                        setTimeout(() => {
-                            formMessage.textContent = 'Ваше сообщение успешно отправлено! Мы скоро свяжемся с вами.';
-                            formMessage.className = 'alert alert-success success-message d-block';
-                            contactForm.reset();
-                            parsleyInstance.reset();
-                        }, 2000);
-
-                    } else {
-                        formMessage.textContent = 'Пожалуйста, исправьте ошибки в форме.';
-                        formMessage.className = 'alert alert-danger error-message d-block';
-                    }
+            let chatState = 'INIT';
+            let userProblem = '';
+            let userPhone = '';
+            
+            // НОВАЯ ФУНКЦИЯ для отправки данных в Google Sheets
+            const sendDataToGoogleSheet = (problem, phone) => {
+                // ВСТАВЬТЕ СЮДА URL ВАШЕГО ВЕБ-ПРИЛОЖЕНИЯ GOOGLE APPS SCRIPT
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxAZ44qmB52xqWkHM0y0h9arld1jlDg9XV9JcyozHmP98eTEScjyGbGrw7sa3cGuNAC/exec';
+                const payload = { problem: problem, phone: phone };
+                
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    mode: 'no-cors' // Google Scripts может требовать no-cors для простых POST запросов из браузера
+                })
+                .then(response => {
+                    // В режиме no-cors мы не можем прочитать ответ, но запрос будет отправлен
+                    console.log('Success (request sent)!', response);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
                 });
+            };
 
-                 contactForm.querySelectorAll('input, textarea').forEach(input => {
-                     input.addEventListener('input', () => {
-                         if (formMessage.classList.contains('d-block') && formMessage.textContent !== 'Отправка...') {
-                             formMessage.textContent = '';
-                             formMessage.className = formMessage.className.replace(' d-block', '');
-                         }
-                     });
-                 });
-             }
 
+            const openChat = () => {
+                if (!chatModal) return;
+                chatModal.classList.add('active');
+                resetChat();
+            };
+
+            const closeChat = () => {
+                if (!chatModal) return;
+                chatModal.classList.remove('active');
+            };
+
+            openChatTriggerButtons.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                openChat();
+            }));
+            
+            if (chatCloseBtn) chatCloseBtn.addEventListener('click', closeChat);
+            window.addEventListener('click', (event) => { if (event.target === chatModal) closeChat(); });
+            window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && chatModal && chatModal.classList.contains('active')) closeChat(); });
+
+            const addMessageToChat = (message, sender) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message', sender === 'bot' ? 'bot-message' : 'user-message');
+                messageDiv.textContent = message; 
+                chatBody.appendChild(messageDiv);
+                chatBody.scrollTop = chatBody.scrollHeight; 
+            };
+
+            const botResponse = (message, delay = 600, nextPlaceholder = null, inputType = 'text') => {
+                chatSendBtn.disabled = true;
+                chatInput.disabled = true;
+                setTimeout(() => {
+                    addMessageToChat(message, 'bot');
+                    if (chatState !== 'FINISHED') {
+                        chatSendBtn.disabled = false;
+                        chatInput.disabled = false;
+                        if (nextPlaceholder) chatInput.placeholder = nextPlaceholder;
+                        chatInput.type = inputType;
+                        chatInput.focus();
+                    }
+                }, delay);
+            };
+            
+            const resetChat = () => {
+                chatBody.innerHTML = '';
+                chatInput.value = '';
+                chatInput.type = 'text';
+                chatSendBtn.disabled = false;
+                chatInput.disabled = false;
+                chatState = 'INIT';
+                userProblem = '';
+                userPhone = '';
+                addMessageToChat("Здравствуйте! Я ваш онлайн-помощник из 'Эксперт Качества'.", 'bot');
+                setTimeout(() => {
+                    botResponse("Опишите, пожалуйста, какую задачу или проблему вы хотели бы решить, или какой товар/услугу подобрать?", 800, "Опишите ваш запрос...");
+                    chatState = 'WAITING_PROBLEM';
+                }, 100);
+            };
+
+            const handleUserInput = () => {
+                const messageText = chatInput.value.trim();
+                if (messageText === '' || chatSendBtn.disabled) return;
+
+                addMessageToChat(messageText, 'user');
+                chatInput.value = '';
+
+                if (chatState === 'WAITING_PROBLEM') {
+                    userProblem = messageText;
+                    botResponse("Спасибо! Чтобы мы могли связаться с вами для уточнения деталей, пожалуйста, оставьте ваш номер телефона.", 600, "Введите ваш номер телефона...", "tel");
+                    chatState = 'WAITING_PHONE';
+                } else if (chatState === 'WAITING_PHONE') {
+                    if (messageText.length >= 10) { 
+                        userPhone = messageText;
+                        
+                        // ВЫЗОВ ФУНКЦИИ ОТПРАВКИ ДАННЫХ
+                        sendDataToGoogleSheet(userProblem, userPhone);
+
+                        botResponse(`Отлично! Ваш запрос и телефон ${userPhone} получены. Мы скоро свяжемся с вами. Спасибо!`, 600, "Спасибо!");
+                        chatState = 'FINISHED';
+                        chatInput.disabled = true;
+                        chatSendBtn.disabled = true;
+                        setTimeout(closeChat, 7000); 
+                    } else {
+                        botResponse("Пожалуйста, введите корректный номер телефона.", 600, "Введите ваш номер телефона...", "tel");
+                    }
+                }
+            };
+
+            if (chatSendBtn) chatSendBtn.addEventListener('click', handleUserInput);
+            if (chatInput) chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleUserInput(); });
         });
     </script>
 
