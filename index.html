@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Эксперт Качества | Подбор лучших товаров и услуг</title>
+    <title>IKEBER | Подбор лучших товаров и услуг</title>
     <meta name="description" content="Мы помогаем вам найти исключительное качество. Профессиональный подбор товаров и услуг, основанный на глубоком анализе и экспертизе.">
     <meta name="keywords" content="подбор качества, экспертный выбор, лучшие товары, лучшие услуги, консалтинг, рекомендации, премиум качество">
 
@@ -482,12 +482,11 @@
 
     <main id="main">
 
-        <!-- Sections from About to Testimonials are unchanged -->
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
-                    <h2>О компании "Эксперт Качества"</h2>
+                    <h2>О нас</h2>
                     <p>Наша миссия — избавить Вас от сложного выбора и предложить только проверенные, высококачественные решения.</p>
                 </div>
 
@@ -771,7 +770,7 @@
             </div>
 
             <div class="copyright">
-                © Copyright <strong id="copyright-year"></strong> <span>Эксперт Качества</span>. Все права защищены.
+                © Copyright <strong id="copyright-year"></strong> <span>IKEBER</span>. Все права защищены.
                  <br>Дизайн разработан с <i class="fas fa-heart"></i>
             </div>
         </div>
@@ -784,7 +783,7 @@
         <div class="chat-modal-content">
             <button class="chat-close-btn" id="chatCloseBtn">×</button>
             <div class="chat-header">
-                <h4>Эксперт Качества</h4>
+                <h4>IKEBER</h4>
                 <p>Онлайн-консультант</p>
             </div>
             <div class="chat-body" id="chatBody">
@@ -813,7 +812,6 @@
 
             AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
 
-            // ... (остальной код инициализации: Typed, Header scroll, Navbar, Swipers, Fancybox, Back-to-top, Copyright) ...
             const typedElement = document.querySelector('.typed');
             if (typedElement) {
                 let typed_strings = typedElement.getAttribute('data-typed-items');
@@ -907,19 +905,16 @@
             let userProblem = '';
             let userPhone = '';
             
-            // НОВАЯ ФУНКЦИЯ для отправки данных в Google Sheets
             const sendDataToGoogleSheet = (problem, phone) => {
-                // ВСТАВЬТЕ СЮДА URL ВАШЕГО ВЕБ-ПРИЛОЖЕНИЯ GOOGLE APPS SCRIPT
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbxAZ44qmB52xqWkHM0y0h9arld1jlDg9XV9JcyozHmP98eTEScjyGbGrw7sa3cGuNAC/exec';
                 const payload = { problem: problem, phone: phone };
                 
                 fetch(scriptURL, {
                     method: 'POST',
                     body: JSON.stringify(payload),
-                    mode: 'no-cors' // Google Scripts может требовать no-cors для простых POST запросов из браузера
+                    mode: 'no-cors'
                 })
                 .then(response => {
-                    // В режиме no-cors мы не можем прочитать ответ, но запрос будет отправлен
                     console.log('Success (request sent)!', response);
                 })
                 .catch(error => {
@@ -980,7 +975,7 @@
                 chatState = 'INIT';
                 userProblem = '';
                 userPhone = '';
-                addMessageToChat("Здравствуйте! Я ваш онлайн-помощник из 'Эксперт Качества'.", 'bot');
+                addMessageToChat("Здравствуйте! Я ваш онлайн-помощник из 'IKEBER'.", 'bot');
                 setTimeout(() => {
                     botResponse("Опишите, пожалуйста, какую задачу или проблему вы хотели бы решить, или какой товар/услугу подобрать?", 800, "Опишите ваш запрос...");
                     chatState = 'WAITING_PROBLEM';
@@ -1002,7 +997,6 @@
                     if (messageText.length >= 10) { 
                         userPhone = messageText;
                         
-                        // ВЫЗОВ ФУНКЦИИ ОТПРАВКИ ДАННЫХ
                         sendDataToGoogleSheet(userProblem, userPhone);
 
                         botResponse(`Отлично! Ваш запрос и телефон ${userPhone} получены. Мы скоро свяжемся с вами. Спасибо!`, 600, "Спасибо!");
