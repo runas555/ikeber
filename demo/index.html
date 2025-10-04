@@ -844,7 +844,7 @@
                 currentCategory = null;
             }
 
-            const newPath = view === 'productDetail' && data.productSlug ? `/demo/product/${data.productSlug}` : '/demo/';
+            const newPath = view === 'productDetail' && data.productSlug ? `/product/${data.productSlug}` : '/';
             const fullUrl = window.location.origin + newPath;
             if (!cameFromBackButton && window.location.href !== fullUrl) {
                 history.pushState({ view, data }, '', fullUrl);
@@ -1708,7 +1708,7 @@
                 }
 
                 document.getElementById('shareProductBtn').addEventListener('click', () => {
-                    const productUrl = `${window.location.origin}/demo/product/${product.slug}`;
+                   const productUrl = `${window.location.origin}/product/${product.slug}`;
                     const shareText = `Посмотри, какой товар я нашел: ${product.name}! ${productUrl}`;
                     const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(shareText)}`;
                     window.location.href = whatsappUrl;
@@ -2746,13 +2746,13 @@
         function handleRouting() {
             const path = window.location.pathname;
             // Сохраняем полный путь для корректного роутинга
-            const productSlugMatch = path.match(/^\/demo\/product\/(.+)/);
+            const productSlugMatch = path.match(/^\/(?:demo\/)?product\/(.+)/);
 
-            if (path === '/' || path === '/demo/' || path === '/demo/index.html') {
+            if (path === '/' || path === '/index.html') {
                 navigateTo('home');
-            } else if (path === '/demo/profile') {
+            } else if (path === '/profile') {
                 navigateTo('profile');
-            } else if (path === '/demo/about') {
+            } else if (path === '/about') {
                 navigateTo('aboutStore');
             } else if (productSlugMatch) {
                 const slug = productSlugMatch[1];
