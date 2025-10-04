@@ -1,0 +1,23 @@
+{
+  "name": "Мой магазин",
+  "short_name": "Магазин",
+  "description": "Интернет-магазин с широким ассортиментом товаров",
+  "start_url": "/demo/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#a259ff",
+  "orientation": "portrait",
+  "scope": "/demo/",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192?text=Store",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512?text=Store",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

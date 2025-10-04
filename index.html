@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>IKEBER | Подбор лучших товаров и услуг</title>
+    <meta name="description" content="Мы помогаем вам найти исключительное качество. Профессиональный подбор товаров и услуг, основанный на глубоком анализе и экспертизе.">
+    <meta name="keywords" content="подбор качества, экспертный выбор, лучшие товары, лучшие услуги, консалтинг, рекомендации, премиум качество">
+
+    <!-- Favicon and Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://res.cloudinary.com">
+
+    <!-- === CDN Libraries: CSS === -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <!-- === Custom CSS === -->
+    <style>
+        /* --- Base Styles & Variables --- */
+        :root {
+            --primary-color: #292d30;
+            --secondary-color: #f8f9fa;
+            --accent-color: #32bcf6;
+            --accent-color-secondary: #d7277b;
+            --text-color: #343a40;
+            --light-text: #6c757d;
+            --white-text: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Merriweather', serif;
+            --base-font-size: 16px;
+            --transition-speed: 0.3s;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+        body {
+            font-family: var(--body-font);
+            font-size: var(--base-font-size);
+            color: var(--text-color);
+            line-height: 1.7;
+            background-color: var(--white-text);
+            overflow-x: hidden;
+        }
+        body.chat-open {
+            overflow: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); font-weight: 600; color: var(--primary-color); margin-bottom: 1rem; }
+        h1 { font-size: 2.8rem; font-weight: 700; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.8rem; }
+        a { color: var(--accent-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+        a:hover { color: #1c9ddb; }
+
+        .btn-primary { background-color: var(--accent-color); border-color: var(--accent-color); color: var(--white-text); font-family: var(--heading-font); padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 500; transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease, color var(--transition-speed) ease; border-radius: 50px; }
+        .btn-primary:hover { background-color: var(--accent-color-secondary); border-color: var(--accent-color-secondary); color: var(--white-text); transform: translateY(-2px); }
+        .btn-outline-primary { color: var(--accent-color); border-color: var(--accent-color); font-family: var(--heading-font); padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 500; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease; border-radius: 50px; }
+        .btn-outline-primary:hover { background-color: var(--accent-color); color: var(--white-text); transform: translateY(-2px); }
+
+        section { padding: 80px 0; }
+        section:nth-of-type(even) { background-color: var(--secondary-color); }
+
+        .section-title { text-align: center; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
+        .section-title h2 { margin-bottom: 10px; position: relative; display: inline-block; padding-bottom: 10px; color: var(--primary-color); }
+         .section-title h2::after { content: ''; position: absolute; display: block; width: 60px; height: 3px; background: var(--accent-color); bottom: 0; left: 50%; transform: translateX(-50%); }
+        .section-title p { color: var(--light-text); max-width: 600px; margin: 0 auto; }
+
+        /* --- Header / Navigation --- */
+        .navbar { padding: 0.8rem 0; background-color: var(--primary-color); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease; }
+        .navbar.scrolled { padding: 0.5rem 0; background-color: rgba(41, 45, 48, 0.95); backdrop-filter: blur(5px); }
+        .navbar-brand img { height: 40px; width: auto; }
+        .navbar-toggler { border-color: rgba(255, 255, 255, 0.1); }
+        .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+        .navbar-nav .nav-link { font-family: var(--heading-font); font-weight: 500; color: var(--white-text); padding: 0.5rem 1rem; position: relative; transition: color var(--transition-speed) ease; }
+        .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover { color: var(--accent-color); }
+         .navbar-nav .nav-link::before { content: ""; position: absolute; bottom: 0; left: 1rem; right: 1rem; height: 2px; background-color: var(--accent-color); transform: scaleX(0); transition: transform var(--transition-speed) ease-in-out; transform-origin: bottom right; }
+         .navbar-nav .nav-link:hover::before, .navbar-nav .nav-link.active::before { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 550px;
+            height: auto;
+            padding: 120px 0 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-text);
+            background: linear-gradient(rgba(41, 45, 48, 0.8), rgba(41, 45, 48, 0.8)), url('https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/image_fx%20(4).jpg?v=1743777071758') center center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 90%;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .hero-h1-wrapper {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--white-text);
+            margin-bottom: 0;
+            font-weight: 700;
+            line-height: 1.3;
+            display: inline;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        @media (min-width: 576px) {
+            .hero-h1-wrapper { min-height: 120px; }
+            .hero-content h1 { font-size: 3rem; }
+        }
+        @media (min-width: 768px) {
+            #hero { height: 100vh; min-height: 600px; padding: 0; }
+            .hero-content { max-width: 800px; }
+            .hero-h1-wrapper { min-height: 170px; }
+            .hero-content h1 { font-size: 4rem; }
+        }
+        @media (min-width: 992px) {
+            .hero-h1-wrapper { min-height: 190px; }
+            .hero-content h1 { font-size: 4.5rem; }
+        }
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        @media (min-width: 768px) {
+            .hero-content .subtitle { font-size: 1.5rem; }
+        }
+        @media (min-width: 992px) {
+            .hero-content .subtitle { font-size: 1.6rem; }
+        }
+        .hero-h1-wrapper .typed {
+             margin-left: 0.3rem;
+             display: inline-block;
+             vertical-align: baseline;
+             font-size: inherit;
+             line-height: inherit;
+        }
+        @media (min-width: 768px) {
+            .hero-h1-wrapper .typed { margin-left: 0.5rem; }
+        }
+        .typed-cursor { opacity: 1; animation: blink 0.7s infinite; color: var(--accent-color-secondary); font-weight: bold; }
+        @keyframes blink{ 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- About Section --- */
+        #about .about-img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        #about .content h3 { font-weight: 700; font-size: 2rem; color: var(--primary-color); }
+        #about .content ul { list-style: none; padding: 0; }
+        #about .content ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+        #about .content ul i { position: absolute; left: 0; top: 2px; font-size: 20px; color: var(--accent-color); }
+
+        /* --- Services / How We Work Section --- */
+        .service-item { background-color: var(--white-text); padding: 30px; border-radius: 8px; text-align: center; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: 100%; border: 1px solid #eee; }
+        .service-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(41, 45, 48, 0.1); }
+        .service-item .icon { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; display: inline-block; transition: transform var(--transition-speed) ease, color var(--transition-speed) ease; }
+         .service-item:hover .icon { transform: scale(1.1); color: var(--accent-color-secondary); }
+        .service-item h4 { font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; color: var(--primary-color); }
+        .service-item p { color: var(--light-text); font-size: 0.95rem; }
+
+        /* --- Team Section --- */
+        .team-member { background: var(--white-text); border-radius: 8px; overflow: hidden; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: 100%; border: 1px solid #eee; }
+        .team-member:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(41, 45, 48, 0.12); }
+        .team-member img { max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+        .team-member .member-info { padding: 25px 20px; }
+        .team-member h4 { font-size: 1.3rem; margin-bottom: 5px; color: var(--primary-color); }
+        .team-member span { display: block; font-size: 0.9rem; color: var(--light-text); margin-bottom: 15px; font-style: italic; }
+        .team-member .social a { color: var(--primary-color); margin: 0 8px; font-size: 1.1rem; transition: color var(--transition-speed) ease; }
+        .team-member .social a:hover { color: var(--accent-color-secondary); }
+
+         /* --- Cases Section --- */
+        .cases-slider .swiper-slide { background: var(--white-text); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); border: 1px solid #eee; display: flex; flex-direction: column; height: auto; }
+        .cases-slider img { display: block; width: 100%; height: 250px; object-fit: cover; }
+        .cases-slider .case-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+         .cases-slider .case-info h5 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-color); }
+         .cases-slider .case-info p { font-size: 0.9rem; color: var(--light-text); margin-bottom: 15px; }
+         .cases-slider .case-info .btn-outline-primary { padding: 0.4rem 1rem; font-size: 0.9rem; margin-top: 1rem; align-self: flex-start; }
+         .cases-slider .swiper-pagination-bullet-active { background-color: var(--accent-color); }
+         .cases-slider .swiper-button-next, .cases-slider .swiper-button-prev { color: var(--accent-color); background-color: rgba(255, 255, 255, 0.7); border-radius: 50%; width: 40px; height: 40px; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; }
+         .cases-slider .swiper-button-next:hover, .cases-slider .swiper-button-prev:hover { color: var(--white-text); background-color: var(--accent-color); }
+         .cases-slider .swiper-button-next::after, .cases-slider .swiper-button-prev::after { font-size: 1rem; font-weight: bold; }
+
+        /* --- Testimonials Section --- */
+        #testimonials { background-color: var(--primary-color); }
+        #testimonials .section-title h2 { color: var(--white-text); }
+        #testimonials .section-title h2::after { background: var(--accent-color); }
+        #testimonials .section-title p { color: rgba(255, 255, 255, 0.8); }
+        .testimonials-slider .swiper-slide { padding: 40px 20px; color: var(--white-text); text-align: center; }
+        .testimonials-slider .testimonial-item { max-width: 700px; margin: 0 auto; }
+        .testimonials-slider .testimonial-img { width: 90px; height: 90px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.2); margin: 0 auto 20px auto; }
+        .testimonials-slider h3 { font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; color: var(--white-text); }
+        .testimonials-slider h4 { font-size: 0.9rem; font-weight: normal; font-style: italic; margin-bottom: 20px; color: rgba(255, 255, 255, 0.7); }
+         .testimonials-slider p { font-style: italic; margin: 0 auto 15px auto; font-family: var(--body-font); line-height: 1.8; max-width: 600px; }
+        .testimonials-slider .quote-icon-left, .testimonials-slider .quote-icon-right { color: var(--accent-color-secondary); font-size: 26px; }
+        .testimonials-slider .quote-icon-left { display: inline-block; left: -5px; position: relative; top: -8px; }
+        .testimonials-slider .quote-icon-right { display: inline-block; right: -5px; position: relative; top: 8px; transform: scaleX(-1); }
+        .testimonials-slider .swiper-pagination-bullet { background-color: rgba(255, 255, 255, 0.5); }
+         .testimonials-slider .swiper-pagination-bullet-active { background-color: var(--accent-color); }
+
+        /* --- Contact Section --- */
+        #contact { background-color: var(--white-text); }
+
+        /* --- Footer --- */
+        #footer { background: var(--primary-color); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; padding: 60px 0 40px 0; }
+        #footer .footer-logo img { height: 45px; width: auto; margin-bottom: 20px; }
+        #footer p { margin-bottom: 15px; font-family: var(--body-font); line-height: 1.7; }
+        #footer .social-links a { display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.1); color: var(--white-text); margin-right: 8px; width: 38px; height: 38px; border-radius: 50%; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; }
+        #footer .social-links a:hover { background: var(--accent-color); color: var(--white-text); }
+        #footer .copyright { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); }
+         #footer .copyright strong { color: var(--white-text); }
+         #footer .copyright a { color: var(--accent-color); }
+          #footer .copyright a:hover { color: var(--accent-color-secondary); }
+         #footer .copyright i.fa-heart { color: var(--accent-color-secondary); margin: 0 3px; }
+
+        /* --- Back to top button --- */
+        .back-to-top { position: fixed; visibility: hidden; opacity: 0; right: 15px; bottom: 15px; z-index: 996; background: var(--accent-color); width: 40px; height: 40px; border-radius: 50px; transition: all 0.4s; display: flex; align-items: center; justify-content: center; }
+        .back-to-top i { font-size: 24px; color: var(--white-text); line-height: 0; }
+        .back-to-top:hover { background: var(--accent-color-secondary); color: var(--white-text); }
+        .back-to-top.active { visibility: visible; opacity: 1; }
+
+
+        /* --- Chat Modal --- */
+        .chat-modal {
+            position: fixed;
+            z-index: 1055;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--heading-font);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .chat-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .chat-modal-content {
+            background-color: var(--white-text);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        /* Desktop Chat Styles */
+        @media (min-width: 768px) {
+            .chat-modal-content {
+                margin: auto;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                width: 90%;
+                max-width: 400px;
+                max-height: 80vh;
+                transform: scale(0.95);
+            }
+            .chat-modal.active .chat-modal-content {
+                transform: scale(1);
+            }
+        }
+
+        /* Mobile Full-Screen Chat Styles */
+        @media (max-width: 767px) {
+            .chat-modal-content {
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                margin: 0;
+                border-radius: 0;
+                transform: translateY(100%);
+                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            .chat-modal.active .chat-modal-content {
+                transform: translateY(0);
+            }
+        }
+        
+        .chat-header {
+            background-color: var(--primary-color);
+            color: var(--white-text);
+            padding: 15px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .chat-header h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--white-text);
+        }
+        .chat-header p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0;
+        }
+
+        .chat-close-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--white-text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+            padding: 5px;
+        }
+        .chat-close-btn:hover {
+            color: var(--accent-color);
+        }
+
+        .chat-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-body .chat-message {
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            line-height: 1.4;
+            word-wrap: break-word;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: messageFadeIn 0.3s forwards;
+        }
+
+        @keyframes messageFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-body .bot-message {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        .chat-body .user-message {
+            background-color: var(--accent-color);
+            color: var(--white-text);
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+        #chatInput {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            outline: none;
+        }
+        #chatInput:focus {
+            border-color: var(--accent-color);
+        }
+        #chatSendBtn {
+            background-color: var(--accent-color);
+            color: var(--white-text);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chatSendBtn:hover {
+            background-color: var(--accent-color-secondary);
+        }
+        #chatSendBtn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 767px) {
+            .chat-header {
+                padding: 10px 15px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            .chat-header h4, .chat-header p {
+                text-align: left;
+                padding-right: 40px; /* Space for close button */
+            }
+            .chat-close-btn {
+                font-size: 2.5rem;
+            }
+            .chat-body {
+                padding: 15px;
+            }
+            .chat-footer {
+                padding: 10px 15px;
+                background-color: #fff;
+            }
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (min-width: 768px) {
+            h2 { font-size: 2.5rem; }
+            .navbar-nav .nav-link { padding: 0.5rem 1.2rem; }
+        }
+        @media (min-width: 992px) {
+            h2 { font-size: 2.8rem; }
+            section { padding: 100px 0; }
+            .navbar { padding: 1rem 0; }
+            .navbar.scrolled { padding: 0.8rem 0; }
+        }
+         @media (min-width: 1200px) {
+             .container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 1140px; }
+        }
+        [data-aos] { }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <nav class="navbar navbar-expand-lg w-100">
+            <div class="container">
+                <a class="navbar-brand" href="#hero">
+                    <img src="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" alt="Ikeber Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#hero">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">О нас</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#services">Как мы работаем</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#team">Команда</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cases">Примеры</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Отзывы</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                 <div class="hero-h1-wrapper">
+                    <h1>Находим<span class="typed" data-typed-items=" лучшее для вас, качество, решения"></span></h1>
+                 </div>
+                <p class="subtitle">Ваш надежный партнер в мире качественных товаров и услуг. Мы экономим Ваше время и гарантируем лучший выбор.</p>
+                <a href="#contact" class="btn btn-primary scrollto js-open-chat">Начать подбор</a>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>О нас</h2>
+                    <p>Наша миссия — избавить Вас от сложного выбора и предложить только проверенные, высококачественные решения.</p>
+                </div>
+
+                <div class="row content align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                         <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=47ae785472cc94488cea302c1fd1ca39_l-4369943-images-thumbs&n=13" class="img-fluid about-img" alt="Команда экспертов работает вместе" width="555" height="370">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+                        <h3>Почему выбирают нас?</h3>
+                        <p>
+                            В современном мире изобилия бывает сложно отличить настоящее качество от маркетинговых уловок. Мы берем эту задачу на себя. Наша команда профессионалов использует строгие критерии отбора и глубокий анализ рынка.
+                        </p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <strong>Экспертиза:</strong> Глубокие знания в различных нишах и постоянное изучение рынка.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Объективность:</strong> Независимая оценка и ориентация исключительно на интересы клиента.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Экономия времени:</strong> Мы делаем всю сложную работу по поиску и анализу за Вас.</li>
+                             <li><i class="fas fa-check-circle"></i> <strong>Гарантия качества:</strong> Мы рекомендуем только то, в чем уверены сами.</li>
+                        </ul>
+                        <p>
+                            Мы верим, что каждый заслуживает лучшего, и наша цель - помочь Вам это лучшее найти без лишних усилий и риска ошибиться.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Services Section / How We Work ======= -->
+        <section id="services" class="services">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Как мы работаем</h2>
+                    <p>Наш процесс подбора прозрачен и ориентирован на Ваши индивидуальные потребности.</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                            <h4>1. Заявка и Консультация</h4>
+                            <p>Вы оставляете заявку или связываетесь с нами. Мы подробно обсуждаем Ваши потребности, ожидания и бюджет.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-search-plus"></i></div>
+                            <h4>2. Анализ и Исследование</h4>
+                            <p>Наша команда проводит глубокий анализ рынка, изучает варианты, сравнивает характеристики и отзывы.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-award"></i></div>
+                            <h4>3. Подбор и Рекомендация</h4>
+                            <p>Мы формируем шорт-лист лучших вариантов, соответствующих Вашим критериям, и предоставляем подробные рекомендации.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-handshake"></i></div>
+                            <h4>4. Сопровождение (опционально)</h4>
+                            <p>При необходимости мы можем помочь с процессом приобретения или заказа выбранного товара/услуги.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-thumbs-up"></i></div>
+                            <h4>5. Контроль качества</h4>
+                            <p>Мы ценим обратную связь и следим за тем, чтобы рекомендованные нами решения оправдали Ваши ожидания.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item">
+                            <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                            <h4>6. Постоянное обновление</h4>
+                            <p>Мы непрерывно отслеживаем новинки и изменения на рынке, чтобы наши рекомендации всегда были актуальны.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Services Section -->
+
+         <!-- ======= Team Section ======= -->
+        <section id="team" class="team">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Наша Команда Экспертов</h2>
+                    <p>Профессионалы, увлеченные поиском настоящего качества в каждой детали.</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-member">
+                            <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749561128/444_lfkfe1.png" alt="Фото члена команды: Руслан Насибов" width="261" height="261">
+                            <div class="member-info">
+                                <h4>Руслан Насибов </h4>
+                                <span>Главный эксперт</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                         <div class="team-member">
+                            <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749560985/111_rvglsa.png" alt="Фото члена команды: Алия Галимова" width="261" height="261">
+                            <div class="member-info">
+                                <h4>Алия Галимова</h4>
+                                <span>Аналитик рынка</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                         <div class="team-member">
+                            <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749561081/222_vhbc5m.png" alt="Фото члена команды: Элина Гайсина" width="261" height="261">
+                            <div class="member-info">
+                                <h4>Элина Гайсина</h4>
+                                <span>Менеджер по работе с клиентами</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                         <div class="team-member">
+                             <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749561115/333_p3m9g2.png" alt="Фото члена команды: Айдар Гареев" width="261" height="261">
+                            <div class="member-info">
+                                <h4>Айдар Гареев</h4>
+                                <span>Технический эксперт</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Team Section -->
+
+        <!-- ======= Cases Section ======= -->
+        <section id="cases" class="cases">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Примеры Нашей Работы</h2>
+                    <p>Ознакомьтесь с категориями и примерами успешного подбора, выполненного нашими экспертами.</p>
+                </div>
+
+                <div class="swiper cases-slider" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                             <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=09315d6f17898f0f84a3ad78020f9729224f09ef-10803542-images-thumbs&n=13" alt="Подбор бытовой техники">
+                            <div class="case-info">
+                                <h5>Подбор бытовой техники</h5>
+                                <p>Помогаем выбрать надежный холодильник, стиральную машину или пылесос по лучшему соотношению цена/качество.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=c2655bc6a56645fd8476bed283c80661_l-5873467-images-thumbs&n=13" alt="Выбор ноутбука/смартфона" width="600" height="400">
+                            <div class="case-info">
+                                <h5>Выбор ноутбука/смартфона</h5>
+                                <p>Подбираем гаджеты под ваши задачи и бюджет: для учебы, работы или просто для жизни.</p>
+                               <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
+                            </div>
+                        </div>
+                         <div class="swiper-slide">
+                             <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=54304e306defa94e9ef94abebe6951358d913081-5579113-images-thumbs&n=13" alt="Поиск мастеров для ремонта">
+                            <div class="case-info">
+                                <h5>Поиск мастеров для ремонта</h5>
+                                <p>Нужен сантехник, электрик или плиточник? Найдем надежного специалиста с хорошими отзывами.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                             <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=3a3bcf798fda991eace7eb197d97373cf36be6e7-4809557-images-thumbs&n=13" alt="Выбор тарифа связи">
+                            <div class="case-info">
+                                <h5>Выбор тарифов и услуг</h5>
+                                <p>Анализируем предложения операторов связи и интернет-провайдеров, чтобы вы не переплачивали.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                           <img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/6444937/2a00000190870700d2079ee0b93ac48222eb/XXL_height" alt="Выбор страховки" width="600" height="400">
+                           <div class="case-info">
+                               <h5>Подбор страховки</h5>
+                               <p>Поможем разобраться в условиях ОСАГО, КАСКО, страхования жилья или здоровья и выбрать оптимальный полис.</p>
+                              <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
+                           </div>
+                       </div>
+                    </div>
+                    <div class="swiper-pagination position-relative mt-4"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section><!-- End Cases Section -->
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Что говорят наши клиенты</h2>
+                    <p>Мы гордимся доверием, которое нам оказывают, и результатами, которых мы достигаем вместе.</p>
+                </div>
+
+                <div class="swiper testimonials-slider" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img loading="lazy" src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img" alt="Фото клиента 1">
+                                <h3>Мария Захарова</h3>
+                                <h4>Предприниматель</h4>
+                                <p>
+                                    <i class="fas fa-quote-left quote-icon-left"></i>
+                                    Обратилась за помощью в подборе оборудования для кофейни. Быстро, профессионально, учли все нюансы. Сэкономили мне кучу времени и нервов! Очень довольна результатом.
+                                    <i class="fas fa-quote-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img loading="lazy" src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonial-img" alt="Фото клиента 2">
+                                <h3>Алексей Попов</h3>
+                                <h4>IT-специалист</h4>
+                                <p>
+                                    <i class="fas fa-quote-left quote-icon-left"></i>
+                                    Искал специфический софт для проекта. Эксперты компании не только нашли идеальное решение, но и подсказали аналоги, о которых я не знал. Отличный сервис!
+                                    <i class="fas fa-quote-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                         <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img loading="lazy" src="https://randomuser.me/api/portraits/women/90.jpg" class="testimonial-img" alt="Фото клиента 3">
+                                <h3>Елена Сидорова</h3>
+                                <h4>Дизайнер интерьеров</h4>
+                                <p>
+                                    <i class="fas fa-quote-left quote-icon-left"></i>
+                                   Регулярно пользуюсь услугами для подбора качественных отделочных материалов и мебели для своих проектов. Всегда находят интересные и надежные варианты. Рекомендую!
+                                    <i class="fas fa-quote-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination position-relative mt-4"></div>
+                </div>
+            </div>
+        </section><!-- End Testimonials Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2>Свяжитесь с нами</h2>
+                    <p>Мы всегда готовы помочь вам с выбором. Оставьте заявку через наш онлайн-чат!</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <button class="btn btn-primary btn-lg js-open-chat">Начать консультацию в чате</button>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Contact Section -->
+       
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                 <div class="col-lg-6">
+                      <a href="#hero" class="footer-logo d-inline-block">
+                           <img src="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" alt="Ikeber Logo Footer">
+                      </a>
+                      <p>Ваш навигатор в мире качества. Мы помогаем делать осознанный выбор и находить лучшее.</p>
+                      <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                 </div>
+            </div>
+
+            <div class="copyright">
+                © Copyright <strong id="copyright-year"></strong> <span>IKEBER</span>. Все права защищены.
+                 <br>Дизайн разработан с <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- ======= Chat Modal ======= -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-modal-content">
+            <button class="chat-close-btn" id="chatCloseBtn">×</button>
+            <div class="chat-header">
+                <h4>IKEBER</h4>
+                <p>Онлайн-консультант</p>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Сообщения будут добавляться сюда через JS -->
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Напишите ваш вопрос...">
+                <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- === CDN Libraries: JavaScript === -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <!-- === Custom JavaScript === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
+
+            const typedElement = document.querySelector('.typed');
+            if (typedElement) {
+                let typed_strings = typedElement.getAttribute('data-typed-items');
+                typed_strings = typed_strings.split(',');
+                typed_strings = typed_strings.map(s => s.trim());
+                new Typed('.typed', {
+                    strings: typed_strings,
+                    loop: true,
+                    typeSpeed: 70,
+                    backSpeed: 50,
+                    backDelay: 2000
+                });
+            }
+
+            const header = document.getElementById('header');
+            if (header) {
+                const headerScrolled = () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                }
+                window.addEventListener('load', headerScrolled);
+                document.addEventListener('scroll', headerScrolled);
+            }
+
+             let navbarlinks = document.querySelectorAll('#navbarNav .nav-link');
+             const navbarlinksActive = () => {
+                let position = window.scrollY + 200;
+                navbarlinks.forEach(navbarlink => {
+                    if (!navbarlink.hash) return;
+                    let section = document.querySelector(navbarlink.hash);
+                    if (!section) return;
+                    if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+                        navbarlink.classList.add('active');
+                    } else {
+                        navbarlink.classList.remove('active');
+                    }
+                })
+             }
+            window.addEventListener('load', navbarlinksActive);
+            document.addEventListener('scroll', navbarlinksActive);
+
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse && !bootstrap.Collapse.getInstance(navbarCollapse)) {
+                 new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            }
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                     if (navbarToggler && !navbarToggler.classList.contains('collapsed') && navbarCollapse.classList.contains('show')) {
+                         const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
+                         if (collapseInstance) { collapseInstance.hide(); }
+                     }
+                });
+            });
+
+             new Swiper('.cases-slider', {
+                speed: 600, loop: true, autoplay: { delay: 5000, disableOnInteraction: false }, slidesPerView: 'auto',
+                pagination: { el: '.cases-slider .swiper-pagination', type: 'bullets', clickable: true },
+                navigation: { nextEl: '.cases-slider .swiper-button-next', prevEl: '.cases-slider .swiper-button-prev' },
+                breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 30 }, 992: { slidesPerView: 3, spaceBetween: 30 }, 1200: { slidesPerView: 3, spaceBetween: 40 } }
+            });
+
+            new Swiper('.testimonials-slider', {
+                speed: 600, loop: true, autoplay: { delay: 6000, disableOnInteraction: false }, slidesPerView: 1, spaceBetween: 30,
+                 pagination: { el: '.testimonials-slider .swiper-pagination', type: 'bullets', clickable: true },
+            });
+
+            Fancybox.bind("[data-fancybox]", { Thumbs: false, Toolbar: { display: [ "zoom", "slideShow", "close" ] } });
+
+            const backtotop = document.querySelector('.back-to-top');
+            if (backtotop) {
+                const toggleBacktotop = () => { backtotop.classList.toggle('active', window.scrollY > 100); }
+                window.addEventListener('load', toggleBacktotop);
+                document.addEventListener('scroll', toggleBacktotop);
+                backtotop.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            }
+
+             const copyrightYear = document.getElementById('copyright-year');
+             if (copyrightYear) { copyrightYear.textContent = dayjs().format('YYYY'); }
+
+
+            // --- Chat Modal Logic ---
+            const chatModal = document.getElementById('chatModal');
+            const chatCloseBtn = document.getElementById('chatCloseBtn');
+            const chatBody = document.getElementById('chatBody');
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const openChatTriggerButtons = document.querySelectorAll('.js-open-chat');
+
+            let chatState = 'INIT';
+            let userProblem = '';
+            let userPhone = '';
+            
+            const sendDataToGoogleSheet = (problem, phone) => {
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxAZ44qmB52xqWkHM0y0h9arld1jlDg9XV9JcyozHmP98eTEScjyGbGrw7sa3cGuNAC/exec';
+                const payload = { problem: problem, phone: phone };
+                
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    mode: 'no-cors'
+                })
+                .then(response => {
+                    console.log('Success (request sent)!', response);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                });
+            };
+
+
+            const openChat = () => {
+                if (!chatModal) return;
+                document.body.classList.add('chat-open');
+                chatModal.classList.add('active');
+                resetChat();
+            };
+
+            const closeChat = () => {
+                if (!chatModal) return;
+                document.body.classList.remove('chat-open');
+                chatModal.classList.remove('active');
+            };
+
+            openChatTriggerButtons.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                openChat();
+            }));
+            
+            if (chatCloseBtn) chatCloseBtn.addEventListener('click', closeChat);
+            window.addEventListener('click', (event) => { if (event.target === chatModal) closeChat(); });
+            window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && chatModal && chatModal.classList.contains('active')) closeChat(); });
+
+            const addMessageToChat = (message, sender) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message', sender === 'bot' ? 'bot-message' : 'user-message');
+                messageDiv.textContent = message; 
+                chatBody.appendChild(messageDiv);
+                chatBody.scrollTop = chatBody.scrollHeight; 
+            };
+
+            const botResponse = (message, delay = 600, nextPlaceholder = null, inputType = 'text') => {
+                chatSendBtn.disabled = true;
+                chatInput.disabled = true;
+                setTimeout(() => {
+                    addMessageToChat(message, 'bot');
+                    if (chatState !== 'FINISHED') {
+                        chatSendBtn.disabled = false;
+                        chatInput.disabled = false;
+                        if (nextPlaceholder) chatInput.placeholder = nextPlaceholder;
+                        chatInput.type = inputType;
+                        chatInput.focus();
+                    }
+                }, delay);
+            };
+            
+            const resetChat = () => {
+                chatBody.innerHTML = '';
+                chatInput.value = '';
+                chatInput.type = 'text';
+                chatSendBtn.disabled = false;
+                chatInput.disabled = false;
+                chatState = 'INIT';
+                userProblem = '';
+                userPhone = '';
+                addMessageToChat("Здравствуйте! Я ваш онлайн-помощник из 'IKEBER'.", 'bot');
+                setTimeout(() => {
+                    botResponse("Опишите, пожалуйста, какую задачу или проблему вы хотели бы решить, или какой товар/услугу подобрать?", 800, "Опишите ваш запрос...");
+                    chatState = 'WAITING_PROBLEM';
+                }, 100);
+            };
+
+            const handleUserInput = () => {
+                const messageText = chatInput.value.trim();
+                if (messageText === '' || chatSendBtn.disabled) return;
+
+                addMessageToChat(messageText, 'user');
+                chatInput.value = '';
+
+                if (chatState === 'WAITING_PROBLEM') {
+                    userProblem = messageText;
+                    botResponse("Спасибо! Чтобы мы могли связаться с вами для уточнения деталей, пожалуйста, оставьте ваш номер телефона.", 600, "Введите ваш номер телефона...", "tel");
+                    chatState = 'WAITING_PHONE';
+                } else if (chatState === 'WAITING_PHONE') {
+                    if (messageText.length >= 10) { 
+                        userPhone = messageText;
+                        
+                        sendDataToGoogleSheet(userProblem, userPhone);
+
+                        botResponse(`Отлично! Ваш запрос и телефон ${userPhone} получены. Мы скоро свяжемся с вами. Спасибо!`, 600, "Спасибо!");
+                        chatState = 'FINISHED';
+                        chatInput.disabled = true;
+                        chatSendBtn.disabled = true;
+                        setTimeout(closeChat, 7000); 
+                    } else {
+                        botResponse("Пожалуйста, введите корректный номер телефона.", 600, "Введите ваш номер телефона...", "tel");
+                    }
+                }
+            };
+
+            if (chatSendBtn) chatSendBtn.addEventListener('click', handleUserInput);
+            if (chatInput) chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleUserInput(); });
+        });
+    </script>
+
+</body>
+</html>
