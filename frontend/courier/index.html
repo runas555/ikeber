@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Панель курьера</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/courier/style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div id="login-container" class="flex items-center justify-center min-h-screen bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+            <h2 class="text-2xl font-bold mb-6 text-center">Вход для курьера</h2>
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Имя пользователя:</label>
+                <input type="text" id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Введите имя пользователя">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Пароль:</label>
+                <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Введите пароль">
+            </div>
+            <div id="login-error" class="text-red-500 text-xs italic mb-4 hidden">Неверные данные.</div>
+            <button id="login-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Войти</button>
+        </div>
+    </div>
+
+    <div id="courier-content" class="hidden">
+        <div id="mobile-container" class="w-full lg:flex-1 bg-white min-h-screen lg:shadow-lg relative overflow-hidden max-w-md mx-auto lg:max-w-full">
+            <header class="bg-blue-600 text-white p-4 fixed top-0 w-full max-w-md lg:static lg:max-w-full z-20 shadow-md">
+                <div class="flex items-center justify-between w-full">
+                    <h1 class="text-xl font-bold">Заказы для доставки</h1>
+                    <button id="logout-btn" class="text-white"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </header>
+
+            <main class="pb-24 pt-20 lg:pt-4">
+                <div id="orders-list" class="px-4 space-y-4"></div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/courier/script.js"></script>
+</body>
+</html>

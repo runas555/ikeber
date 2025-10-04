@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Редактирование товара</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div id="mobile-container" class="w-full lg:flex-1 bg-white min-h-screen lg:shadow-lg relative overflow-hidden max-w-md mx-auto lg:max-w-full">
+        <!-- Шапка -->
+        <header class="bg-blue-600 text-white p-4 fixed top-0 w-full max-w-md lg:static lg:max-w-full z-20 shadow-md">
+            <div class="flex items-center w-full">
+                <a href="index.html" class="text-white p-1 rounded-full hover:bg-blue-700 -ml-1">
+                    <i class="fas fa-arrow-left text-xl"></i>
+                </a>
+                <h1 id="edit-page-title" class="text-xl font-bold ml-2">Редактирование товара</h1>
+            </div>
+        </header>
+
+        <main class="pt-20 p-4">
+            <form id="edit-form" class="space-y-4">
+                <input type="hidden" id="edit-product-id">
+                <div>
+                    <div class="flex justify-between items-center">
+                        <label for="edit-name" class="block text-sm font-medium text-gray-700">Название:</label>
+                        <div class="flex items-center">
+                            <button type="button" id="ocr-name-btn" class="text-sm text-teal-500 hover:text-teal-700 flex items-center mr-2 border border-teal-500 rounded px-2 py-1 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i id="ocr-name-btn-icon" class="fas fa-camera mr-1"></i>
+                                <i id="ocr-name-btn-spinner" class="fas fa-spinner fa-spin mr-1 hidden"></i>
+                                <span>Упаковка</span>
+                            </button>
+                            <button type="button" id="generate-name-btn" class="text-sm text-blue-600 hover:text-blue-800">Предложить</button>
+                        </div>
+                    </div>
+                    <div class="relative flex items-stretch mt-1">
+                        <textarea id="edit-name" name="name" rows="1" class="block w-full px-3 py-2 border border-gray-300 rounded-l-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 pr-10 resize-none" style="overflow-y: hidden;"></textarea>
+                        <button type="button" id="clear-name-btn" class="absolute top-2.5 right-12 mr-2 text-gray-400 hover:text-gray-600 hidden">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                        <button type="button" id="start-voice-recognition" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-r-md transition flex items-center"><i class="fas fa-microphone"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between items-center">
+                        <label for="edit-description" class="block text-sm font-medium text-gray-700">Описание:</label>
+                        <button type="button" id="generate-description-btn" class="text-sm text-blue-600 hover:text-blue-800">Сгенерировать</button>
+                    </div>
+                    <textarea id="edit-description" name="description" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <div>
+                    <label for="edit-price" class="block text-sm font-medium text-gray-700">Цена:</label>
+                    <div class="flex items-center mt-1">
+                        <button type="button" class="quantity-btn bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-l-md hover:bg-gray-300 transition" data-field="edit-price" data-step="100" data-action="decrement">-</button>
+                        <input type="number" id="edit-price" name="price" class="w-full px-3 py-2 border-t border-b border-gray-300 text-center focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <button type="button" class="quantity-btn bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-r-md hover:bg-gray-300 transition" data-field="edit-price" data-step="100" data-action="increment">+</button>
+                    </div>
+                </div>
+                <div>
+                    <label for="edit-discount-percentage" class="block text-sm font-medium text-gray-700">Процент увеличения для маркетинговой цены (%):</label>
+                    <input type="number" id="edit-discount-percentage" name="discountPercentage" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Например: 15">
+                </div>
+                <div>
+                    <label for="edit-quantity" class="block text-sm font-medium text-gray-700">Количество:</label>
+                    <div class="flex items-center mt-1">
+                        <button type="button" class="quantity-btn bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-l-md hover:bg-gray-300 transition" data-field="edit-quantity" data-step="1" data-action="decrement">-</button>
+                        <input type="text" id="edit-quantity" name="quantity" class="w-full px-3 py-2 border-t border-b border-gray-300 text-center focus:outline-none focus:ring-blue-500 focus:border-blue-500" inputmode="numeric" pattern="[0-9]*">
+                        <button type="button" class="quantity-btn bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-r-md hover:bg-gray-300 transition" data-field="edit-quantity" data-step="1" data-action="increment">+</button>
+                    </div>
+                </div>
+                <div>
+                    <label for="edit-barcode" class="block text-sm font-medium text-gray-700">Штрихкод:</label>
+                    <div class="flex items-center mt-1">
+                        <input type="tel" id="edit-barcode" name="barcode" class="block w-full px-3 py-2 border border-gray-300 rounded-l-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" pattern="[0-9]*" inputmode="numeric">
+                        <button type="button" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-r-md transition" onclick="startBarcodeScanEdit()"><i class="fas fa-barcode"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <label for="edit-category" class="block text-sm font-medium text-gray-700">Категория:</label>
+                    <div class="flex items-center mt-1">
+                        <input type="text" id="edit-category" name="category" class="block w-full px-3 py-2 border border-gray-300 rounded-l-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <button type="button" id="open-category-modal-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-r-md transition">Выбрать</button>
+                    </div>
+                </div>
+                <!-- Скрытое поле для URL изображения -->
+                <div class="hidden">
+                    <label for="edit-image-url" class="block text-sm font-medium text-gray-700">URL изображения:</label>
+                    <input type="text" id="edit-image-url" name="imageUrl" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Новый блок для загрузки изображений -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Фотография товара:</label>
+                    <div class="flex items-center space-x-2">
+                        <!-- Предпросмотр изображения -->
+                        <div id="image-preview-container" class="relative w-24 h-24 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400">
+                            <img id="image-preview" src="" alt="Предпросмотр" class="absolute inset-0 w-full h-full object-cover rounded-lg hidden">
+                            <i id="image-placeholder-icon" class="fas fa-camera text-3xl"></i>
+                            <div id="loading-spinner" class="hidden absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center rounded-lg">
+                                <i class="fas fa-spinner fa-spin text-blue-500 text-3xl"></i>
+                            </div>
+                        </div>
+                        <!-- Кнопки управления -->
+                        <div class="flex flex-col space-y-2">
+                            <button type="button" id="open-image-search-modal-btn" class="btn-image-action bg-red-500 hover:bg-red-600">
+                                <i class="fab fa-google"></i>
+                                <span>Google Фото</span>
+                            </button>
+                            <button type="button" id="capture-photo-btn" class="btn-image-action bg-blue-500 hover:bg-blue-600">
+                                <i class="fas fa-camera-retro"></i>
+                                <span>Сделать фото</span>
+                            </button>
+                            <button type="button" id="attach-photo-btn" class="btn-image-action bg-gray-500 hover:bg-gray-600">
+                                <i class="fas fa-paperclip"></i>
+                                <span>Прикрепить</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Скрытые инпуты для файлов -->
+                    <input type="file" id="capture-photo-input" class="hidden" accept="image/*" capture="environment">
+                    <input type="file" id="attach-photo-input" class="hidden" accept="image/*">
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition" onclick="saveProduct()">Сохранить</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <!-- Модальное окно для выбора категорий -->
+    <div id="category-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-4 max-w-sm w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold">Выберите категорию</h2>
+                <button id="close-category-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="category-list" class="space-y-2 max-h-64 overflow-y-auto">
+                <!-- Категории будут загружены сюда -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для предложений названий -->
+    <div id="name-suggestions-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-4 max-w-sm w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold">Варианты названий</h2>
+                <button id="close-name-suggestions-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="name-suggestions-list" class="space-y-2 max-h-64 overflow-y-auto">
+                <!-- Предложения будут загружены сюда -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для поиска изображений -->
+    <div id="image-search-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-4 max-w-3xl w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold">Выберите изображение</h2>
+                <button id="close-image-search-modal-btn" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="image-search-results" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-96 overflow-y-auto">
+                <!-- Изображения будут загружены сюда -->
+            </div>
+        </div>
+    </div>
+
+    <div id="barcode-scanner-container-edit" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-4 max-w-sm w-full text-center">
+            <h2 class="text-xl font-semibold mb-4">Сканирование штрихкода</h2>
+            <video id="barcode-video-edit" class="w-full h-48 object-cover mb-4"></video>
+            <p id="barcode-result-edit" class="text-gray-700 mb-4">Наведите камеру на штрихкод...</p>
+            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full transition" onclick="stopBarcodeScanEdit()">Отмена</button>
+        </div>
+    </div>
+
+    <!-- Оверлей для загрузки -->
+    <div id="loading-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="text-white text-center">
+            <i class="fas fa-spinner fa-spin text-5xl"></i>
+            <p class="mt-4 text-lg">Сохранение...</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script src="../config.js"></script>
+    <script src="script.js"></script>
+    <script src="edit.js"></script>
+
+    <!-- Модальное окно для камеры -->
+    <div id="camera-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center z-50">
+        <video id="camera-video" class="w-full h-full object-contain" autoplay playsinline></video>
+        <div class="absolute bottom-0 left-0 right-0 p-4 flex justify-center items-center bg-black bg-opacity-50">
+            <button id="take-picture-btn" class="w-16 h-16 bg-white rounded-full border-4 border-gray-400 focus:outline-none"></button>
+        </div>
+        <button id="close-camera-modal-btn" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+    </div>
+</body>
+</html>
