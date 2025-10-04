@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="manifest" href="manifest.json">
+    <title>Панель управления</title>
+    <meta name="build-version" content="$env:VERCEL_GIT_COMMIT_SHA">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans" style="display: none;">
+
+    <div id="login-container" class="flex items-center justify-center min-h-screen bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+            <h2 class="text-2xl font-bold mb-6 text-center">Вход в админку</h2>
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Имя пользователя:</label>
+                <input type="text" id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Введите имя пользователя">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Пароль:</label>
+                <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Введите пароль">
+            </div>
+            <div id="login-error" class="text-red-500 text-xs italic mb-4 hidden">Неверное имя пользователя или пароль.</div>
+            <button id="login-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Войти</button>
+        </div>
+    </div>
+
+    <div id="admin-content" class="hidden lg:flex">
+        <!-- Десктопная боковая панель -->
+        <div id="desktop-sidebar" class="hidden lg:flex lg:flex-col lg:w-64 bg-blue-800 text-white">
+            <div class="flex items-center justify-center h-16 px-4 bg-blue-900">
+                <h1 class="text-xl font-bold">Панель администратора</h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <button class="nav-item w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-blue-700 transition" onclick="openTab('orders')">
+                    <i class="fas fa-receipt w-6 mr-3"></i>
+                    <span>Заказы</span>
+                </button>
+                <button class="nav-item w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-blue-700 transition active" onclick="openTab('products')">
+                    <i class="fas fa-box-open w-6 mr-3"></i>
+                    <span>Товары</span>
+                </button>
+                <button class="nav-item w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-blue-700 transition" onclick="openTab('reports')">
+                    <i class="fas fa-chart-bar w-6 mr-3"></i>
+                    <span>Отчеты</span>
+                </button>
+                <button class="nav-item w-full flex items-center px-4 py-3 text-left rounded-lg hover:bg-blue-700 transition" onclick="openTab('settings')">
+                    <i class="fas fa-cog w-6 mr-3"></i>
+                    <span>Настройки</span>
+                </button>
+            </nav>
+            <div class="p-4 border-t border-blue-700">
+                <button id="desktop-logout-btn" class="w-full flex items-center px-4 py-2 text-left rounded-lg hover:bg-red-600 transition bg-red-500">
+                    <i class="fas fa-sign-out-alt w-6 mr-3"></i>
+                    <span>Выйти</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <div id="mobile-container" class="flex-1 bg-white min-h-screen lg:shadow-lg relative overflow-hidden max-w-md mx-auto lg:max-w-full">
+            <!-- Мобильная шапка -->
+            <header class="bg-blue-600 text-white p-4 fixed top-0 w-full max-w-md lg:static lg:max-w-full z-20 shadow-md lg:hidden">
+                <div class="flex items-center justify-center w-full">
+                    <h1 class="text-xl font-bold">Панель администратора</h1>
+                </div>
+            </header>
+
+            <!-- Десктопная шапка -->
+            <header class="hidden lg:flex items-center justify-between bg-white border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center">
+                    <h2 id="current-tab-title" class="text-2xl font-bold text-gray-800">Товары</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="desktop-scan-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <i class="fas fa-qrcode mr-2"></i>
+                        <span>Сканировать</span>
+                    </button>
+                    <button id="desktop-add-product-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+                        <i class="fas fa-plus mr-2"></i>
+                        <span>Добавить товар</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="pb-24 pt-20 lg:pt-0 lg:pb-6">
+                <div id="tab-content" class="px-4 lg:px-6">
+                    <div id="orders" class="tab-pane">
+                        <div class="p-4 lg:p-6">
+                            <div class="lg:flex lg:items-center lg:justify-between lg:mb-6">
+                                <h2 class="text-xl lg:text-2xl font-semibold mb-4 lg:mb-0">Заказы</h2>
+                                <div class="flex items-center space-x-4">
+                                    <!-- Delivery Type Tabs -->
+                                    <div id="delivery-tabs" class="flex border-b lg:border-none">
+                                        <button data-delivery="pickup" class="delivery-tab-btn flex-1 lg:flex-none py-2 px-4 text-center text-gray-700 font-semibold border-b-2 lg:border lg:rounded-l-lg border-blue-500">Самовывоз</button>
+                                        <button data-delivery="delivery" class="delivery-tab-btn flex-1 lg:flex-none py-2 px-4 text-center text-gray-500 border-b-2 lg:border lg:rounded-r-lg border-transparent lg:border-l-0">Доставка</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 lg:mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Фильтр по статусу:</label>
+                                <div class="status-filter-container relative">
+                                    <button class="scroll-btn left-scroll-btn hidden"><i class="fas fa-chevron-left"></i></button>
+                                    <div id="status-filter-buttons" class="status-filter-scroll">
+                                        <button data-status="Новый" class="status-filter-btn active">Новый</button>
+                                        <button data-status="В обработке" class="status-filter-btn">В обработке</button>
+                                        <button data-status="Ожидает подтверждения" class="status-filter-btn">Ожидает подтверждения</button>
+                                        <button data-status="Сборка" class="status-filter-btn">Сборка</button>
+                                        <button data-status="Поиск курьера" class="status-filter-btn">Поиск курьера</button>
+                                        <button data-status="Ожидание курьера" class="status-filter-btn">Ожидание курьера</button>
+                                        <button data-status="Вручен курьеру" class="status-filter-btn">Вручен курьеру</button>
+                                        <button data-status="Доставлен" class="status-filter-btn">Доставлен</button>
+                                        <button data-status="Отменен" class="status-filter-btn">Отменен</button>
+                                        <button data-status="all" class="status-filter-btn">Все</button>
+                                    </div>
+                                    <button class="scroll-btn right-scroll-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            
+                            <!-- Десктопная таблица заказов -->
+                            <div id="orders-table-desktop" class="hidden lg:block bg-white rounded-lg shadow overflow-hidden">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Клиент</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Телефон</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Сумма</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Статус</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Дата</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="orders-table-body" class="bg-white divide-y divide-gray-200">
+                                        <!-- Данные будут загружены через JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Мобильный список заказов -->
+                            <div id="orders-list" class="lg:hidden"></div>
+                        </div>
+                    </div>
+                    <div id="products" class="tab-pane active"></div>
+                    <div id="reports" class="tab-pane"></div>
+                    <div id="settings" class="tab-pane">
+                        <div class="p-4">
+                            <h2 class="text-xl font-semibold mb-4">Настройки</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="store-address" class="block text-sm font-medium text-gray-700">Адрес магазина для самовывоза</label>
+                                    <input type="text" id="store-address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                    <p class="mt-2 text-xs text-gray-500">Этот адрес будет указываться в сообщениях для клиентов.</p>
+                                </div>
+                                <div>
+                                    <label for="store-hours" class="block text-sm font-medium text-gray-700">Часы работы магазина</label>
+                                    <input type="text" id="store-hours" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Например: Пн-Пт 10:00-19:00">
+                                    <p class="mt-2 text-xs text-gray-500">Эти часы работы будут указываться в сообщениях для клиентов.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t">
+                                     <span class="text-sm font-medium text-gray-700">Включить доставку</span>
+                                     <label for="delivery-toggle" class="inline-flex relative items-center cursor-pointer">
+                                         <input type="checkbox" id="delivery-toggle" class="sr-only peer">
+                                         <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                     </label>
+                                 </div>
+                            <button id="save-settings-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition">Сохранить настройки</button>
+                            <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md transition mt-4">Выйти</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+            <!-- Нижнее меню (только для мобильных устройств) -->
+            <nav class="fixed bottom-0 w-full max-w-md bg-white border-t border-gray-200 flex justify-around py-2 z-20 lg:hidden">
+                <button class="nav-item flex flex-col items-center text-gray-500 p-2" onclick="openTab('orders')">
+                    <i class="fas fa-receipt text-xl"></i>
+                    <span class="text-xs mt-1">Заказы</span>
+                </button>
+                <button class="nav-item flex flex-col items-center text-gray-500 p-2 active" onclick="openTab('products')">
+                    <i class="fas fa-box-open text-xl"></i>
+                    <span class="text-xs mt-1">Товары</span>
+                </button>
+                <!-- Пустое место для центральной кнопки -->
+                <div class="nav-item-placeholder w-16"></div>
+                <button class="nav-item flex flex-col items-center text-gray-500 p-2" onclick="openTab('reports')">
+                    <i class="fas fa-chart-bar text-xl"></i>
+                    <span class="text-xs mt-1">Отчеты</span>
+                </button>
+                <button class="nav-item flex flex-col items-center text-gray-500 p-2" onclick="openTab('settings')">
+                    <i class="fas fa-cog text-xl"></i>
+                    <span class="text-xs mt-1">Настройки</span>
+                </button>
+                
+                <!-- Центральная кнопка сканирования -->
+                <button id="scan-btn" class="absolute left-1/2 top-0 flex items-center justify-center text-white rounded-full bg-blue-600 shadow-lg">
+                    <i class="fas fa-qrcode text-2xl"></i>
+                </button>
+            </nav>
+
+            <!-- Модальное окно для подтверждения продажи -->
+            <div id="sale-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+                <div id="sale-modal-content" class="modal-content bg-white rounded-lg shadow-xl p-6 w-full max-w-sm transform scale-95">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">Подтверждение продажи</h2>
+                    <div id="sale-product-info" class="mb-6 text-center">
+                        <!-- Информация о товаре будет здесь -->
+                    </div>
+                    <div class="flex items-center justify-center space-x-4 mb-6">
+                        <button id="decrease-quantity" class="bg-red-500 hover:bg-red-600 text-white font-bold w-12 h-12 rounded-full text-2xl flex items-center justify-center transition shadow-md">-</button>
+                        <input type="number" id="sale-quantity" value="1" min="1" class="w-24 h-12 text-center text-2xl font-bold border-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        <button id="increase-quantity" class="bg-green-500 hover:bg-green-600 text-white font-bold w-12 h-12 rounded-full text-2xl flex items-center justify-center transition shadow-md">+</button>
+                    </div>
+                    <div class="flex justify-between">
+                        <button id="cancel-sale" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition w-1/2 mr-2">Отмена</button>
+                        <button id="confirm-sale" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition w-1/2 ml-2">Продать</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Глобальный контейнер для сканера -->
+            <div id="barcode-scanner-container" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+                <div class="bg-white rounded-lg p-4 max-w-sm w-full text-center">
+                    <h2 class="text-xl font-semibold mb-4">Сканирование штрихкода</h2>
+                    <video id="barcode-video" class="w-full h-48 object-cover mb-4"></video>
+                    <p id="barcode-result" class="text-gray-700 mb-4">Наведите камеру на штрихкод...</p>
+                    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full transition" onclick="stopBarcodeScan()">Отмена</button>
+                </div>
+            </div>
+
+            <!-- Модальное окно для заказа -->
+            <div id="order-modal" class="hidden fixed inset-0 bg-gray-100 z-50 flex flex-col">
+                <header class="bg-blue-600 text-white p-4 flex items-center justify-between shadow-md">
+                    <h2 id="order-modal-title" class="text-xl font-bold">Заказ #...</h2>
+                    <button id="close-order-modal" class="text-2xl font-bold">&times;</button>
+                </header>
+                <main id="order-modal-content" class="flex-1 overflow-y-auto p-4">
+                    <!-- Содержимое заказа будет здесь -->
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script src="../config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('Admin ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

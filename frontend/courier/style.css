@@ -1,0 +1,34 @@
+/* Скопировано из admin/style.css для единообразия */
+.nav-item.active i, .nav-item.active span {
+   color: #3B82F6; /* blue-500 */
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+    transition: transform 0.3s ease;
+}
+
+/* Отключить выделение текста */
+body {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+/* Разрешить выделение для полей ввода и текстовых областей */
+input, textarea {
+    -webkit-user-select: text; /* Safari */
+    -ms-user-select: text; /* IE 10+ */
+    user-select: text; /* Standard syntax */
+}
