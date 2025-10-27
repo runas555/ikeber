@@ -3,1048 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
-    <title>IKEBER | Подбор лучших товаров и услуг</title>
-    <meta name="description" content="Мы помогаем вам найти исключительное качество. Профессиональный подбор товаров и услуг, основанный на глубоком анализе и экспертизе.">
-    <meta name="keywords" content="подбор качества, экспертный выбор, лучшие товары, лучшие услуги, консалтинг, рекомендации, премиум качество">
-
-    <!-- Favicon and Manifest -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="icon" href="favicon.ico">
-
-    <!-- Preconnect for performance -->
+    <title>LocalShopKit | Ваш собственный интернет-магазин за 1 день</title>
+    <meta name="description" content="Готовое решение для локальных магазинов: свой сайт, похожий на приложение, интеграция с доставкой, заказы в Telegram, AI для создания товаров и SEO-оптимизация. Перестаньте терять клиентов из-за маркетплейсов!">
+    
+    <!-- Подключение Tailwind CSS, шрифтов и иконок -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- === CDN Libraries: CSS === -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-
-    <!-- === Custom CSS === -->
     <style>
-        /* --- Base Styles & Variables --- */
-        :root {
-            --primary-color: #292d30;
-            --secondary-color: #f8f9fa;
-            --accent-color: #32bcf6;
-            --accent-color-secondary: #d7277b;
-            --text-color: #343a40;
-            --light-text: #6c757d;
-            --white-text: #ffffff;
-            --heading-font: 'Poppins', sans-serif;
-            --body-font: 'Merriweather', serif;
-            --base-font-size: 16px;
-            --transition-speed: 0.3s;
-        }
-
-        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+        /* --- Обновленные кастомные стили с новой палитрой --- */
         body {
-            font-family: var(--body-font);
-            font-size: var(--base-font-size);
-            color: var(--text-color);
-            line-height: 1.7;
-            background-color: var(--white-text);
-            overflow-x: hidden;
-        }
-        body.chat-open {
-            overflow: hidden;
-        }
-        h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); font-weight: 600; color: var(--primary-color); margin-bottom: 1rem; }
-        h1 { font-size: 2.8rem; font-weight: 700; }
-        h2 { font-size: 2.2rem; }
-        h3 { font-size: 1.8rem; }
-        a { color: var(--accent-color); text-decoration: none; transition: color var(--transition-speed) ease; }
-        a:hover { color: #1c9ddb; }
-
-        .btn-primary { background-color: var(--accent-color); border-color: var(--accent-color); color: var(--white-text); font-family: var(--heading-font); padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 500; transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease, color var(--transition-speed) ease; border-radius: 50px; }
-        .btn-primary:hover { background-color: var(--accent-color-secondary); border-color: var(--accent-color-secondary); color: var(--white-text); transform: translateY(-2px); }
-        .btn-outline-primary { color: var(--accent-color); border-color: var(--accent-color); font-family: var(--heading-font); padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 500; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease; border-radius: 50px; }
-        .btn-outline-primary:hover { background-color: var(--accent-color); color: var(--white-text); transform: translateY(-2px); }
-
-        section { padding: 80px 0; }
-        section:nth-of-type(even) { background-color: var(--secondary-color); }
-
-        .section-title { text-align: center; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
-        .section-title h2 { margin-bottom: 10px; position: relative; display: inline-block; padding-bottom: 10px; color: var(--primary-color); }
-         .section-title h2::after { content: ''; position: absolute; display: block; width: 60px; height: 3px; background: var(--accent-color); bottom: 0; left: 50%; transform: translateX(-50%); }
-        .section-title p { color: var(--light-text); max-width: 600px; margin: 0 auto; }
-
-        /* --- Header / Navigation --- */
-        .navbar { padding: 0.8rem 0; background-color: var(--primary-color); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease; }
-        .navbar.scrolled { padding: 0.5rem 0; background-color: rgba(41, 45, 48, 0.95); backdrop-filter: blur(5px); }
-        .navbar-brand img { height: 40px; width: auto; }
-        .navbar-toggler { border-color: rgba(255, 255, 255, 0.1); }
-        .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
-        .navbar-nav .nav-link { font-family: var(--heading-font); font-weight: 500; color: var(--white-text); padding: 0.5rem 1rem; position: relative; transition: color var(--transition-speed) ease; }
-        .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover { color: var(--accent-color); }
-         .navbar-nav .nav-link::before { content: ""; position: absolute; bottom: 0; left: 1rem; right: 1rem; height: 2px; background-color: var(--accent-color); transform: scaleX(0); transition: transform var(--transition-speed) ease-in-out; transform-origin: bottom right; }
-         .navbar-nav .nav-link:hover::before, .navbar-nav .nav-link.active::before { transform: scaleX(1); transform-origin: bottom left; }
-
-        /* --- Hero Section --- */
-        #hero {
-            min-height: 550px;
-            height: auto;
-            padding: 120px 0 80px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white-text);
-            background: linear-gradient(rgba(41, 45, 48, 0.8), rgba(41, 45, 48, 0.8)), url('https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/image_fx%20(4).jpg?v=1743777071758') center center/cover no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-content {
-            max-width: 90%;
-            margin: 0 auto;
-            animation: fadeIn 1s ease-in-out;
-        }
-        .hero-h1-wrapper {
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        .hero-content h1 {
-            font-size: 2.5rem;
-            color: var(--white-text);
-            margin-bottom: 0;
-            font-weight: 700;
-            line-height: 1.3;
-            display: inline;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-        @media (min-width: 576px) {
-            .hero-h1-wrapper { min-height: 120px; }
-            .hero-content h1 { font-size: 3rem; }
-        }
-        @media (min-width: 768px) {
-            #hero { height: 100vh; min-height: 600px; padding: 0; }
-            .hero-content { max-width: 800px; }
-            .hero-h1-wrapper { min-height: 170px; }
-            .hero-content h1 { font-size: 4rem; }
-        }
-        @media (min-width: 992px) {
-            .hero-h1-wrapper { min-height: 190px; }
-            .hero-content h1 { font-size: 4.5rem; }
-        }
-        .hero-content .subtitle {
-            font-size: 1.1rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
-        @media (min-width: 768px) {
-            .hero-content .subtitle { font-size: 1.5rem; }
-        }
-        @media (min-width: 992px) {
-            .hero-content .subtitle { font-size: 1.6rem; }
-        }
-        .hero-h1-wrapper .typed {
-             margin-left: 0.3rem;
-             display: inline-block;
-             vertical-align: baseline;
-             font-size: inherit;
-             line-height: inherit;
-        }
-        @media (min-width: 768px) {
-            .hero-h1-wrapper .typed { margin-left: 0.5rem; }
-        }
-        .typed-cursor { opacity: 1; animation: blink 0.7s infinite; color: var(--accent-color-secondary); font-weight: bold; }
-        @keyframes blink{ 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- About Section --- */
-        #about .about-img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
-        #about .content h3 { font-weight: 700; font-size: 2rem; color: var(--primary-color); }
-        #about .content ul { list-style: none; padding: 0; }
-        #about .content ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
-        #about .content ul i { position: absolute; left: 0; top: 2px; font-size: 20px; color: var(--accent-color); }
-
-        /* --- Services / How We Work Section --- */
-        .service-item { background-color: var(--white-text); padding: 30px; border-radius: 8px; text-align: center; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: 100%; border: 1px solid #eee; }
-        .service-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(41, 45, 48, 0.1); }
-        .service-item .icon { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; display: inline-block; transition: transform var(--transition-speed) ease, color var(--transition-speed) ease; }
-         .service-item:hover .icon { transform: scale(1.1); color: var(--accent-color-secondary); }
-        .service-item h4 { font-size: 1.4rem; font-weight: 600; margin-bottom: 15px; color: var(--primary-color); }
-        .service-item p { color: var(--light-text); font-size: 0.95rem; }
-
-        /* --- Team Section --- */
-        .team-member { background: var(--white-text); border-radius: 8px; overflow: hidden; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: 100%; border: 1px solid #eee; }
-        .team-member:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(41, 45, 48, 0.12); }
-        .team-member img { max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
-        .team-member .member-info { padding: 25px 20px; }
-        .team-member h4 { font-size: 1.3rem; margin-bottom: 5px; color: var(--primary-color); }
-        .team-member span { display: block; font-size: 0.9rem; color: var(--light-text); margin-bottom: 15px; font-style: italic; }
-        .team-member .social a { color: var(--primary-color); margin: 0 8px; font-size: 1.1rem; transition: color var(--transition-speed) ease; }
-        .team-member .social a:hover { color: var(--accent-color-secondary); }
-
-         /* --- Cases Section --- */
-        .cases-slider .swiper-slide { background: var(--white-text); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); border: 1px solid #eee; display: flex; flex-direction: column; height: auto; }
-        .cases-slider img { display: block; width: 100%; height: 250px; object-fit: cover; }
-        .cases-slider .case-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
-         .cases-slider .case-info h5 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-color); }
-         .cases-slider .case-info p { font-size: 0.9rem; color: var(--light-text); margin-bottom: 15px; }
-         .cases-slider .case-info .btn-outline-primary { padding: 0.4rem 1rem; font-size: 0.9rem; margin-top: 1rem; align-self: flex-start; }
-         .cases-slider .swiper-pagination-bullet-active { background-color: var(--accent-color); }
-         .cases-slider .swiper-button-next, .cases-slider .swiper-button-prev { color: var(--accent-color); background-color: rgba(255, 255, 255, 0.7); border-radius: 50%; width: 40px; height: 40px; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; }
-         .cases-slider .swiper-button-next:hover, .cases-slider .swiper-button-prev:hover { color: var(--white-text); background-color: var(--accent-color); }
-         .cases-slider .swiper-button-next::after, .cases-slider .swiper-button-prev::after { font-size: 1rem; font-weight: bold; }
-
-        /* --- Testimonials Section --- */
-        #testimonials { background-color: var(--primary-color); }
-        #testimonials .section-title h2 { color: var(--white-text); }
-        #testimonials .section-title h2::after { background: var(--accent-color); }
-        #testimonials .section-title p { color: rgba(255, 255, 255, 0.8); }
-        .testimonials-slider .swiper-slide { padding: 40px 20px; color: var(--white-text); text-align: center; }
-        .testimonials-slider .testimonial-item { max-width: 700px; margin: 0 auto; }
-        .testimonials-slider .testimonial-img { width: 90px; height: 90px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.2); margin: 0 auto 20px auto; }
-        .testimonials-slider h3 { font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; color: var(--white-text); }
-        .testimonials-slider h4 { font-size: 0.9rem; font-weight: normal; font-style: italic; margin-bottom: 20px; color: rgba(255, 255, 255, 0.7); }
-         .testimonials-slider p { font-style: italic; margin: 0 auto 15px auto; font-family: var(--body-font); line-height: 1.8; max-width: 600px; }
-        .testimonials-slider .quote-icon-left, .testimonials-slider .quote-icon-right { color: var(--accent-color-secondary); font-size: 26px; }
-        .testimonials-slider .quote-icon-left { display: inline-block; left: -5px; position: relative; top: -8px; }
-        .testimonials-slider .quote-icon-right { display: inline-block; right: -5px; position: relative; top: 8px; transform: scaleX(-1); }
-        .testimonials-slider .swiper-pagination-bullet { background-color: rgba(255, 255, 255, 0.5); }
-         .testimonials-slider .swiper-pagination-bullet-active { background-color: var(--accent-color); }
-
-        /* --- Contact Section --- */
-        #contact { background-color: var(--white-text); }
-
-        /* --- Footer --- */
-        #footer { background: var(--primary-color); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; padding: 60px 0 40px 0; }
-        #footer .footer-logo img { height: 45px; width: auto; margin-bottom: 20px; }
-        #footer p { margin-bottom: 15px; font-family: var(--body-font); line-height: 1.7; }
-        #footer .social-links a { display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.1); color: var(--white-text); margin-right: 8px; width: 38px; height: 38px; border-radius: 50%; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; }
-        #footer .social-links a:hover { background: var(--accent-color); color: var(--white-text); }
-        #footer .copyright { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); }
-         #footer .copyright strong { color: var(--white-text); }
-         #footer .copyright a { color: var(--accent-color); }
-          #footer .copyright a:hover { color: var(--accent-color-secondary); }
-         #footer .copyright i.fa-heart { color: var(--accent-color-secondary); margin: 0 3px; }
-
-        /* --- Back to top button --- */
-        .back-to-top { position: fixed; visibility: hidden; opacity: 0; right: 15px; bottom: 15px; z-index: 996; background: var(--accent-color); width: 40px; height: 40px; border-radius: 50px; transition: all 0.4s; display: flex; align-items: center; justify-content: center; }
-        .back-to-top i { font-size: 24px; color: var(--white-text); line-height: 0; }
-        .back-to-top:hover { background: var(--accent-color-secondary); color: var(--white-text); }
-        .back-to-top.active { visibility: visible; opacity: 1; }
-
-
-        /* --- Chat Modal --- */
-        .chat-modal {
-            position: fixed;
-            z-index: 1055;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--heading-font);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .chat-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .chat-modal-content {
-            background-color: var(--white-text);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease-in-out;
+            font-family: 'Manrope', sans-serif;
+            background-color: #0f172a; /* Slate-900 */
+            color: #e2e8f0; /* Slate-200 */
+            scroll-behavior: smooth;
         }
         
-        /* Desktop Chat Styles */
-        @media (min-width: 768px) {
-            .chat-modal-content {
-                margin: auto;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                width: 90%;
-                max-width: 400px;
-                max-height: 80vh;
-                transform: scale(0.95);
-            }
-            .chat-modal.active .chat-modal-content {
-                transform: scale(1);
-            }
-        }
-
-        /* Mobile Full-Screen Chat Styles */
-        @media (max-width: 767px) {
-            .chat-modal-content {
-                width: 100%;
-                height: 100%;
-                max-width: 100%;
-                max-height: 100%;
-                margin: 0;
-                border-radius: 0;
-                transform: translateY(100%);
-                transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            }
-            .chat-modal.active .chat-modal-content {
-                transform: translateY(0);
-            }
+        .gradient-text {
+            background: linear-gradient(90deg, #00aef0, #d1267a); /* Cyan to Pink */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        .chat-header {
-            background-color: var(--primary-color);
-            color: var(--white-text);
-            padding: 15px 20px;
-            text-align: center;
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(0, 174, 240, 0.6); /* Cyan Glow */
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 174, 240, 0.3); /* Cyan border on hover */
+        }
+        
+        .nav-link {
             position: relative;
         }
-        .chat-header h4 {
-            margin-bottom: 5px;
-            font-size: 1.2rem;
-            color: var(--white-text);
-        }
-        .chat-header p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 0;
-        }
-
-        .chat-close-btn {
+        
+        .nav-link:after {
+            content: '';
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 15px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--white-text);
-            background: none;
-            border: none;
-            cursor: pointer;
-            line-height: 1;
-            padding: 5px;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00aef0; /* Cyan underline */
+            transition: width 0.3s ease;
         }
-        .chat-close-btn:hover {
-            color: var(--accent-color);
+        
+        .nav-link:hover:after {
+            width: 100%;
         }
-
-        .chat-body {
-            padding: 20px;
-            overflow-y: auto;
-            flex-grow: 1;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
-        .chat-body .chat-message {
-            padding: 10px 15px;
-            border-radius: 15px;
-            margin-bottom: 10px;
-            max-width: 80%;
-            line-height: 1.4;
-            word-wrap: break-word;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: messageFadeIn 0.3s forwards;
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
-
-        @keyframes messageFadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .chat-body .bot-message {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-        }
-        .chat-body .user-message {
-            background-color: var(--accent-color);
-            color: var(--white-text);
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-
-        .chat-footer {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid #eee;
-        }
-        #chatInput {
-            flex-grow: 1;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            padding: 10px 15px;
-            font-size: 0.9rem;
-            margin-right: 10px;
-            outline: none;
-        }
-        #chatInput:focus {
-            border-color: var(--accent-color);
-        }
-        #chatSendBtn {
-            background-color: var(--accent-color);
-            color: var(--white-text);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color var(--transition-speed);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #chatSendBtn:hover {
-            background-color: var(--accent-color-secondary);
-        }
-        #chatSendBtn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        @media (max-width: 767px) {
-            .chat-header {
-                padding: 10px 15px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-            .chat-header h4, .chat-header p {
-                text-align: left;
-                padding-right: 40px; /* Space for close button */
-            }
-            .chat-close-btn {
-                font-size: 2.5rem;
-            }
-            .chat-body {
-                padding: 15px;
-            }
-            .chat-footer {
-                padding: 10px 15px;
-                background-color: #fff;
-            }
-        }
-
-        /* --- Responsive Adjustments --- */
-        @media (min-width: 768px) {
-            h2 { font-size: 2.5rem; }
-            .navbar-nav .nav-link { padding: 0.5rem 1.2rem; }
-        }
-        @media (min-width: 992px) {
-            h2 { font-size: 2.8rem; }
-            section { padding: 100px 0; }
-            .navbar { padding: 1rem 0; }
-            .navbar.scrolled { padding: 0.8rem 0; }
-        }
-         @media (min-width: 1200px) {
-             .container, .container-lg, .container-md, .container-sm, .container-xl { max-width: 1140px; }
-        }
-        [data-aos] { }
     </style>
 </head>
+<body class="min-h-screen">
 
-<body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <nav class="navbar navbar-expand-lg w-100">
-            <div class="container">
-                <a class="navbar-brand" href="#hero">
-                    <img src="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" alt="Ikeber Logo">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-md fixed w-full z-50 border-b border-slate-700/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" id="logoLink">
+                    <img src="https://allwebs.ru/images/2025/10/27/c3a647f2f72fd341ad4f73e3d5655c58.png" alt="LocalShopKit Logo" class="h-10 w-auto">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#hero">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">О нас</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Как мы работаем</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="#team">Команда</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#cases">Примеры</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#testimonials">Отзывы</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header><!-- End Header -->
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                 <div class="hero-h1-wrapper">
-                    <h1>Находим<span class="typed" data-typed-items=" лучшее для вас, качество, решения"></span></h1>
-                 </div>
-                <p class="subtitle">Ваш надежный партнер в мире качественных товаров и услуг. Мы экономим Ваше время и гарантируем лучший выбор.</p>
-                <a href="#contact" class="btn btn-primary scrollto js-open-chat">Начать подбор</a>
-            </div>
-        </div>
-    </section><!-- End Hero -->
-
-    <main id="main">
-
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>О нас</h2>
-                    <p>Наша миссия — избавить Вас от сложного выбора и предложить только проверенные, высококачественные решения.</p>
-                </div>
-
-                <div class="row content align-items-center">
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                         <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=47ae785472cc94488cea302c1fd1ca39_l-4369943-images-thumbs&n=13" class="img-fluid about-img" alt="Команда экспертов работает вместе" width="555" height="370">
-                    </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
-                        <h3>Почему выбирают нас?</h3>
-                        <p>
-                            В современном мире изобилия бывает сложно отличить настоящее качество от маркетинговых уловок. Мы берем эту задачу на себя. Наша команда профессионалов использует строгие критерии отбора и глубокий анализ рынка.
-                        </p>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> <strong>Экспертиза:</strong> Глубокие знания в различных нишах и постоянное изучение рынка.</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>Объективность:</strong> Независимая оценка и ориентация исключительно на интересы клиента.</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>Экономия времени:</strong> Мы делаем всю сложную работу по поиску и анализу за Вас.</li>
-                             <li><i class="fas fa-check-circle"></i> <strong>Гарантия качества:</strong> Мы рекомендуем только то, в чем уверены сами.</li>
-                        </ul>
-                        <p>
-                            Мы верим, что каждый заслуживает лучшего, и наша цель - помочь Вам это лучшее найти без лишних усилий и риска ошибиться.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End About Section -->
-
-        <!-- ======= Services Section / How We Work ======= -->
-        <section id="services" class="services">
-            <div class="container">
-                 <div class="section-title" data-aos="fade-up">
-                    <h2>Как мы работаем</h2>
-                    <p>Наш процесс подбора прозрачен и ориентирован на Ваши индивидуальные потребности.</p>
-                </div>
-
-                <div class="row gy-4">
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-item">
-                            <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                            <h4>1. Заявка и Консультация</h4>
-                            <p>Вы оставляете заявку или связываетесь с нами. Мы подробно обсуждаем Ваши потребности, ожидания и бюджет.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-item">
-                            <div class="icon"><i class="fas fa-search-plus"></i></div>
-                            <h4>2. Анализ и Исследование</h4>
-                            <p>Наша команда проводит глубокий анализ рынка, изучает варианты, сравнивает характеристики и отзывы.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-item">
-                            <div class="icon"><i class="fas fa-award"></i></div>
-                            <h4>3. Подбор и Рекомендация</h4>
-                            <p>Мы формируем шорт-лист лучших вариантов, соответствующих Вашим критериям, и предоставляем подробные рекомендации.</p>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-item">
-                            <div class="icon"><i class="fas fa-handshake"></i></div>
-                            <h4>4. Сопровождение (опционально)</h4>
-                            <p>При необходимости мы можем помочь с процессом приобретения или заказа выбранного товара/услуги.</p>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-item">
-                            <div class="icon"><i class="fas fa-thumbs-up"></i></div>
-                            <h4>5. Контроль качества</h4>
-                            <p>Мы ценим обратную связь и следим за тем, чтобы рекомендованные нами решения оправдали Ваши ожидания.</p>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-item">
-                            <div class="icon"><i class="fas fa-sync-alt"></i></div>
-                            <h4>6. Постоянное обновление</h4>
-                            <p>Мы непрерывно отслеживаем новинки и изменения на рынке, чтобы наши рекомендации всегда были актуальны.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Services Section -->
-
-         <!-- ======= Team Section ======= -->
-        <section id="team" class="team">
-            <div class="container">
-                 <div class="section-title" data-aos="fade-up">
-                    <h2>Наша Команда Экспертов</h2>
-                    <p>Профессионалы, увлеченные поиском настоящего качества в каждой детали.</p>
-                </div>
-
-                <div class="row gy-4">
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="team-member">
-                            <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749561128/444_lfkfe1.png" alt="Фото члена команды: Руслан Насибов" width="261" height="261">
-                            <div class="member-info">
-                                <h4>Руслан Насибов </h4>
-                                <span>Главный эксперт</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                         <div class="team-member">
-                            <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749560985/111_rvglsa.png" alt="Фото члена команды: Алия Галимова" width="261" height="261">
-                            <div class="member-info">
-                                <h4>Алия Галимова</h4>
-                                <span>Аналитик рынка</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                         <div class="team-member">
-                            <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749561081/222_vhbc5m.png" alt="Фото члена команды: Элина Гайсина" width="261" height="261">
-                            <div class="member-info">
-                                <h4>Элина Гайсина</h4>
-                                <span>Менеджер по работе с клиентами</span>
-                            </div>
-                        </div>
-                    </div>
-
-                     <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                         <div class="team-member">
-                             <img loading="lazy" src="https://res.cloudinary.com/du1fezjzq/image/upload/q_auto,f_auto,w_261,h_261,c_fill/v1749561115/333_p3m9g2.png" alt="Фото члена команды: Айдар Гареев" width="261" height="261">
-                            <div class="member-info">
-                                <h4>Айдар Гареев</h4>
-                                <span>Технический эксперт</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Team Section -->
-
-        <!-- ======= Cases Section ======= -->
-        <section id="cases" class="cases">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Примеры Нашей Работы</h2>
-                    <p>Ознакомьтесь с категориями и примерами успешного подбора, выполненного нашими экспертами.</p>
-                </div>
-
-                <div class="swiper cases-slider" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                             <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=09315d6f17898f0f84a3ad78020f9729224f09ef-10803542-images-thumbs&n=13" alt="Подбор бытовой техники">
-                            <div class="case-info">
-                                <h5>Подбор бытовой техники</h5>
-                                <p>Помогаем выбрать надежный холодильник, стиральную машину или пылесос по лучшему соотношению цена/качество.</p>
-                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=c2655bc6a56645fd8476bed283c80661_l-5873467-images-thumbs&n=13" alt="Выбор ноутбука/смартфона" width="600" height="400">
-                            <div class="case-info">
-                                <h5>Выбор ноутбука/смартфона</h5>
-                                <p>Подбираем гаджеты под ваши задачи и бюджет: для учебы, работы или просто для жизни.</p>
-                               <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
-                            </div>
-                        </div>
-                         <div class="swiper-slide">
-                             <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=54304e306defa94e9ef94abebe6951358d913081-5579113-images-thumbs&n=13" alt="Поиск мастеров для ремонта">
-                            <div class="case-info">
-                                <h5>Поиск мастеров для ремонта</h5>
-                                <p>Нужен сантехник, электрик или плиточник? Найдем надежного специалиста с хорошими отзывами.</p>
-                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                             <img loading="lazy" src="https://avatars.mds.yandex.net/i?id=3a3bcf798fda991eace7eb197d97373cf36be6e7-4809557-images-thumbs&n=13" alt="Выбор тарифа связи">
-                            <div class="case-info">
-                                <h5>Выбор тарифов и услуг</h5>
-                                <p>Анализируем предложения операторов связи и интернет-провайдеров, чтобы вы не переплачивали.</p>
-                                <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/6444937/2a00000190870700d2079ee0b93ac48222eb/XXL_height" alt="Выбор страховки" width="600" height="400">
-                           <div class="case-info">
-                               <h5>Подбор страховки</h5>
-                               <p>Поможем разобраться в условиях ОСАГО, КАСКО, страхования жилья или здоровья и выбрать оптимальный полис.</p>
-                              <a href="#" class="btn btn-sm btn-outline-primary js-open-chat">Узнать больше</a>
-                           </div>
-                       </div>
-                    </div>
-                    <div class="swiper-pagination position-relative mt-4"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-        </section><!-- End Cases Section -->
-
-        <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Что говорят наши клиенты</h2>
-                    <p>Мы гордимся доверием, которое нам оказывают, и результатами, которых мы достигаем вместе.</p>
-                </div>
-
-                <div class="swiper testimonials-slider" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img loading="lazy" src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img" alt="Фото клиента 1">
-                                <h3>Мария Захарова</h3>
-                                <h4>Предприниматель</h4>
-                                <p>
-                                    <i class="fas fa-quote-left quote-icon-left"></i>
-                                    Обратилась за помощью в подборе оборудования для кофейни. Быстро, профессионально, учли все нюансы. Сэкономили мне кучу времени и нервов! Очень довольна результатом.
-                                    <i class="fas fa-quote-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img loading="lazy" src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonial-img" alt="Фото клиента 2">
-                                <h3>Алексей Попов</h3>
-                                <h4>IT-специалист</h4>
-                                <p>
-                                    <i class="fas fa-quote-left quote-icon-left"></i>
-                                    Искал специфический софт для проекта. Эксперты компании не только нашли идеальное решение, но и подсказали аналоги, о которых я не знал. Отличный сервис!
-                                    <i class="fas fa-quote-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                         <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img loading="lazy" src="https://randomuser.me/api/portraits/women/90.jpg" class="testimonial-img" alt="Фото клиента 3">
-                                <h3>Елена Сидорова</h3>
-                                <h4>Дизайнер интерьеров</h4>
-                                <p>
-                                    <i class="fas fa-quote-left quote-icon-left"></i>
-                                   Регулярно пользуюсь услугами для подбора качественных отделочных материалов и мебели для своих проектов. Всегда находят интересные и надежные варианты. Рекомендую!
-                                    <i class="fas fa-quote-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                    </div>
-                    <div class="swiper-pagination position-relative mt-4"></div>
-                </div>
-            </div>
-        </section><!-- End Testimonials Section -->
-
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container">
-                 <div class="section-title" data-aos="fade-up">
-                    <h2>Свяжитесь с нами</h2>
-                    <p>Мы всегда готовы помочь вам с выбором. Оставьте заявку через наш онлайн-чат!</p>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <button class="btn btn-primary btn-lg js-open-chat">Начать консультацию в чате</button>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Contact Section -->
-       
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                 <div class="col-lg-6">
-                      <a href="#hero" class="footer-logo d-inline-block">
-                           <img src="https://cdn.glitch.global/a2a85e01-02b1-4df6-8a9f-678047d53743/ikeber.svg?v=1743845475305" alt="Ikeber Logo Footer">
-                      </a>
-                      <p>Ваш навигатор в мире качества. Мы помогаем делать осознанный выбор и находить лучшее.</p>
-                      <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                      </div>
-                 </div>
-            </div>
-
-            <div class="copyright">
-                © Copyright <strong id="copyright-year"></strong> <span>IKEBER</span>. Все права защищены.
-                 <br>Дизайн разработан с <i class="fas fa-heart"></i>
-            </div>
-        </div>
-    </footer><!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></a>
-
-    <!-- ======= Chat Modal ======= -->
-    <div class="chat-modal" id="chatModal">
-        <div class="chat-modal-content">
-            <button class="chat-close-btn" id="chatCloseBtn">×</button>
-            <div class="chat-header">
-                <h4>IKEBER</h4>
-                <p>Онлайн-консультант</p>
-            </div>
-            <div class="chat-body" id="chatBody">
-                <!-- Сообщения будут добавляться сюда через JS -->
-            </div>
-            <div class="chat-footer">
-                <input type="text" id="chatInput" placeholder="Напишите ваш вопрос...">
-                <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- === CDN Libraries: JavaScript === -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-
-    <!-- === Custom JavaScript === -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false });
-
-            const typedElement = document.querySelector('.typed');
-            if (typedElement) {
-                let typed_strings = typedElement.getAttribute('data-typed-items');
-                typed_strings = typed_strings.split(',');
-                typed_strings = typed_strings.map(s => s.trim());
-                new Typed('.typed', {
-                    strings: typed_strings,
-                    loop: true,
-                    typeSpeed: 70,
-                    backSpeed: 50,
-                    backDelay: 2000
-                });
-            }
-
-            const header = document.getElementById('header');
-            if (header) {
-                const headerScrolled = () => {
-                    header.classList.toggle('scrolled', window.scrollY > 50);
-                }
-                window.addEventListener('load', headerScrolled);
-                document.addEventListener('scroll', headerScrolled);
-            }
-
-             let navbarlinks = document.querySelectorAll('#navbarNav .nav-link');
-             const navbarlinksActive = () => {
-                let position = window.scrollY + 200;
-                navbarlinks.forEach(navbarlink => {
-                    if (!navbarlink.hash) return;
-                    let section = document.querySelector(navbarlink.hash);
-                    if (!section) return;
-                    if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-                        navbarlink.classList.add('active');
-                    } else {
-                        navbarlink.classList.remove('active');
-                    }
-                })
-             }
-            window.addEventListener('load', navbarlinksActive);
-            document.addEventListener('scroll', navbarlinksActive);
-
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse && !bootstrap.Collapse.getInstance(navbarCollapse)) {
-                 new bootstrap.Collapse(navbarCollapse, { toggle: false });
-            }
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                     if (navbarToggler && !navbarToggler.classList.contains('collapsed') && navbarCollapse.classList.contains('show')) {
-                         const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
-                         if (collapseInstance) { collapseInstance.hide(); }
-                     }
-                });
-            });
-
-             new Swiper('.cases-slider', {
-                speed: 600, loop: true, autoplay: { delay: 5000, disableOnInteraction: false }, slidesPerView: 'auto',
-                pagination: { el: '.cases-slider .swiper-pagination', type: 'bullets', clickable: true },
-                navigation: { nextEl: '.cases-slider .swiper-button-next', prevEl: '.cases-slider .swiper-button-prev' },
-                breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 30 }, 992: { slidesPerView: 3, spaceBetween: 30 }, 1200: { slidesPerView: 3, spaceBetween: 40 } }
-            });
-
-            new Swiper('.testimonials-slider', {
-                speed: 600, loop: true, autoplay: { delay: 6000, disableOnInteraction: false }, slidesPerView: 1, spaceBetween: 30,
-                 pagination: { el: '.testimonials-slider .swiper-pagination', type: 'bullets', clickable: true },
-            });
-
-            Fancybox.bind("[data-fancybox]", { Thumbs: false, Toolbar: { display: [ "zoom", "slideShow", "close" ] } });
-
-            const backtotop = document.querySelector('.back-to-top');
-            if (backtotop) {
-                const toggleBacktotop = () => { backtotop.classList.toggle('active', window.scrollY > 100); }
-                window.addEventListener('load', toggleBacktotop);
-                document.addEventListener('scroll', toggleBacktotop);
-                backtotop.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-            }
-
-             const copyrightYear = document.getElementById('copyright-year');
-             if (copyrightYear) { copyrightYear.textContent = dayjs().format('YYYY'); }
-
-
-            // --- Chat Modal Logic ---
-            const chatModal = document.getElementById('chatModal');
-            const chatCloseBtn = document.getElementById('chatCloseBtn');
-            const chatBody = document.getElementById('chatBody');
-            const chatInput = document.getElementById('chatInput');
-            const chatSendBtn = document.getElementById('chatSendBtn');
-            const openChatTriggerButtons = document.querySelectorAll('.js-open-chat');
-
-            let chatState = 'INIT';
-            let userProblem = '';
-            let userPhone = '';
-            
-            const sendDataToGoogleSheet = (problem, phone) => {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxAZ44qmB52xqWkHM0y0h9arld1jlDg9XV9JcyozHmP98eTEScjyGbGrw7sa3cGuNAC/exec';
-                const payload = { problem: problem, phone: phone };
                 
-                fetch(scriptURL, {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                    mode: 'no-cors'
-                })
-                .then(response => {
-                    console.log('Success (request sent)!', response);
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                });
-            };
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="nav-link text-slate-300 hover:text-white">Возможности</a>
+                    <a href="#how-it-works" class="nav-link text-slate-300 hover:text-white">Как это работает</a>
+                    <a href="#pricing" class="nav-link text-slate-300 hover:text-white">Тарифы</a>
+                </nav>
+                
+                <a href="#pricing" class="hidden md:inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-full font-medium transition duration-300 glow-effect">
+                    Начать бесплатно
+                </a>
+                
+                <button id="mobileMenuButton" class="md:hidden text-slate-300 focus:outline-none">
+                    <i id="mobileMenuIcon" class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <nav id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-sm absolute top-full left-0 right-0 py-4 px-6 space-y-2">
+            <a href="#features" class="block nav-link text-slate-300 hover:text-white py-2 text-center">Возможности</a>
+            <a href="#how-it-works" class="block nav-link text-slate-300 hover:text-white py-2 text-center">Как это работает</a>
+            <a href="#pricing" class="block nav-link text-slate-300 hover:text-white py-2 text-center">Тарифы</a>
+            <a href="#pricing" class="block bg-cyan-500 hover:bg-cyan-600 text-white mt-4 px-6 py-3 rounded-full font-medium transition duration-300 text-center">
+                Начать бесплатно
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-10 md:pb-20 px-6">
+            <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-3/5 text-center md:text-left">
+                    <p class="font-semibold text-cyan-400 uppercase tracking-wider mb-4">Решение для локальных магазинов</p>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                        Хватит терять клиентов из-за <span class="gradient-text">маркетплейсов</span>
+                    </h1>
+                    <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto md:mx-0">
+                        Запустите свой собственный интернет-магазин, который работает как мобильное приложение. Ваши постоянные клиенты будут заказывать у вас, а не у гигантов вроде Ozon.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#demo" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 text-center glow-effect">
+                            Смотреть демо
+                        </a>
+                        <a href="#pricing" class="border border-slate-700 hover:border-pink-500 text-white px-8 py-4 rounded-full font-bold transition duration-300 text-center">
+                            Узнать цены
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex md:w-2/5 justify-center">
+                    <div class="relative bg-slate-800 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-sm border-4 border-slate-700/50">
+                        <div class="rounded-[2rem] overflow-hidden">
+                            <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png" 
+                                 alt="Скриншот интернет-магазина на экране телефона" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Мокап для мобильных -->
+        <section class="block md:hidden px-6 pb-16">
+            <div class="container mx-auto flex justify-center">
+                 <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
+                    <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
+                        <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png" 
+                             alt="Скриншот интернет-магазина на экране телефона" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-            const openChat = () => {
-                if (!chatModal) return;
-                document.body.classList.add('chat-open');
-                chatModal.classList.add('active');
-                resetChat();
-            };
+        <!-- Features Section -->
+        <section id="features" class="py-20 px-6 bg-slate-800/30">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Всё, что нужно для онлайн-продаж <span class="gradient-text">в одном месте</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+                        Мы продумали каждую деталь, чтобы вы могли сосредоточиться на бизнесе, а не на технических сложностях.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-pink-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-robot text-3xl text-pink-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Админка с AI-помощником</h3>
+                        <p class="text-slate-400">Наш искусственный интеллект напишет продающее описание товара, придумает название и даже подберет фото.</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fab fa-telegram text-3xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Заказы в Telegram</h3>
+                        <p class="text-slate-400">Получайте новые заказы прямо в Telegram-бот. Меняйте статус, общайтесь с клиентом — всё в привычном мессенджере.</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-pink-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-truck-fast text-3xl text-pink-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Интеграция с доставкой</h3>
+                        <p class="text-slate-400">Подключена Яндекс Доставка. Если сервис недоступен, поможем организовать своих курьеров.</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-magnifying-glass-chart text-3xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Автоматическое SEO</h3>
+                        <p class="text-slate-400">Как только вы создаете товар, он сразу оптимизируется для Яндекс и Google. Новые клиенты найдут вас сами!</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-pink-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-table-cells text-3xl text-pink-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Управление через Google Таблицы</h3>
+                        <p class="text-slate-400">Управляйте товарами, ценами и остатками прямо из Google Sheets. Все изменения мгновенно появятся на сайте.</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-screen-button text-3xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Веб-приложение для клиентов</h3>
+                        <p class="text-slate-400">Ваш магазин выглядит и работает как современное приложение, но его не нужно скачивать. Удобно для клиентов.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            const closeChat = () => {
-                if (!chatModal) return;
-                document.body.classList.remove('chat-open');
-                chatModal.classList.remove('active');
-            };
+        <!-- Demo Section -->
+        <section id="demo" class="py-20 px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                    <div class="lg:w-1/2 flex justify-center">
+                        <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
+                            <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
+                                <img src="https://allwebs.ru/images/2025/10/27/f51b43e7748c4fdbf11291b479ed279b.png" 
+                                     alt="Скриншот админ-панели на мобильном устройстве" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Не верьте нам на слово — <span class="gradient-text">проверьте сами</span></h2>
+                        <p class="text-lg text-slate-400 mb-8">Мы подготовили полнофункциональные демо-версии, чтобы вы могли оценить все возможности системы в действии.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Быстрое и интуитивное управление.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Создание товаров с помощью AI.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Обработка заказов в несколько кликов.</span></li>
+                        </ul>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" class="open-modal-btn bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-bold transition duration-300 text-center glow-effect"
+                               data-iframe-src="https://ikeber-price.vercel.app"
+                               data-iframe-title="Демо-магазин">
+                               Смотреть демо-магазин
+                            </a>
+                            <a href="#" class="open-modal-btn border border-slate-700 hover:border-pink-500 text-white px-8 py-3 rounded-full font-bold transition duration-300 text-center"
+                               data-iframe-src="https://ikeber-price.vercel.app/demo"
+                               data-iframe-title="Демо Админ-панели">
+                               Войти в демо-админку
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 px-6 bg-slate-800/30">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Запуск магазина за <span class="gradient-text">3 простых шага</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">Начать продавать онлайн проще, чем кажется. Весь процесс занимает не больше одного дня.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-cyan-500/50">
+                        <div class="absolute top-4 left-4 text-2xl font-bold text-cyan-400">01</div>
+                        <i class="fas fa-user-plus text-4xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Регистрация</h3>
+                        <p class="text-slate-400 text-sm">Вы оставляете заявку, мы создаем для вас сайт и админ-панель. Это занимает пару часов.</p>
+                    </div>
+                    <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-pink-500/50">
+                        <div class="absolute top-4 left-4 text-2xl font-bold text-pink-400">02</div>
+                        <i class="fas fa-boxes-stacked text-4xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Наполнение товарами</h3>
+                        <p class="text-slate-400 text-sm">Вы легко добавляете свои товары с помощью AI-помощника или через Google Таблицу.</p>
+                    </div>
+                    <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-cyan-500/50">
+                        <div class="absolute top-4 left-4 text-2xl font-bold text-cyan-400">03</div>
+                        <i class="fas fa-rocket text-4xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Привлечение клиентов</h3>
+                        <p class="text-slate-400 text-sm">Рассказываете о сайте клиентам в магазине и соцсетях. Начинаете получать заказы!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Marketing Section -->
+        <section id="marketing" class="py-20 px-6 bg-gradient-to-r from-pink-900/40 to-cyan-900/40">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Как клиенты узнают о вашем новом сайте?</h2>
+                    <p class="text-xl text-slate-300 max-w-3xl mx-auto">Вам не нужен бюджет на рекламу. Ваши постоянные клиенты — самая лояльная аудитория.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-slate-800/50 rounded-xl p-8 flex items-start gap-6 card-hover">
+                        <i class="fab fa-whatsapp text-4xl text-green-400 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Автоответчик в WhatsApp</h3>
+                            <p class="text-slate-400">Каждому, кто вам напишет, будет приходить сообщение со ссылкой на ваш новый интернет-магазин.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 flex items-start gap-6 card-hover">
+                        <i class="fas fa-store text-4xl text-sky-400 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Размещение в оффлайн-магазине</h3>
+                            <p class="text-slate-400">Разместите QR-код, ведущий на сайт. Предложите клиентам удобный способ заказа из дома.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            openChatTriggerButtons.forEach(btn => btn.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                openChat();
-            }));
-            
-            if (chatCloseBtn) chatCloseBtn.addEventListener('click', closeChat);
-            window.addEventListener('click', (event) => { if (event.target === chatModal) closeChat(); });
-            window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && chatModal && chatModal.classList.contains('active')) closeChat(); });
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Выберите свой <span class="gradient-text">тариф</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">Прозрачные цены без скрытых комиссий. Начните с бесплатного пробного периода на любом тарифе.</p>
+                </div>
 
-            const addMessageToChat = (message, sender) => {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('chat-message', sender === 'bot' ? 'bot-message' : 'user-message');
-                messageDiv.textContent = message; 
-                chatBody.appendChild(messageDiv);
-                chatBody.scrollTop = chatBody.scrollHeight; 
-            };
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col card-hover">
+                        <h3 class="text-lg font-bold text-pink-400 uppercase tracking-wider">Начальный</h3>
+                        <div class="text-5xl font-extrabold my-4">3000₽<span class="text-lg font-medium text-slate-400">/мес</span></div>
+                        <p class="text-slate-400 mb-8 min-h-[4rem]">Идеальный старт для запуска онлайн-продаж.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Готовый сайт-приложение</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Удобная админ-панель</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>AI-помощник для товаров</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Заказы в Telegram-бот</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Базовая SEO-оптимизация</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Управление через Google Таблицы</span></li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center">Начать бесплатно</a>
+                    </div>
 
-            const botResponse = (message, delay = 600, nextPlaceholder = null, inputType = 'text') => {
-                chatSendBtn.disabled = true;
-                chatInput.disabled = true;
-                setTimeout(() => {
-                    addMessageToChat(message, 'bot');
-                    if (chatState !== 'FINISHED') {
-                        chatSendBtn.disabled = false;
-                        chatInput.disabled = false;
-                        if (nextPlaceholder) chatInput.placeholder = nextPlaceholder;
-                        chatInput.type = inputType;
-                        chatInput.focus();
-                    }
-                }, delay);
-            };
-            
-            const resetChat = () => {
-                chatBody.innerHTML = '';
-                chatInput.value = '';
-                chatInput.type = 'text';
-                chatSendBtn.disabled = false;
-                chatInput.disabled = false;
-                chatState = 'INIT';
-                userProblem = '';
-                userPhone = '';
-                addMessageToChat("Здравствуйте! Я ваш онлайн-помощник из 'IKEBER'.", 'bot');
-                setTimeout(() => {
-                    botResponse("Опишите, пожалуйста, какую задачу или проблему вы хотели бы решить, или какой товар/услугу подобрать?", 800, "Опишите ваш запрос...");
-                    chatState = 'WAITING_PROBLEM';
-                }, 100);
-            };
+                    <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col relative border-2 border-cyan-500 transform lg:scale-105">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-cyan-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Популярный</div>
+                        <h3 class="text-lg font-bold text-cyan-400 uppercase tracking-wider">Логистика</h3>
+                        <div class="text-5xl font-extrabold my-4">10000₽<span class="text-lg font-medium text-slate-400">/мес</span></div>
+                        <p class="text-slate-400 mb-8 min-h-[4rem]">Готовое решение "под ключ" с нашим менеджером.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i><span><strong>Все функции тарифа "Начальный"</strong></span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Интеграция с Яндекс Доставкой</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Персональный менеджер</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Помощь в организации курьеров</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Контроль логистики</span></li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center glow-effect">Начать бесплатно</a>
+                    </div>
+                    
+                    <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col card-hover">
+                        <h3 class="text-lg font-bold text-pink-400 uppercase tracking-wider">Маркетинг Плюс</h3>
+                        <div class="text-5xl font-extrabold my-4">15000₽<span class="text-lg font-medium text-slate-400">/мес</span></div>
+                        <p class="text-slate-400 mb-8 min-h-[4rem]">Для тех, кто хочет расти и привлекать новых клиентов.</p>
+                        <ul class="space-y-4 mb-8">
+                             <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i><span><strong>Все функции тарифа "Логистика"</strong></span></li>
+                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Помощь в настройке WhatsApp</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Продвинутая SEO-оптимизация</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Инструменты для акций и скидок</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Ежемесячный отчет по продажам</span></li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center">Начать бесплатно</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            const handleUserInput = () => {
-                const messageText = chatInput.value.trim();
-                if (messageText === '' || chatSendBtn.disabled) return;
+        <!-- Final CTA Section -->
+        <section class="py-20 px-6 bg-gradient-to-r from-cyan-900/40 to-pink-900/40">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Готовы вернуть своих клиентов и увеличить прибыль?</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                    Присоединяйтесь к десяткам магазинов, которые уже успешно продают онлайн с нашей помощью. Запуск займет всего один день.
+                </p>
+                <a href="#pricing" class="inline-block bg-white hover:bg-slate-200 text-slate-900 px-8 py-4 rounded-full font-bold transition duration-300 shadow-lg">
+                    Выбрать тариф и начать
+                </a>
+            </div>
+        </section>
+    </main>
 
-                addMessageToChat(messageText, 'user');
-                chatInput.value = '';
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 px-6">
+        <div class="container mx-auto text-center text-slate-400">
+            <a href="#" class="inline-block mb-4">
+                 <img src="https://allwebs.ru/images/2025/10/27/c3a647f2f72fd341ad4f73e3d5655c58.png" alt="LocalShopKit Logo" class="h-12 w-auto mx-auto">
+            </a>
+            <p>&copy; 2025. Все права защищены. Решение для вашего бизнеса.</p>
+        </div>
+    </footer>
 
-                if (chatState === 'WAITING_PROBLEM') {
-                    userProblem = messageText;
-                    botResponse("Спасибо! Чтобы мы могли связаться с вами для уточнения деталей, пожалуйста, оставьте ваш номер телефона.", 600, "Введите ваш номер телефона...", "tel");
-                    chatState = 'WAITING_PHONE';
-                } else if (chatState === 'WAITING_PHONE') {
-                    if (messageText.length >= 10) { 
-                        userPhone = messageText;
-                        
-                        sendDataToGoogleSheet(userProblem, userPhone);
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full flex items-center justify-center transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Iframe Modal -->
+    <!-- ИЗМЕНЕНИЕ: Структура модального окна полностью переработана для полноэкранного режима -->
+    <div id="iframeModal" class="hidden fixed inset-0 bg-slate-900 z-[100] transition-opacity duration-300">
+        <!-- Сам iframe, который заполняет всё пространство -->
+        <iframe id="demoIframe" class="w-full h-full border-0" title="Демо-версия"></iframe>
+        
+        <!-- Кнопка закрытия, расположенная поверх iframe -->
+        <button id="closeIframeModalBtn" class="fixed top-4 right-4 z-[110] w-12 h-12 bg-slate-800/60 backdrop-blur-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-700/80 transition-all flex items-center justify-center">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
 
-                        botResponse(`Отлично! Ваш запрос и телефон ${userPhone} получены. Мы скоро свяжемся с вами. Спасибо!`, 600, "Спасибо!");
-                        chatState = 'FINISHED';
-                        chatInput.disabled = true;
-                        chatSendBtn.disabled = true;
-                        setTimeout(closeChat, 7000); 
-                    } else {
-                        botResponse("Пожалуйста, введите корректный номер телефона.", 600, "Введите ваш номер телефона...", "tel");
-                    }
+   <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuIcon.classList.toggle('fa-bars');
+            mobileMenuIcon.classList.toggle('fa-times');
+        });
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links & Logo
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
                 }
-            };
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-            if (chatSendBtn) chatSendBtn.addEventListener('click', handleUserInput);
-            if (chatInput) chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleUserInput(); });
+        // Iframe Modal Logic
+        const openModalButtons = document.querySelectorAll('.open-modal-btn');
+        const iframeModal = document.getElementById('iframeModal');
+        const closeIframeBtn = document.getElementById('closeIframeModalBtn');
+        const demoIframe = document.getElementById('demoIframe');
+        
+        let lastScrollY = 0;
+
+        function openModal(url) {
+            lastScrollY = window.scrollY;
+            demoIframe.src = url;
+            iframeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            iframeModal.classList.add('hidden');
+            demoIframe.src = 'about:blank';
+            document.body.style.overflow = '';
+            window.scrollTo(0, lastScrollY);
+        }
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = e.currentTarget.dataset.iframeSrc;
+                if (url) {
+                    openModal(url);
+                }
+            });
+        });
+
+        closeIframeBtn.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !iframeModal.classList.contains('hidden')) {
+                closeModal();
+            }
         });
     </script>
-
 </body>
 </html>

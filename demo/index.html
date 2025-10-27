@@ -844,7 +844,7 @@
                 currentCategory = null;
             }
 
-            const newPath = view === 'productDetail' && data.productSlug ? `/demo/product/${data.productSlug}` : '/';
+            const newPath = view === 'productDetail' && data.productSlug ? `/product/${data.productSlug}` : '/';
             const fullUrl = window.location.origin + newPath;
             if (!cameFromBackButton && window.location.href !== fullUrl) {
                 history.pushState({ view, data }, '', fullUrl);
