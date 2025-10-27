@@ -3,13 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalShopKit | Ваш собственный интернет-магазин за 1 день</title>
-    <meta name="description" content="Готовое решение для локальных магазинов: свой сайт, похожий на приложение, интеграция с доставкой, заказы в Telegram, AI для создания товаров и SEO-оптимизация. Перестаньте терять клиентов из-за маркетплейсов!">
+    
+    <!-- Favicon and Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="favicon.ico">
+    <title>IKEBER | Создание интернет-магазинов для локального бизнеса</title>
+    <meta name="description" content="IKEBER - готовое решение для создания интернет-магазинов. Свой сайт-приложение, интеграция с доставкой, заказы в Telegram, AI-помощник и SEO-оптимизация. Запуск за 1 день!">
+    <meta name="keywords" content="IKEBER, интернет-магазин, создание сайта, локальный бизнес, доставка, Telegram заказы, AI помощник, SEO оптимизация, веб-приложение, PWA">
+    <meta name="author" content="IKEBER">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="ru">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://ikeber.ru">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ikeber.ru/">
+    <meta property="og:title" content="IKEBER | Создание интернет-магазинов для локального бизнеса">
+    <meta property="og:description" content="IKEBER - готовое решение для создания интернет-магазинов. Запуск за 1 день с AI-помощником и SEO-оптимизацией.">
+    <meta property="og:image" content="https://ikeber.ru/images/og-image.jpg">
+    <meta property="og:site_name" content="IKEBER">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ikeber.ru/">
+    <meta property="twitter:title" content="IKEBER | Создание интернет-магазинов для локального бизнеса">
+    <meta property="twitter:description" content="IKEBER - готовое решение для создания интернет-магазинов. Запуск за 1 день с AI-помощником и SEO-оптимизацией.">
+    <meta property="twitter:image" content="https://ikeber.ru/images/twitter-image.jpg">
+    <meta property="twitter:site" content="@ikeber">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Подключение Tailwind CSS, шрифтов и иконок -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -74,6 +106,89 @@
             100% { transform: translateY(0px); }
         }
     </style>
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "IKEBER",
+      "url": "https://ikeber.ru",
+      "logo": "https://ikeber.ru/images/logo.png",
+      "description": "IKEBER - готовое решение для создания интернет-магазинов для локального бизнеса",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "RU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Russian"
+      },
+      "sameAs": []
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "IKEBER",
+      "url": "https://ikeber.ru",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ikeber.ru/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Создание интернет-магазинов",
+      "provider": {
+        "@type": "Organization",
+        "name": "IKEBER"
+      },
+      "description": "Готовое решение для создания интернет-магазинов с AI-помощником, SEO-оптимизацией и интеграцией с доставкой",
+      "areaServed": "RU",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Тарифы IKEBER",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Начальный тариф"
+            },
+            "price": "3000",
+            "priceCurrency": "RUB"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Логистика тариф"
+            },
+            "price": "10000",
+            "priceCurrency": "RUB"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Маркетинг Плюс тариф"
+            },
+            "price": "15000",
+            "priceCurrency": "RUB"
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body class="min-h-screen">
 
@@ -82,7 +197,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" id="logoLink">
-                    <img src="https://allwebs.ru/images/2025/10/27/c3a647f2f72fd341ad4f73e3d5655c58.png" alt="LocalShopKit Logo" class="h-10 w-auto">
+                    <img src="https://allwebs.ru/images/2025/10/27/c3a647f2f72fd341ad4f73e3d5655c58.png" alt="IKEBER Logo" class="h-10 w-auto">
                 </a>
                 
                 <nav class="hidden md:flex space-x-8">
@@ -115,12 +230,12 @@
         <section id="home" class="pt-32 pb-10 md:pb-20 px-6">
             <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-3/5 text-center md:text-left">
-                    <p class="font-semibold text-cyan-400 uppercase tracking-wider mb-4">Решение для локальных магазинов</p>
+                    <p class="font-semibold text-cyan-400 uppercase tracking-wider mb-4">IKEBER - решение для локальных магазинов</p>
                     <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">
-                        Хватит терять клиентов из-за <span class="gradient-text">маркетплейсов</span>
+                        <span class="gradient-text">IKEBER</span> - ваш интернет-магазин за 1 день
                     </h1>
                     <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto md:mx-0">
-                        Запустите свой собственный интернет-магазин, который работает как мобильное приложение. Ваши постоянные клиенты будут заказывать у вас, а не у гигантов вроде Ozon.
+                        IKEBER поможет запустить собственный интернет-магазин, который работает как мобильное приложение. Ваши клиенты будут заказывать у вас, а не у гигантов вроде Ozon.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#demo" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 text-center glow-effect">
@@ -135,8 +250,8 @@
                 <div class="hidden md:flex md:w-2/5 justify-center">
                     <div class="relative bg-slate-800 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-sm border-4 border-slate-700/50">
                         <div class="rounded-[2rem] overflow-hidden">
-                            <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png" 
-                                 alt="Скриншот интернет-магазина на экране телефона" 
+                            <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png"
+                                 alt="IKEBER - мобильный интернет-магазин для локального бизнеса"
                                  class="w-full h-full object-cover">
                         </div>
                     </div>
@@ -149,8 +264,8 @@
             <div class="container mx-auto flex justify-center">
                  <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
                     <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
-                        <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png" 
-                             alt="Скриншот интернет-магазина на экране телефона" 
+                        <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png"
+                             alt="IKEBER - интернет-магазин на мобильном устройстве"
                              class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -162,9 +277,9 @@
         <section id="features" class="py-20 px-6 bg-slate-800/30">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Всё, что нужно для онлайн-продаж <span class="gradient-text">в одном месте</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">IKEBER: всё для онлайн-продаж <span class="gradient-text">в одном месте</span></h2>
                     <p class="text-xl text-slate-400 max-w-3xl mx-auto">
-                        Мы продумали каждую деталь, чтобы вы могли сосредоточиться на бизнесе, а не на технических сложностях.
+                        IKEBER продумал каждую деталь, чтобы вы могли сосредоточиться на бизнесе, а не на технических сложностях.
                     </p>
                 </div>
                 
@@ -222,15 +337,15 @@
                     <div class="lg:w-1/2 flex justify-center">
                         <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
                             <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
-                                <img src="https://allwebs.ru/images/2025/10/27/f51b43e7748c4fdbf11291b479ed279b.png" 
-                                     alt="Скриншот админ-панели на мобильном устройстве" 
+                                <img src="https://allwebs.ru/images/2025/10/27/f51b43e7748c4fdbf11291b479ed279b.png"
+                                     alt="IKEBER - админ-панель управления интернет-магазином"
                                      class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
                     <div class="lg:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Не верьте нам на слово — <span class="gradient-text">проверьте сами</span></h2>
-                        <p class="text-lg text-slate-400 mb-8">Мы подготовили полнофункциональные демо-версии, чтобы вы могли оценить все возможности системы в действии.</p>
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">IKEBER в действии — <span class="gradient-text">проверьте сами</span></h2>
+                        <p class="text-lg text-slate-400 mb-8">IKEBER подготовил полнофункциональные демо-версии, чтобы вы могли оценить все возможности системы в действии.</p>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Быстрое и интуитивное управление.</span></li>
                             <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Создание товаров с помощью AI.</span></li>
@@ -257,8 +372,8 @@
         <section id="how-it-works" class="py-20 px-6 bg-slate-800/30">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Запуск магазина за <span class="gradient-text">3 простых шага</span></h2>
-                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">Начать продавать онлайн проще, чем кажется. Весь процесс занимает не больше одного дня.</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">IKEBER: запуск магазина за <span class="gradient-text">3 простых шага</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">С IKEBER начать продавать онлайн проще, чем кажется. Весь процесс занимает не больше одного дня.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-cyan-500/50">
@@ -287,8 +402,8 @@
         <section id="marketing" class="py-20 px-6 bg-gradient-to-r from-pink-900/40 to-cyan-900/40">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Как клиенты узнают о вашем новом сайте?</h2>
-                    <p class="text-xl text-slate-300 max-w-3xl mx-auto">Вам не нужен бюджет на рекламу. Ваши постоянные клиенты — самая лояльная аудитория.</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">IKEBER: как клиенты узнают о вашем магазине?</h2>
+                    <p class="text-xl text-slate-300 max-w-3xl mx-auto">С IKEBER вам не нужен бюджет на рекламу. Ваши постоянные клиенты — самая лояльная аудитория.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div class="bg-slate-800/50 rounded-xl p-8 flex items-start gap-6 card-hover">
@@ -313,8 +428,8 @@
         <section id="pricing" class="py-20 px-6">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Выберите свой <span class="gradient-text">тариф</span></h2>
-                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">Прозрачные цены без скрытых комиссий. Начните с бесплатного пробного периода на любом тарифе.</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Тарифы IKEBER — <span class="gradient-text">выберите свой</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">IKEBER предлагает прозрачные цены без скрытых комиссий. Начните с бесплатного пробного периода на любом тарифе.</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -368,9 +483,9 @@
         <!-- Final CTA Section -->
         <section class="py-20 px-6 bg-gradient-to-r from-cyan-900/40 to-pink-900/40">
             <div class="container mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Готовы вернуть своих клиентов и увеличить прибыль?</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Готовы вернуть клиентов с IKEBER?</h2>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-                    Присоединяйтесь к десяткам магазинов, которые уже успешно продают онлайн с нашей помощью. Запуск займет всего один день.
+                    Присоединяйтесь к десяткам магазинов, которые уже успешно продают онлайн с IKEBER. Запуск займет всего один день.
                 </p>
                 <a href="#pricing" class="inline-block bg-white hover:bg-slate-200 text-slate-900 px-8 py-4 rounded-full font-bold transition duration-300 shadow-lg">
                     Выбрать тариф и начать
@@ -383,9 +498,9 @@
     <footer class="bg-slate-900 py-12 px-6">
         <div class="container mx-auto text-center text-slate-400">
             <a href="#" class="inline-block mb-4">
-                 <img src="https://allwebs.ru/images/2025/10/27/c3a647f2f72fd341ad4f73e3d5655c58.png" alt="LocalShopKit Logo" class="h-12 w-auto mx-auto">
+                 <img src="https://allwebs.ru/images/2025/10/27/c3a647f2f72fd341ad4f73e3d5655c58.png" alt="IKEBER Logo" class="h-12 w-auto mx-auto">
             </a>
-            <p>&copy; 2025. Все права защищены. Решение для вашего бизнеса.</p>
+            <p>&copy; 2025 IKEBER. Все права защищены. Решение для вашего бизнеса.</p>
         </div>
     </footer>
 

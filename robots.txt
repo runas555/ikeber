@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /demo/admin/
+
+Sitemap: https://ikeber.ru/sitemap.xml
+
+# IKEBER - создание интернет-магазинов для локального бизнеса
