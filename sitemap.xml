@@ -13,9 +13,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ikeber.ru/demo/admin/</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ikeber.ru/demo/courier/</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ikeber.ru/privacy-policy.html</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ikeber.ru/demo/404.html</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 </urlset>

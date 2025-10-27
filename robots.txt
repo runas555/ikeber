@@ -2,7 +2,15 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /demo/admin/
+Disallow: /demo/courier/
+Disallow: /demo/icons/
+
+# IKEBER - создание интернет-магазинов для локального бизнеса
+# https://ikeber.ru
 
 Sitemap: https://ikeber.ru/sitemap.xml
 
-# IKEBER - создание интернет-магазинов для локального бизнеса
+# Crawl-delay: 1
+# Allow: /css/
+# Allow: /js/
+# Allow: /images/

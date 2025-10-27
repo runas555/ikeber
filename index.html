@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
-    <title>IKEBER | Ваш собственный интернет-магазин за 1 день</title>
-    <meta name="description" content="IKEBER - готовое решение для локальных магазинов: свой сайт, похожий на приложение, интеграция с доставкой, заказы в Telegram, AI для создания товаров и SEO-оптимизация. Перестаньте терять клиентов из-за маркетплейсов!">
+    <!-- Favicon and Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="favicon.ico">
+    <title>IKEBER | Создание интернет-магазинов для локального бизнеса</title>
+    <meta name="description" content="IKEBER - готовое решение для создания интернет-магазинов. Свой сайт-приложение, интеграция с доставкой, заказы в Telegram, AI-помощник и SEO-оптимизация. Запуск за 1 день!">
     <meta name="keywords" content="IKEBER, интернет-магазин, создание сайта, локальный бизнес, доставка, Telegram заказы, AI помощник, SEO оптимизация, веб-приложение, PWA">
     <meta name="author" content="IKEBER">
     <meta name="robots" content="index, follow">
@@ -17,8 +22,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ikeber.ru/">
-    <meta property="og:title" content="IKEBER | Ваш собственный интернет-магазин за 1 день">
-    <meta property="og:description" content="IKEBER - готовое решение для локальных магазинов. Запуск за 1 день с AI-помощником и SEO-оптимизацией.">
+    <meta property="og:title" content="IKEBER | Создание интернет-магазинов для локального бизнеса">
+    <meta property="og:description" content="IKEBER - готовое решение для создания интернет-магазинов. Запуск за 1 день с AI-помощником и SEO-оптимизацией.">
     <meta property="og:image" content="https://ikeber.ru/images/og-image.jpg">
     <meta property="og:site_name" content="IKEBER">
     <meta property="og:locale" content="ru_RU">
@@ -26,17 +31,10 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ikeber.ru/">
-    <meta property="twitter:title" content="IKEBER | Ваш собственный интернет-магазин за 1 день">
-    <meta property="twitter:description" content="IKEBER - готовое решение для локальных магазинов. Запуск за 1 день с AI-помощником и SEO-оптимизацией.">
+    <meta property="twitter:title" content="IKEBER | Создание интернет-магазинов для локального бизнеса">
+    <meta property="twitter:description" content="IKEBER - готовое решение для создания интернет-магазинов. Запуск за 1 день с AI-помощником и SEO-оптимизацией.">
     <meta property="twitter:image" content="https://ikeber.ru/images/twitter-image.jpg">
     <meta property="twitter:site" content="@ikeber">
-    
-    <!-- Favicon and Manifest -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="icon" href="favicon.ico">
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -191,6 +189,68 @@
       }
     }
     </script>
+    
+    <!-- FAQ Schema for better CTR -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает запуск интернет-магазина с IKEBER?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "С IKEBER вы можете запустить полнофункциональный интернет-магазин всего за 1 день. Мы создаем сайт и админ-панель за несколько часов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужны ли технические знания для работы с IKEBER?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, IKEBER создан специально для локального бизнеса без технических знаний. AI-помощник и интуитивная админ-панель делают управление простым."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как клиенты будут находить мой магазин?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IKEBER автоматически оптимизирует ваш магазин для поисковых систем. Также вы можете использовать QR-коды в оффлайн-магазине и автоответчик в WhatsApp."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://ikeber.ru"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Возможности",
+          "item": "https://ikeber.ru#features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Тарифы",
+          "item": "https://ikeber.ru#pricing"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="min-h-screen">
 
@@ -252,8 +312,8 @@
                 <div class="hidden md:flex md:w-2/5 justify-center">
                     <div class="relative bg-slate-800 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-sm border-4 border-slate-700/50">
                         <div class="rounded-[2rem] overflow-hidden">
-                            <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png" 
-                                 alt="Скриншот интернет-магазина на экране телефона" 
+                            <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png"
+                                 alt="IKEBER - мобильный интернет-магазин для локального бизнеса"
                                  class="w-full h-full object-cover">
                         </div>
                     </div>
@@ -266,8 +326,8 @@
             <div class="container mx-auto flex justify-center">
                  <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
                     <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
-                        <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png" 
-                             alt="Скриншот интернет-магазина на экране телефона" 
+                        <img src="https://allwebs.ru/images/2025/10/27/304af0d1033288c86683d356f6b706c1.png"
+                             alt="IKEBER - интернет-магазин на мобильном устройстве"
                              class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -312,4 +372,305 @@
                             <i class="fas fa-magnifying-glass-chart text-3xl text-cyan-400"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Автоматическое SEO</h3>
-                        <p class="text-slate-400">Как только вы создаете товар, он сразу оптимизируется для Яндекс и Google. Новые
+                        <p class="text-slate-400">Как только вы создаете товар, он сразу оптимизируется для Яндекс и Google. Новые клиенты найдут вас сами!</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-pink-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-table-cells text-3xl text-pink-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Управление через Google Таблицы</h3>
+                        <p class="text-slate-400">Управляйте товарами, ценами и остатками прямо из Google Sheets. Все изменения мгновенно появятся на сайте.</p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 card-hover">
+                        <div class="w-16 h-16 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-mobile-screen-button text-3xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Веб-приложение для клиентов</h3>
+                        <p class="text-slate-400">Ваш магазин выглядит и работает как современное приложение, но его не нужно скачивать. Удобно для клиентов.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="py-20 px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                    <div class="lg:w-1/2 flex justify-center">
+                        <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
+                            <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
+                                <img src="https://allwebs.ru/images/2025/10/27/f51b43e7748c4fdbf11291b479ed279b.png"
+                                     alt="IKEBER - админ-панель управления интернет-магазином"
+                                     class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Не верьте нам на слово — <span class="gradient-text">проверьте сами</span></h2>
+                        <p class="text-lg text-slate-400 mb-8">Мы подготовили полнофункциональные демо-версии, чтобы вы могли оценить все возможности системы в действии.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Быстрое и интуитивное управление.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Создание товаров с помощью AI.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i><span>Обработка заказов в несколько кликов.</span></li>
+                        </ul>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" class="open-modal-btn bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-bold transition duration-300 text-center glow-effect"
+                               data-iframe-src="https://ikeber-price.vercel.app"
+                               data-iframe-title="Демо-магазин">
+                               Смотреть демо-магазин
+                            </a>
+                            <a href="#" class="open-modal-btn border border-slate-700 hover:border-pink-500 text-white px-8 py-3 rounded-full font-bold transition duration-300 text-center"
+                               data-iframe-src="https://ikeber-price.vercel.app/demo"
+                               data-iframe-title="Демо Админ-панели">
+                               Войти в демо-админку
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 px-6 bg-slate-800/30">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Запуск магазина за <span class="gradient-text">3 простых шага</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">Начать продавать онлайн проще, чем кажется. Весь процесс занимает не больше одного дня.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-cyan-500/50">
+                        <div class="absolute top-4 left-4 text-2xl font-bold text-cyan-400">01</div>
+                        <i class="fas fa-user-plus text-4xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Регистрация</h3>
+                        <p class="text-slate-400 text-sm">Вы оставляете заявку, мы создаем для вас сайт и админ-панель. Это занимает пару часов.</p>
+                    </div>
+                    <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-pink-500/50">
+                        <div class="absolute top-4 left-4 text-2xl font-bold text-pink-400">02</div>
+                        <i class="fas fa-boxes-stacked text-4xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Наполнение товарами</h3>
+                        <p class="text-slate-400 text-sm">Вы легко добавляете свои товары с помощью AI-помощника или через Google Таблицу.</p>
+                    </div>
+                    <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-cyan-500/50">
+                        <div class="absolute top-4 left-4 text-2xl font-bold text-cyan-400">03</div>
+                        <i class="fas fa-rocket text-4xl text-slate-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Привлечение клиентов</h3>
+                        <p class="text-slate-400 text-sm">Рассказываете о сайте клиентам в магазине и соцсетях. Начинаете получать заказы!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Marketing Section -->
+        <section id="marketing" class="py-20 px-6 bg-gradient-to-r from-pink-900/40 to-cyan-900/40">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Как клиенты узнают о вашем новом сайте?</h2>
+                    <p class="text-xl text-slate-300 max-w-3xl mx-auto">Вам не нужен бюджет на рекламу. Ваши постоянные клиенты — самая лояльная аудитория.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-slate-800/50 rounded-xl p-8 flex items-start gap-6 card-hover">
+                        <i class="fab fa-whatsapp text-4xl text-green-400 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Автоответчик в WhatsApp</h3>
+                            <p class="text-slate-400">Каждому, кто вам напишет, будет приходить сообщение со ссылкой на ваш новый интернет-магазин.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-8 flex items-start gap-6 card-hover">
+                        <i class="fas fa-store text-4xl text-sky-400 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Размещение в оффлайн-магазине</h3>
+                            <p class="text-slate-400">Разместите QR-код, ведущий на сайт. Предложите клиентам удобный способ заказа из дома.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Выберите свой <span class="gradient-text">тариф</span></h2>
+                    <p class="text-xl text-slate-400 max-w-3xl mx-auto">Прозрачные цены без скрытых комиссий. Начните с бесплатного пробного периода на любом тарифе.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col card-hover">
+                        <h3 class="text-lg font-bold text-pink-400 uppercase tracking-wider">Начальный</h3>
+                        <div class="text-5xl font-extrabold my-4">3000₽<span class="text-lg font-medium text-slate-400">/мес</span></div>
+                        <p class="text-slate-400 mb-8 min-h-[4rem]">Идеальный старт для запуска онлайн-продаж.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Готовый сайт-приложение</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Удобная админ-панель</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>AI-помощник для товаров</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Заказы в Telegram-бот</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Базовая SEO-оптимизация</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Управление через Google Таблицы</span></li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center">Начать бесплатно</a>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col relative border-2 border-cyan-500 transform lg:scale-105">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-cyan-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Популярный</div>
+                        <h3 class="text-lg font-bold text-cyan-400 uppercase tracking-wider">Логистика</h3>
+                        <div class="text-5xl font-extrabold my-4">10000₽<span class="text-lg font-medium text-slate-400">/мес</span></div>
+                        <p class="text-slate-400 mb-8 min-h-[4rem]">Готовое решение "под ключ" с нашим менеджером.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i><span><strong>Все функции тарифа "Начальный"</strong></span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Интеграция с Яндекс Доставкой</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Персональный менеджер</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Помощь в организации курьеров</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Контроль логистики</span></li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center glow-effect">Начать бесплатно</a>
+                    </div>
+                    
+                    <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col card-hover">
+                        <h3 class="text-lg font-bold text-pink-400 uppercase tracking-wider">Маркетинг Плюс</h3>
+                        <div class="text-5xl font-extrabold my-4">15000₽<span class="text-lg font-medium text-slate-400">/мес</span></div>
+                        <p class="text-slate-400 mb-8 min-h-[4rem]">Для тех, кто хочет расти и привлекать новых клиентов.</p>
+                        <ul class="space-y-4 mb-8">
+                             <li class="flex items-start"><i class="fas fa-star text-yellow-400 mr-3 mt-1"></i><span><strong>Все функции тарифа "Логистика"</strong></span></li>
+                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Помощь в настройке WhatsApp</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Продвинутая SEO-оптимизация</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Инструменты для акций и скидок</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Ежемесячный отчет по продажам</span></li>
+                        </ul>
+                        <a href="#" class="mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center">Начать бесплатно</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 px-6 bg-gradient-to-r from-cyan-900/40 to-pink-900/40">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Готовы вернуть своих клиентов и увеличить прибыль?</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                    Присоединяйтесь к десяткам магазинов, которые уже успешно продают онлайн с нашей помощью. Запуск займет всего один день.
+                </p>
+                <a href="#pricing" class="inline-block bg-white hover:bg-slate-200 text-slate-900 px-8 py-4 rounded-full font-bold transition duration-300 shadow-lg">
+                    Выбрать тариф и начать
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 px-6">
+        <div class="container mx-auto text-center text-slate-400">
+            <a href="#" class="inline-block mb-4">
+                 <img src="ikeber2.svg" alt="IKEBER Logo" class="h-12 w-auto mx-auto">
+            </a>
+            <p>&copy; 2025 IKEBER. Все права защищены. Решение для вашего бизнеса.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full flex items-center justify-center transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Iframe Modal -->
+    <!-- ИЗМЕНЕНИЕ: Структура модального окна полностью переработана для полноэкранного режима -->
+    <div id="iframeModal" class="hidden fixed inset-0 bg-slate-900 z-[100] transition-opacity duration-300">
+        <!-- Сам iframe, который заполняет всё пространство -->
+        <iframe id="demoIframe" class="w-full h-full border-0" title="Демо-версия"></iframe>
+        
+        <!-- Кнопка закрытия, расположенная поверх iframe -->
+        <button id="closeIframeModalBtn" class="fixed top-4 right-4 z-[110] w-12 h-12 bg-slate-800/60 backdrop-blur-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-700/80 transition-all flex items-center justify-center">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
+
+   <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuIcon.classList.toggle('fa-bars');
+            mobileMenuIcon.classList.toggle('fa-times');
+        });
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links & Logo
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Iframe Modal Logic
+        const openModalButtons = document.querySelectorAll('.open-modal-btn');
+        const iframeModal = document.getElementById('iframeModal');
+        const closeIframeBtn = document.getElementById('closeIframeModalBtn');
+        const demoIframe = document.getElementById('demoIframe');
+        
+        let lastScrollY = 0;
+
+        function openModal(url) {
+            lastScrollY = window.scrollY;
+            demoIframe.src = url;
+            iframeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            iframeModal.classList.add('hidden');
+            demoIframe.src = 'about:blank';
+            document.body.style.overflow = '';
+            window.scrollTo(0, lastScrollY);
+        }
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = e.currentTarget.dataset.iframeSrc;
+                if (url) {
+                    openModal(url);
+                }
+            });
+        });
+
+        closeIframeBtn.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !iframeModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
