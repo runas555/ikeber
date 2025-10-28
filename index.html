@@ -937,10 +937,10 @@
             function openLeadModal() {
                 leadModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
-                // Скрываем текст о бесплатном пробном периоде по умолчанию
+                // Показываем текст о бесплатном пробном периоде по умолчанию
                 const freeTrialText = document.getElementById('freeTrialText');
                 if (freeTrialText) {
-                    freeTrialText.classList.add('hidden');
+                    freeTrialText.classList.remove('hidden');
                 }
                 // Анимация появления
                 setTimeout(() => {
