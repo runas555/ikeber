@@ -36,78 +36,14 @@
     <meta property="twitter:image" content="https://ikeber.ru/images/twitter-image.jpg">
     <meta property="twitter:site" content="@ikeber">
     
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload критических шрифтов для оптимизации -->
+    <link rel="preload" href="fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     
-    <!-- Подключение Tailwind CSS, шрифтов и иконок -->
-    <!-- УДАЛЕН СКРИПТ CDN, ПОДКЛЮЧЕН ЛОКАЛЬНЫЙ ФАЙЛ -->
-    <link href="./dist/output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- ЗАМЕНА: CDN Font Awesome заменен на локальный файл -->
-    <link rel="stylesheet" href="./dist/fontawesome/css/all.min.css">
-
-    <style>
-        /* --- Обновленные кастомные стили с новой палитрой --- */
-        body {
-            font-family: 'Manrope', sans-serif;
-            background-color: #0f172a; /* Slate-900 */
-            color: #e2e8f0; /* Slate-200 */
-            scroll-behavior: smooth;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #00aef0, #d1267a); /* Cyan to Pink */
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .glow-effect {
-            box-shadow: 0 0 20px rgba(0, 174, 240, 0.6); /* Cyan Glow */
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            border-color: rgba(0, 174, 240, 0.3); /* Cyan border on hover */
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #00aef0; /* Cyan underline */
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-    </style>
+    <!-- Подключение локальных CSS файлов -->
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/manrope.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -299,7 +235,7 @@
                         Хватит терять клиентов из-за <span class="gradient-text">маркетплейсов</span>
                     </h1>
                     <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto md:mx-0">
-                        Запустите свой собственный интернет-магазин, который работает как мобильное приложение. Ваши постоянные клиенты будут заказывать у вас, а не у гигантов вроде Ozon.
+                        Собственный маркетплейс, который работает как мобильное приложение. Мы всё сделаем — останется только принимать заказы. Клиенты будут покупать у вас, а не у гигантов вроде Ozon.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#demo" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 text-center glow-effect">
@@ -645,12 +581,17 @@
     </button>
     
     <!-- Iframe Modal -->
+    <!-- ИЗМЕНЕНИЕ: Структура модального окна полностью переработана для полноэкранного режима -->
     <div id="iframeModal" class="hidden fixed inset-0 bg-slate-900 z-[100] transition-opacity duration-300">
+        <!-- Сам iframe, который заполняет всё пространство -->
         <iframe id="demoIframe" class="w-full h-full border-0" title="Демо-версия"></iframe>
+        
+        <!-- Кнопка закрытия, расположенная поверх iframe -->
         <button id="closeIframeModalBtn" class="fixed top-4 right-4 z-[110] w-12 h-12 bg-slate-800/60 backdrop-blur-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-700/80 transition-all flex items-center justify-center">
             <i class="fas fa-times text-2xl"></i>
         </button>
     </div>
+    <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
 
    <script>
         // Back to Top Button
