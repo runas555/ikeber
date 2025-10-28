@@ -594,51 +594,70 @@
     <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
 
     <!-- Модальное окно формы заявки -->
-    <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-slate-800 rounded-2xl max-w-sm w-full">
+    <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-slate-800/90 backdrop-blur-md rounded-2xl max-w-md w-full border border-slate-700/50 shadow-2xl animate-fade-in">
             <!-- Заголовок и кнопка закрытия -->
-            <div class="flex justify-between items-center p-4 border-b border-slate-700">
-                <h3 class="text-lg font-bold text-white">Оставить заявку</h3>
-                <button id="closeLeadModal" class="text-slate-400 hover:text-white transition-colors">
+            <div class="flex justify-between items-center p-6 border-b border-slate-700/50">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-rocket text-white text-sm"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Начать с IKEBER</h3>
+                </div>
+                <button id="closeLeadModal" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
                     <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
             
             <!-- Форма с прямым action для обхода CORS -->
-            <form id="leadForm" action="https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec" method="POST" target="hiddenFrame" class="p-4 space-y-3">
+            <form id="leadForm" action="https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec" method="POST" target="hiddenFrame" class="p-6 space-y-4">
                 <!-- Имя -->
-                <div>
+                <div class="animate-slide-up" style="animation-delay: 0.1s">
+                    <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Имя *</label>
                     <input type="text" name="name" id="name" required
-                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
+                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
                            placeholder="Ваше имя">
-                    <div id="nameError" class="hidden text-red-400 text-xs mt-1"></div>
+                    <div id="nameError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
                 <!-- Телефон -->
-                <div>
+                <div class="animate-slide-up" style="animation-delay: 0.2s">
+                    <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Телефон *</label>
                     <input type="tel" name="phone" id="phone" required
-                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
-                           placeholder="Телефон">
-                    <div id="phoneError" class="hidden text-red-400 text-xs mt-1"></div>
+                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                           placeholder="+7 (999) 123-45-67">
+                    <div id="phoneError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
                 <!-- Email -->
-                <div>
+                <div class="animate-slide-up" style="animation-delay: 0.3s">
+                    <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
                     <input type="email" name="email" id="email" required
-                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
-                           placeholder="Email">
-                    <div id="emailError" class="hidden text-red-400 text-xs mt-1"></div>
+                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                           placeholder="your@email.com">
+                    <div id="emailError" class="hidden text-red-400 text-sm mt-1"></div>
+                </div>
+                
+                <!-- Тариф -->
+                <div class="animate-slide-up" style="animation-delay: 0.4s">
+                    <label for="tariff" class="block text-sm font-medium text-slate-300 mb-2">Интересующий тариф</label>
+                    <select name="tariff" id="tariff"
+                            class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300">
+                        <option value="Начальный">Начальный - 3000₽/мес</option>
+                        <option value="Логистика">Логистика - 10000₽/мес</option>
+                        <option value="Маркетинг Плюс">Маркетинг Плюс - 15000₽/мес</option>
+                    </select>
                 </div>
                 
                 <!-- Скрытые поля -->
-                <input type="hidden" name="tariff" value="Начальный">
                 <input type="hidden" name="source" value="Сайт">
                 
                 <!-- Кнопка отправки -->
-                <div class="pt-2">
+                <div class="pt-2 animate-slide-up" style="animation-delay: 0.5s">
                     <button type="submit" id="submitBtn"
-                            class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg font-bold transition duration-300 text-sm">
-                        Отправить заявку
+                            class="w-full bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center gap-2">
+                        <span id="submitText">Отправить заявку</span>
+                        <i id="submitSpinner" class="fas fa-spinner fa-spin opacity-0"></i>
                     </button>
                 </div>
             </form>
@@ -647,13 +666,13 @@
             <iframe name="hiddenFrame" class="hidden"></iframe>
             
             <!-- Сообщение об успехе -->
-            <div id="successMessage" class="hidden p-4 text-center">
-                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <i class="fas fa-check text-white text-lg"></i>
+            <div id="successMessage" class="hidden p-6 text-center animate-fade-in">
+                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i class="fas fa-check text-white text-2xl"></i>
                 </div>
-                <h4 class="text-lg font-bold text-white mb-2">Заявка отправлена!</h4>
-                <p class="text-slate-300 text-sm mb-3">Мы свяжемся с вами в ближайшее время</p>
-                <button id="closeSuccess" class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-1 rounded-lg font-medium transition duration-300 text-sm">
+                <h4 class="text-xl font-bold text-white mb-2">Заявка отправлена!</h4>
+                <p class="text-slate-300 mb-4">Мы свяжемся с вами в ближайшее время</p>
+                <button id="closeSuccess" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300 transform hover:scale-105">
                     Закрыть
                 </button>
             </div>
@@ -757,17 +776,26 @@
             const closeSuccess = document.getElementById('closeSuccess');
             const hiddenFrame = document.querySelector('iframe[name="hiddenFrame"]');
             const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
 
             // Функции для работы с модальным окном формы
             function openLeadModal() {
                 leadModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+                // Анимация появления
+                setTimeout(() => {
+                    leadModal.style.opacity = '1';
+                }, 10);
             }
 
             function closeLeadModalFunc() {
-                leadModal.classList.add('hidden');
-                document.body.style.overflow = '';
-                resetForm();
+                leadModal.style.opacity = '0';
+                setTimeout(() => {
+                    leadModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    resetForm();
+                }, 300);
             }
 
             // Валидация формы
@@ -803,12 +831,16 @@
                 return isValid;
             }
 
-            // Показать ошибку
+            // Показать ошибку с анимацией
             function showError(elementId, message) {
                 const errorElement = document.getElementById(elementId);
                 if (errorElement) {
                     errorElement.textContent = message;
                     errorElement.classList.remove('hidden');
+                    errorElement.classList.add('animate-shake');
+                    setTimeout(() => {
+                        errorElement.classList.remove('animate-shake');
+                    }, 500);
                 }
             }
 
@@ -828,6 +860,8 @@
                 if (leadForm) leadForm.classList.remove('hidden');
                 if (successMessage) successMessage.classList.add('hidden');
                 if (submitBtn) submitBtn.disabled = false;
+                if (submitText) submitText.textContent = 'Отправить заявку';
+                if (submitSpinner) submitSpinner.classList.add('opacity-0');
             }
 
             // Открытие модального окна при клике на кнопки "Начать бесплатно"
@@ -870,7 +904,9 @@
                         return;
                     }
                     
-                    // Блокируем кнопку отправки
+                    // Показываем спиннер и блокируем кнопку
+                    if (submitText) submitText.textContent = 'Отправка...';
+                    if (submitSpinner) submitSpinner.classList.remove('opacity-0');
                     if (submitBtn) submitBtn.disabled = true;
                 });
             }
@@ -879,9 +915,12 @@
             if (hiddenFrame) {
                 hiddenFrame.addEventListener('load', function() {
                     try {
-                        // Если форма успешно отправлена, показываем сообщение
+                        // Если форма успешно отправлена, показываем сообщение с анимацией
                         if (leadForm) leadForm.classList.add('hidden');
-                        if (successMessage) successMessage.classList.remove('hidden');
+                        if (successMessage) {
+                            successMessage.classList.remove('hidden');
+                            successMessage.classList.add('animate-bounce-in');
+                        }
                     } catch (error) {
                         console.error('Ошибка обработки ответа:', error);
                     }
