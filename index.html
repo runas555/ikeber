@@ -608,23 +608,26 @@
             <form id="leadForm" action="https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec" method="POST" target="hiddenFrame" class="p-4 space-y-3">
                 <!-- Имя -->
                 <div>
-                    <input type="text" name="name" required
+                    <input type="text" name="name" id="name" required
                            class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
                            placeholder="Ваше имя">
+                    <div id="nameError" class="hidden text-red-400 text-xs mt-1"></div>
                 </div>
                 
                 <!-- Телефон -->
                 <div>
-                    <input type="tel" name="phone" required
+                    <input type="tel" name="phone" id="phone" required
                            class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
                            placeholder="Телефон">
+                    <div id="phoneError" class="hidden text-red-400 text-xs mt-1"></div>
                 </div>
                 
                 <!-- Email -->
                 <div>
-                    <input type="email" name="email" required
+                    <input type="email" name="email" id="email" required
                            class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
                            placeholder="Email">
+                    <div id="emailError" class="hidden text-red-400 text-xs mt-1"></div>
                 </div>
                 
                 <!-- Скрытые поля -->
@@ -633,7 +636,7 @@
                 
                 <!-- Кнопка отправки -->
                 <div class="pt-2">
-                    <button type="submit"
+                    <button type="submit" id="submitBtn"
                             class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg font-bold transition duration-300 text-sm">
                         Отправить заявку
                     </button>
@@ -746,86 +749,87 @@
         });
 
         // Логика формы заявки
-        const leadModal = document.getElementById('leadModal');
-        const closeLeadModal = document.getElementById('closeLeadModal');
-        const leadForm = document.getElementById('leadForm');
-        const successMessage = document.getElementById('successMessage');
-        const closeSuccess = document.getElementById('closeSuccess');
-        const hiddenFrame = document.querySelector('iframe[name="hiddenFrame"]');
-        const submitBtn = document.getElementById('submitBtn');
-
-        // Функции для работы с модальным окном формы
-        function openLeadModal() {
-            leadModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLeadModalFunc() {
-            leadModal.classList.add('hidden');
-            document.body.style.overflow = '';
-            resetForm();
-        }
-
-        // Валидация формы
-        function validateForm() {
-            let isValid = true;
-            
-            // Очистка предыдущих ошибок
-            clearErrors();
-            
-            // Валидация имени
-            const name = document.getElementById('name').value.trim();
-            if (!name) {
-                showError('nameError', 'Введите ваше имя');
-                isValid = false;
-            }
-            
-            // Валидация телефона
-            const phone = document.getElementById('phone').value;
-            const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-            if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
-                showError('phoneError', 'Введите корректный номер телефона');
-                isValid = false;
-            }
-            
-            // Валидация email
-            const email = document.getElementById('email').value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showError('emailError', 'Введите корректный email');
-                isValid = false;
-            }
-            
-            return isValid;
-        }
-
-        // Показать ошибку
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-            errorElement.classList.remove('hidden');
-        }
-
-        // Очистить ошибки
-        function clearErrors() {
-            const errorElements = document.querySelectorAll('[id$="Error"]');
-            errorElements.forEach(element => {
-                element.classList.add('hidden');
-                element.textContent = '';
-            });
-        }
-
-        // Сброс формы
-        function resetForm() {
-            leadForm.reset();
-            clearErrors();
-            leadForm.classList.remove('hidden');
-            successMessage.classList.add('hidden');
-            submitBtn.disabled = false;
-        }
-
-        // Обработчики событий для формы заявки
         document.addEventListener('DOMContentLoaded', function() {
+            const leadModal = document.getElementById('leadModal');
+            const closeLeadModal = document.getElementById('closeLeadModal');
+            const leadForm = document.getElementById('leadForm');
+            const successMessage = document.getElementById('successMessage');
+            const closeSuccess = document.getElementById('closeSuccess');
+            const hiddenFrame = document.querySelector('iframe[name="hiddenFrame"]');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Функции для работы с модальным окном формы
+            function openLeadModal() {
+                leadModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLeadModalFunc() {
+                leadModal.classList.add('hidden');
+                document.body.style.overflow = '';
+                resetForm();
+            }
+
+            // Валидация формы
+            function validateForm() {
+                let isValid = true;
+                
+                // Очистка предыдущих ошибок
+                clearErrors();
+                
+                // Валидация имени
+                const name = document.getElementById('name').value.trim();
+                if (!name) {
+                    showError('nameError', 'Введите ваше имя');
+                    isValid = false;
+                }
+                
+                // Валидация телефона
+                const phone = document.getElementById('phone').value;
+                const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+                if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
+                    showError('phoneError', 'Введите корректный номер телефона');
+                    isValid = false;
+                }
+                
+                // Валидация email
+                const email = document.getElementById('email').value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    showError('emailError', 'Введите корректный email');
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+
+            // Показать ошибку
+            function showError(elementId, message) {
+                const errorElement = document.getElementById(elementId);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.remove('hidden');
+                }
+            }
+
+            // Очистить ошибки
+            function clearErrors() {
+                const errorElements = document.querySelectorAll('[id$="Error"]');
+                errorElements.forEach(element => {
+                    element.classList.add('hidden');
+                    element.textContent = '';
+                });
+            }
+
+            // Сброс формы
+            function resetForm() {
+                if (leadForm) leadForm.reset();
+                clearErrors();
+                if (leadForm) leadForm.classList.remove('hidden');
+                if (successMessage) successMessage.classList.add('hidden');
+                if (submitBtn) submitBtn.disabled = false;
+            }
+
             // Открытие модального окна при клике на кнопки "Начать бесплатно"
             document.querySelectorAll('a[href="#pricing"]').forEach(button => {
                 button.addEventListener('click', function(e) {
@@ -835,44 +839,54 @@
             });
             
             // Закрытие модального окна
-            closeLeadModal.addEventListener('click', closeLeadModalFunc);
-            closeSuccess.addEventListener('click', closeLeadModalFunc);
+            if (closeLeadModal) {
+                closeLeadModal.addEventListener('click', closeLeadModalFunc);
+            }
+            if (closeSuccess) {
+                closeSuccess.addEventListener('click', closeLeadModalFunc);
+            }
             
             // Закрытие по клику на фон
-            leadModal.addEventListener('click', function(e) {
-                if (e.target === leadModal) {
-                    closeLeadModalFunc();
-                }
-            });
+            if (leadModal) {
+                leadModal.addEventListener('click', function(e) {
+                    if (e.target === leadModal) {
+                        closeLeadModalFunc();
+                    }
+                });
+            }
             
             // Закрытие по ESC
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !leadModal.classList.contains('hidden')) {
+                if (e.key === 'Escape' && leadModal && !leadModal.classList.contains('hidden')) {
                     closeLeadModalFunc();
                 }
             });
             
             // Обработка отправки формы
-            leadForm.addEventListener('submit', function(e) {
-                if (!validateForm()) {
-                    e.preventDefault();
-                    return;
-                }
-                
-                // Блокируем кнопку отправки
-                submitBtn.disabled = true;
-            });
+            if (leadForm) {
+                leadForm.addEventListener('submit', function(e) {
+                    if (!validateForm()) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
+                    // Блокируем кнопку отправки
+                    if (submitBtn) submitBtn.disabled = true;
+                });
+            }
             
             // Обработка успешной отправки формы
-            hiddenFrame.addEventListener('load', function() {
-                try {
-                    // Если форма успешно отправлена, показываем сообщение
-                    leadForm.classList.add('hidden');
-                    successMessage.classList.remove('hidden');
-                } catch (error) {
-                    console.error('Ошибка обработки ответа:', error);
-                }
-            });
+            if (hiddenFrame) {
+                hiddenFrame.addEventListener('load', function() {
+                    try {
+                        // Если форма успешно отправлена, показываем сообщение
+                        if (leadForm) leadForm.classList.add('hidden');
+                        if (successMessage) successMessage.classList.remove('hidden');
+                    } catch (error) {
+                        console.error('Ошибка обработки ответа:', error);
+                    }
+                });
+            }
         });
     </script>
 </body>
