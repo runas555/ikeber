@@ -79,6 +79,3 @@ temp/
 
 # DynamoDB Local files
 .dynamodb/
-
-
-apps-script.js
