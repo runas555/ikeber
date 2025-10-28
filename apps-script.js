@@ -19,11 +19,12 @@ const CONFIG = {
 
 
 /**
- * Основная функция для обработки заявки
+ * Основная функция для обработки заявки из формы
  */
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
+    // Получаем данные из формы (application/x-www-form-urlencoded)
+    const data = e.parameter;
     
     if (!validateLeadData(data)) {
       return createResponse(400, { error: 'Не все обязательные поля заполнены' });
@@ -32,11 +33,29 @@ function doPost(e) {
     const leadId = saveToGoogleSheets(data);
     sendNotifications(data, leadId);
     
-    return createResponse(200, {
-      success: true,
-      message: 'Заявка успешно отправлена',
-      leadId: leadId
-    });
+    // Возвращаем HTML страницу с сообщением об успехе
+    return HtmlService.createHtmlOutput(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Заявка отправлена</title>
+          <style>
+            body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+            .success { color: green; font-size: 24px; }
+          </style>
+        </head>
+        <body>
+          <div class="success">✅ Заявка успешно отправлена!</div>
+          <p>Мы свяжемся с вами в ближайшее время</p>
+          <script>
+            // Закрываем окно через 2 секунды
+            setTimeout(() => {
+              window.close();
+            }, 2000);
+          </script>
+        </body>
+      </html>
+    `);
     
   } catch (error) {
     console.error('Ошибка обработки заявки:', error);
