@@ -748,7 +748,7 @@
         });
 
         // Логика формы заявки
-        const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'; // Заменить на реальный URL
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec';
 
         // Элементы DOM для формы заявки
         const leadModal = document.getElementById('leadModal');
@@ -810,12 +810,6 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(data.email)) {
                 showError('emailError', 'Введите корректный email');
-                isValid = false;
-            }
-            
-            // Валидация тарифа
-            if (!data.tariff) {
-                showError('tariffError', 'Выберите тариф');
                 isValid = false;
             }
             
@@ -922,12 +916,7 @@
                     phone: document.getElementById('phone').value,
                     email: document.getElementById('email').value,
                     tariff: document.getElementById('tariff').value,
-                    businessName: document.getElementById('businessName').value,
-                    businessType: document.getElementById('businessType').value,
-                    productCount: document.getElementById('productCount').value,
-                    city: document.getElementById('city').value,
                     source: document.getElementById('source').value,
-                    comment: document.getElementById('comment').value,
                     ipAddress: document.getElementById('ipAddress').value
                 };
                 
