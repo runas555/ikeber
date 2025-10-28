@@ -5,9 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Build outputs
-dist/
-build/
-*.css.map
+dist/output.css
 
 # Environment variables
 .env
@@ -16,43 +14,14 @@ build/
 .env.test.local
 .env.production.local
 
-# IDE and editor files
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
 
-# OS generated files
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
 # Logs
 logs
 *.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-
-# Temporary folders
-tmp/
-temp/
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history
-
-fontawesome

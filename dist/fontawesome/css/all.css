@@ -1,0 +1,461 @@
+/*!
+ * Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2024 Fonticons, Inc.
+ */
+:root, :host {
+  --fa-style-family-classic: 'Font Awesome 6 Free';
+  --fa-font-solid: normal 900 1em/1 'Font Awesome 6 Free';
+  --fa-style-family-brands: 'Font Awesome 6 Brands';
+  --fa-font-brands: normal 400 1em/1 'Font Awesome 6 Brands';
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
+}
+
+.fas,
+.fa-solid {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.ttf") format("truetype");
+}
+
+.fab,
+.fa-brands {
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+}
+
+.fa-arrow-left:before { content: "\f060"; }
+.fa-arrow-up:before { content: "\f062"; }
+.fa-barcode:before { content: "\f02a"; }
+.fa-bars:before { content: "\f0c9"; }
+.fa-box-open:before { content: "\f49e"; }
+.fa-boxes-stacked:before { content: "\f468"; }
+.fa-camera:before { content: "\f030"; }
+.fa-camera-retro:before { content: "\f083"; }
+.fa-chart-bar:before { content: "\f080"; }
+.fa-check:before { content: "\f00c"; }
+.fa-check-circle:before { content: "\f058"; }
+.fa-chevron-down:before { content: "\f078"; }
+.fa-chevron-left:before { content: "\f053"; }
+.fa-chevron-right:before { content: "\f054"; }
+.fa-clock:before { content: "\f017"; }
+.fa-cog:before { content: "\f013"; }
+.fa-envelope:before { content: "\f0e0"; }
+.fa-exclamation-triangle:before { content: "\f071"; }
+.fa-heart:before { content: "\f004"; }
+.fa-home:before { content: "\f015"; }
+.fa-magnifying-glass-chart:before { content: "\f522"; }
+.fa-map-marker-alt:before { content: "\f3c5"; }
+.fa-microphone:before { content: "\f130"; }
+.fa-minus-circle:before { content: "\f056"; }
+.fa-mobile-screen-button:before { content: "\f3cd"; }
+.fa-paperclip:before { content: "\f0c6"; }
+.fa-phone-alt:before { content: "\f879"; }
+.fa-plus:before { content: "\f067"; }
+.fa-plus-circle:before { content: "\f055"; }
+.fa-qrcode:before { content: "\f029"; }
+.fa-quote-left:before { content: "\f10d"; }
+.fa-quote-right:before { content: "\f10e"; }
+.fa-receipt:before { content: "\f543"; }
+.fa-robot:before { content: "\f544"; }
+.fa-rocket:before { content: "\f135"; }
+.fa-search:before { content: "\f002"; }
+.fa-share-alt:before { content: "\f1e0"; }
+.fa-shopping-bag:before { content: "\f290"; }
+.fa-sign-out-alt:before { content: "\f2f5"; }
+.fa-spinner:before { content: "\f110"; }
+.fa-star:before { content: "\f005"; }
+.fa-store:before { content: "\f54e"; }
+.fa-table-cells:before { content: "\f00a"; }
+.fa-th-large:before { content: "\f009"; }
+.fa-times:before { content: "\f00d"; }
+.fa-times-circle:before { content: "\f057"; }
+.fa-trash-alt:before { content: "\f2ed"; }
+.fa-truck:before { content: "\f0d1"; }
+.fa-truck-fast:before { content: "\f48b"; }
+.fa-user:before { content: "\f007"; }
+.fa-user-circle:before { content: "\f2bd"; }
+.fa-user-edit:before { content: "\f4ff"; }
+.fa-user-plus:before { content: "\f234"; }
+.fa-walking:before { content: "\f554"; }
+.fa-whatsapp:before { content: "\f232"; }
+.fa-telegram:before { content: "\f2c6"; }
+.fa-twitter:before { content: "\f099"; }
+.fa-facebook-f:before { content: "\f39e"; }
+.fa-instagram:before { content: "\f16d"; }
+.fa-linkedin-in:before { content: "\f0e1"; }
+.fa-google:before { content: "\f1a0"; }
+
+.fa-solid,
+.fas {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.fa-brands,
+.fab {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
+.fa-classic,
+.fa-regular,
+.far {
+  font-weight: 400;
+}
+
+.fa-spin {
+  animation: fa-spin 1s linear infinite;
+}
+
+@keyframes fa-spin {
+  0% { transform: rotate(0deg); }
+  to { transform: rotate(1turn); }
+}
+
+.fa-pulse {
+  animation: fa-spin 1s steps(8) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-pulse,
+  .fa-spin {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: #eee;
+  border-radius: .1em;
+  border-style: solid;
+  border-width: .08em;
+  padding: .2em .25em .15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa-beat {
+  animation: fa-beat 1s ease-in-out infinite;
+}
+
+@keyframes fa-beat {
+  0%, 90% { transform: scale(1); }
+  45% { transform: scale(1.25); }
+}
+
+.fa-bounce {
+  animation: fa-bounce 1s infinite;
+}
+
+@keyframes fa-bounce {
+  0%, 20%, 53%, to {
+    animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+    transform: translateZ(0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(.755, .05, .855, .06);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(.755, .05, .855, .06);
+    transform: translate3d(0, -15px, 0);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+    transform: translateZ(0);
+  }
+}
+
+.fa-fade {
+  animation: fa-fade 1s linear infinite;
+}
+
+@keyframes fa-fade {
+  0% { opacity: 1; }
+  50% { opacity: .4; }
+  to { opacity: 1; }
+}
+
+.fa-beat-fade {
+  animation: fa-beat-fade 1s linear infinite;
+}
+
+@keyframes fa-beat-fade {
+  0%, to { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+.fa-flip {
+  animation: fa-flip 1s linear infinite;
+}
+
+@keyframes fa-flip {
+  50% { transform: rotate3d(0, 1, 0, 90deg); }
+}
+
+.fa-shake {
+  animation: fa-shake 1s linear infinite;
+}
+
+@keyframes fa-shake {
+  0% { transform: rotate(-15deg); }
+  4% { transform: rotate(15deg); }
+  8%, 24% { transform: rotate(-18deg); }
+  12%, 28% { transform: rotate(18deg); }
+  16% { transform: rotate(-22deg); }
+  20% { transform: rotate(22deg); }
+  32% { transform: rotate(-12deg); }
+  36% { transform: rotate(12deg); }
+  40%, to { transform: rotate(0deg); }
+}
+
+.fa-spin-reverse {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+  .fa-beat-fade,
+  .fa-bounce,
+  .fa-fade,
+  .fa-flip,
+  .fa-pulse,
+  .fa-shake,
+  .fa-spin {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1, -1);
+}
+
+.fa-2xs {
+  font-size: .625em;
+  line-height: .1em;
+  vertical-align: .225em;
+}
+
+.fa-xs {
+  font-size: .75em;
+  line-height: .08333em;
+  vertical-align: .125em;
+}
+
+.fa-sm {
+  font-size: .875em;
+  line-height: .07143em;
+  vertical-align: .05357em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: .05em;
+  vertical-align: -.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: .04167em;
+  vertical-align: -.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: .03125em;
+  vertical-align: -.1875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: #eee;
+  border-radius: .1em;
+  border-style: solid;
+  border-width: .08em;
+  padding: .2em .25em .15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: auto;
+}
+
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+.fa-stack-2x {
+  font-size: 2em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
