@@ -595,116 +595,50 @@
 
     <!-- Модальное окно формы заявки -->
     <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-slate-800 rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div class="bg-slate-800 rounded-2xl max-w-sm w-full">
             <!-- Заголовок и кнопка закрытия -->
-            <div class="flex justify-between items-center p-6 border-b border-slate-700">
-                <h3 class="text-xl font-bold text-white">Оставить заявку</h3>
+            <div class="flex justify-between items-center p-4 border-b border-slate-700">
+                <h3 class="text-lg font-bold text-white">Оставить заявку</h3>
                 <button id="closeLeadModal" class="text-slate-400 hover:text-white transition-colors">
-                    <i class="fas fa-times text-2xl"></i>
+                    <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
             
             <!-- Форма -->
-            <form id="leadForm" class="p-6 space-y-4">
+            <form id="leadForm" class="p-4 space-y-3">
                 <!-- Имя -->
                 <div>
-                    <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Имя *</label>
                     <input type="text" id="name" name="name" required
-                           class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
+                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
                            placeholder="Ваше имя">
-                    <div id="nameError" class="text-red-400 text-sm mt-1 hidden"></div>
+                    <div id="nameError" class="text-red-400 text-xs mt-1 hidden"></div>
                 </div>
                 
                 <!-- Телефон -->
                 <div>
-                    <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Телефон *</label>
                     <input type="tel" id="phone" name="phone" required
-                           class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
-                           placeholder="+7 (999) 123-45-67">
-                    <div id="phoneError" class="text-red-400 text-sm mt-1 hidden"></div>
+                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
+                           placeholder="Телефон">
+                    <div id="phoneError" class="text-red-400 text-xs mt-1 hidden"></div>
                 </div>
                 
                 <!-- Email -->
                 <div>
-                    <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
                     <input type="email" id="email" name="email" required
-                           class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
-                           placeholder="your@email.com">
-                    <div id="emailError" class="text-red-400 text-sm mt-1 hidden"></div>
-                </div>
-                
-                <!-- Тариф -->
-                <div>
-                    <label for="tariff" class="block text-sm font-medium text-slate-300 mb-2">Выберите тариф *</label>
-                    <select id="tariff" name="tariff" required
-                            class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-colors">
-                        <option value="">Выберите тариф</option>
-                        <option value="Начальный">Начальный - 3000₽/мес</option>
-                        <option value="Логистика">Логистика - 10000₽/мес</option>
-                        <option value="Маркетинг Плюс">Маркетинг Плюс - 15000₽/мес</option>
-                    </select>
-                    <div id="tariffError" class="text-red-400 text-sm mt-1 hidden"></div>
-                </div>
-                
-                <!-- Название бизнеса -->
-                <div>
-                    <label for="businessName" class="block text-sm font-medium text-slate-300 mb-2">Название бизнеса</label>
-                    <input type="text" id="businessName" name="businessName"
-                           class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
-                           placeholder="Название вашего магазина или компании">
-                </div>
-                
-                <!-- Тип бизнеса -->
-                <div>
-                    <label for="businessType" class="block text-sm font-medium text-slate-300 mb-2">Тип бизнеса</label>
-                    <select id="businessType" name="businessType"
-                            class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-colors">
-                        <option value="">Выберите тип бизнеса</option>
-                        <option value="Розничная торговля">Розничная торговля</option>
-                        <option value="Услуги">Услуги</option>
-                        <option value="Производство">Производство</option>
-                        <option value="Кафе/Ресторан">Кафе/Ресторан</option>
-                        <option value="Другое">Другое</option>
-                    </select>
-                </div>
-                
-                <!-- Количество товаров -->
-                <div>
-                    <label for="productCount" class="block text-sm font-medium text-slate-300 mb-2">Количество товаров</label>
-                    <select id="productCount" name="productCount"
-                            class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-colors">
-                        <option value="">Выберите количество</option>
-                        <option value="до 50">до 50 товаров</option>
-                        <option value="50-200">50-200 товаров</option>
-                        <option value="200-500">200-500 товаров</option>
-                        <option value="500+">более 500 товаров</option>
-                    </select>
-                </div>
-                
-                <!-- Город -->
-                <div>
-                    <label for="city" class="block text-sm font-medium text-slate-300 mb-2">Город</label>
-                    <input type="text" id="city" name="city"
-                           class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors"
-                           placeholder="Ваш город">
-                </div>
-                
-                <!-- Комментарий -->
-                <div>
-                    <label for="comment" class="block text-sm font-medium text-slate-300 mb-2">Комментарий или вопросы</label>
-                    <textarea id="comment" name="comment" rows="3"
-                              class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
-                              placeholder="Есть вопросы или особые пожелания?"></textarea>
+                           class="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
+                           placeholder="Email">
+                    <div id="emailError" class="text-red-400 text-xs mt-1 hidden"></div>
                 </div>
                 
                 <!-- Скрытые поля -->
+                <input type="hidden" id="tariff" name="tariff" value="Начальный">
                 <input type="hidden" id="source" name="source" value="Сайт">
                 <input type="hidden" id="ipAddress" name="ipAddress">
                 
                 <!-- Кнопка отправки -->
-                <div class="pt-4">
+                <div class="pt-2">
                     <button type="submit" id="submitBtn"
-                            class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-3 px-6 rounded-lg font-bold transition duration-300 flex items-center justify-center gap-2">
+                            class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg font-bold transition duration-300 flex items-center justify-center gap-2 text-sm">
                         <span id="submitText">Отправить заявку</span>
                         <i id="submitSpinner" class="fas fa-spinner fa-spin hidden"></i>
                     </button>
@@ -712,13 +646,13 @@
             </form>
             
             <!-- Сообщение об успехе -->
-            <div id="successMessage" class="hidden p-6 text-center">
-                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-check text-white text-2xl"></i>
+            <div id="successMessage" class="hidden p-4 text-center">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-check text-white text-lg"></i>
                 </div>
-                <h4 class="text-xl font-bold text-white mb-2">Заявка отправлена!</h4>
-                <p class="text-slate-300 mb-4">Мы свяжемся с вами в ближайшее время</p>
-                <button id="closeSuccess" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+                <h4 class="text-lg font-bold text-white mb-2">Заявка отправлена!</h4>
+                <p class="text-slate-300 text-sm mb-3">Мы свяжемся с вами в ближайшее время</p>
+                <button id="closeSuccess" class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-1 rounded-lg font-medium transition duration-300 text-sm">
                     Закрыть
                 </button>
             </div>
