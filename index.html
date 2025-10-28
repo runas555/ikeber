@@ -207,7 +207,7 @@
                 </nav>
                 
                 <a href="#pricing" class="hidden md:inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-full font-medium transition duration-300 glow-effect">
-                    Начать бесплатно
+                    Попробовать бесплатно
                 </a>
                 
                 <button id="mobileMenuButton" class="md:hidden text-slate-300 focus:outline-none">
@@ -220,7 +220,7 @@
             <a href="#how-it-works" class="block nav-link text-slate-300 hover:text-white py-2 text-center">Как это работает</a>
             <a href="#pricing" class="block nav-link text-slate-300 hover:text-white py-2 text-center">Тарифы</a>
             <a href="#pricing" class="block bg-cyan-500 hover:bg-cyan-600 text-white mt-4 px-6 py-3 rounded-full font-medium transition duration-300 text-center">
-                Начать бесплатно
+                Попробовать бесплатно
             </a>
         </nav>
     </header>
@@ -445,7 +445,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Базовая SEO-оптимизация</span></li>
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Управление через Google Таблицы</span></li>
                         </ul>
-                        <a href="#" class="mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center">Начать бесплатно</a>
+                        <a href="#" class="open-tariff-form mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center" data-tariff="Начальный">Начать бесплатно</a>
                     </div>
 
                     <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col relative border-2 border-cyan-500 transform lg:scale-105">
@@ -460,7 +460,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Помощь в организации курьеров</span></li>
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Контроль логистики</span></li>
                         </ul>
-                        <a href="#" class="mt-auto w-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center glow-effect">Начать бесплатно</a>
+                        <a href="#" class="open-tariff-form mt-auto w-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center glow-effect" data-tariff="Логистика">Выбрать тариф</a>
                     </div>
                     
                     <div class="bg-slate-800/50 rounded-xl p-8 h-full flex flex-col card-hover">
@@ -474,7 +474,7 @@
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Инструменты для акций и скидок</span></li>
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Ежемесячный отчет по продажам</span></li>
                         </ul>
-                        <a href="#" class="mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center">Начать бесплатно</a>
+                        <a href="#" class="open-tariff-form mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center" data-tariff="Маркетинг Плюс">Выбрать тариф</a>
                     </div>
                 </div>
             </div>
@@ -595,7 +595,7 @@
 
     <!-- Модальное окно формы заявки -->
     <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
-        <div class="bg-slate-800/90 backdrop-blur-md rounded-2xl max-w-md w-full border border-slate-700/50 shadow-2xl animate-fade-in">
+        <div class="bg-slate-800/90 backdrop-blur-md rounded-2xl max-w-sm w-full border border-slate-700/50 shadow-2xl animate-fade-in">
             <!-- Заголовок и кнопка закрытия -->
             <div class="flex justify-between items-center p-6 border-b border-slate-700/50">
                 <div class="flex items-center gap-3">
@@ -864,13 +864,37 @@
                 if (submitSpinner) submitSpinner.classList.add('opacity-0');
             }
 
-            // Открытие модального окна при клике на кнопки "Начать бесплатно"
+            // Открытие модального окна при клике на кнопки "Попробовать бесплатно"
             document.querySelectorAll('a[href="#pricing"]').forEach(button => {
+                // Проверяем, содержит ли кнопка текст "Попробовать бесплатно"
+                if (button.textContent.includes('Попробовать бесплатно')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openLeadModal();
+                    });
+                }
+            });
+
+            // Открытие модального окна с выбранным тарифом при клике на кнопки в тарифах
+            document.querySelectorAll('.open-tariff-form').forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
-                    openLeadModal();
+                    const tariff = this.getAttribute('data-tariff');
+                    openLeadModalWithTariff(tariff);
                 });
             });
+
+            // Функция открытия формы с выбранным тарифом
+            function openLeadModalWithTariff(tariff) {
+                openLeadModal();
+                // Устанавливаем выбранный тариф в форме
+                setTimeout(() => {
+                    const tariffSelect = document.getElementById('tariff');
+                    if (tariffSelect) {
+                        tariffSelect.value = tariff;
+                    }
+                }, 100);
+            }
             
             // Закрытие модального окна
             if (closeLeadModal) {
