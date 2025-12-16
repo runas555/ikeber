@@ -868,8 +868,9 @@
             }
         });
 
-        // Логика формы заявки
+        // ALL MODAL LOGIC IS HANDLED INSIDE DOMCONTENTLOADED FOR RELIABILITY
         document.addEventListener('DOMContentLoaded', function() {
+            // ---- MODAL: LEAD FORM ----
             const leadModal = document.getElementById('leadModal');
             const closeLeadModal = document.getElementById('closeLeadModal');
             const leadForm = document.getElementById('leadForm');
@@ -880,81 +881,56 @@
             const submitText = document.getElementById('submitText');
             const submitSpinner = document.getElementById('submitSpinner');
 
-            // Функции для работы с модальным окном формы
             function openLeadModal() {
-                leadModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                // Анимация появления
-                setTimeout(() => {
-                    leadModal.style.opacity = '1';
-                }, 10);
+                if (leadModal) {
+                    leadModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => { leadModal.style.opacity = '1'; }, 10);
+                }
             }
 
             function closeLeadModalFunc() {
-                leadModal.style.opacity = '0';
-                setTimeout(() => {
-                    leadModal.classList.add('hidden');
-                    document.body.style.overflow = '';
-                    resetForm();
-                }, 300);
+                if (leadModal) {
+                    leadModal.style.opacity = '0';
+                    setTimeout(() => {
+                        leadModal.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        resetForm();
+                    }, 300);
+                }
             }
 
-            // Валидация формы
             function validateForm() {
                 let isValid = true;
-                
-                // Очистка предыдущих ошибок
                 clearErrors();
-                
-                // Валидация имени
                 const name = document.getElementById('name').value.trim();
-                if (!name) {
-                    showError('nameError', 'Введите ваше имя');
-                    isValid = false;
-                }
-                
-                // Валидация телефона
+                if (!name) { showError('nameError', 'Введите ваше имя'); isValid = false; }
                 const phone = document.getElementById('phone').value;
                 const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-                if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
-                    showError('phoneError', 'Введите корректный номер телефона');
-                    isValid = false;
-                }
-                
-                // Валидация email
+                if (!phoneRegex.test(phone.replace(/\D/g, ''))) { showError('phoneError', 'Введите корректный номер телефона'); isValid = false; }
                 const email = document.getElementById('email').value;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    showError('emailError', 'Введите корректный email');
-                    isValid = false;
-                }
-                
+                if (!emailRegex.test(email)) { showError('emailError', 'Введите корректный email'); isValid = false; }
                 return isValid;
             }
 
-            // Показать ошибку с анимацией
             function showError(elementId, message) {
                 const errorElement = document.getElementById(elementId);
                 if (errorElement) {
                     errorElement.textContent = message;
                     errorElement.classList.remove('hidden');
                     errorElement.classList.add('animate-shake');
-                    setTimeout(() => {
-                        errorElement.classList.remove('animate-shake');
-                    }, 500);
+                    setTimeout(() => { errorElement.classList.remove('animate-shake'); }, 500);
                 }
             }
 
-            // Очистить ошибки
             function clearErrors() {
-                const errorElements = document.querySelectorAll('[id$="Error"]');
-                errorElements.forEach(element => {
-                    element.classList.add('hidden');
-                    element.textContent = '';
+                document.querySelectorAll('[id$="Error"]').forEach(el => {
+                    el.classList.add('hidden');
+                    el.textContent = '';
                 });
             }
 
-            // Сброс формы
             function resetForm() {
                 if (leadForm) leadForm.reset();
                 clearErrors();
@@ -965,174 +941,114 @@
                 if (submitSpinner) submitSpinner.classList.add('opacity-0');
             }
 
-            // Открытие модального окна при клике на кнопки "Попробовать бесплатно"
-            document.querySelectorAll('a[href="#pricing"]').forEach(button => {
-                // Проверяем, содержит ли кнопка текст "Попробовать бесплатно"
-                if (button.textContent.includes('Попробовать бесплатно')) {
+            function openLeadModalWithTariff(tariff) {
+                openLeadModal();
+                const freeTrialText = document.getElementById('freeTrialText');
+                if (freeTrialText) {
+                    freeTrialText.classList.toggle('hidden', tariff !== 'Начальный');
+                }
+                const tariffSelect = document.getElementById('tariff');
+                if (tariffSelect) {
+                    tariffSelect.value = tariff;
+                }
+            }
+            
+            document.querySelectorAll('a[href="#pricing"], .open-tariff-form, .open-registration-form').forEach(button => {
+                // Check if the button is inside the tech help modal to avoid double-binding
+                if (!button.closest('#techHelpModal')) {
                     button.addEventListener('click', function(e) {
                         e.preventDefault();
-                        openLeadModal();
+                        e.stopPropagation();
+                        const tariff = this.getAttribute('data-tariff');
+                        if (tariff) {
+                            openLeadModalWithTariff(tariff);
+                        } else {
+                            openLeadModal();
+                        }
                     });
                 }
             });
 
-            // Открытие модального окна с выбранным тарифом при клике на кнопки в тарифах
-            document.querySelectorAll('.open-tariff-form').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const tariff = this.getAttribute('data-tariff');
-                    openLeadModalWithTariff(tariff);
-                });
+            if (closeLeadModal) closeLeadModal.addEventListener('click', closeLeadModalFunc);
+            if (closeSuccess) closeSuccess.addEventListener('click', closeLeadModalFunc);
+            if (leadModal) leadModal.addEventListener('click', (e) => {
+                if (e.target === leadModal) closeLeadModalFunc();
             });
 
-            // Открытие модального окна при клике на шаг "Регистрация"
-            document.querySelectorAll('.open-registration-form').forEach(element => {
-                element.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openLeadModal();
-                });
-            });
-
-            // Функция открытия формы с выбранным тарифом
-            function openLeadModalWithTariff(tariff) {
-                openLeadModal();
-                // Показываем текст о бесплатном пробном периоде только для первого тарифа
-                const freeTrialText = document.getElementById('freeTrialText');
-                if (freeTrialText) {
-                    if (tariff === 'Начальный') {
-                        freeTrialText.classList.remove('hidden');
-                    } else {
-                        freeTrialText.classList.add('hidden');
-                    }
-                }
-                // Устанавливаем выбранный тариф в форме
-                setTimeout(() => {
-                    const tariffSelect = document.getElementById('tariff');
-                    if (tariffSelect) {
-                        tariffSelect.value = tariff;
-                    }
-                }, 100);
-            }
-
-            // Функция открытия формы (базовая)
-            function openLeadModal() {
-                leadModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                // Показываем текст о бесплатном пробном периоде по умолчанию
-                const freeTrialText = document.getElementById('freeTrialText');
-                if (freeTrialText) {
-                    freeTrialText.classList.remove('hidden');
-                }
-                // Анимация появления
-                setTimeout(() => {
-                    leadModal.style.opacity = '1';
-                }, 10);
-            }
-            
-            // Закрытие модального окна
-            if (closeLeadModal) {
-                closeLeadModal.addEventListener('click', closeLeadModalFunc);
-            }
-            if (closeSuccess) {
-                closeSuccess.addEventListener('click', closeLeadModalFunc);
-            }
-            
-            // Закрытие по клику на фон
-            if (leadModal) {
-                leadModal.addEventListener('click', function(e) {
-                    if (e.target === leadModal) {
-                        closeLeadModalFunc();
-                    }
-                });
-            }
-            
-            // Закрытие по ESC
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && leadModal && !leadModal.classList.contains('hidden')) {
-                    closeLeadModalFunc();
-                }
-            });
-            
-            // Обработка отправки формы
             if (leadForm) {
                 leadForm.addEventListener('submit', function(e) {
                     if (!validateForm()) {
                         e.preventDefault();
                         return;
                     }
-                    
-                    // Показываем спиннер и блокируем кнопку
                     if (submitText) submitText.textContent = 'Отправка...';
                     if (submitSpinner) submitSpinner.classList.remove('opacity-0');
                     if (submitBtn) submitBtn.disabled = true;
-                    // Tech Help Modal Logic
-                    const techHelpBtn = document.getElementById('techHelpBtn');
-                    const techHelpModal = document.getElementById('techHelpModal');
-                    const closeTechHelpModal = document.getElementById('closeTechHelpModal');
-                    const techHelpCta = techHelpModal ? techHelpModal.querySelector('.open-registration-form') : null;
-        
-                    function openTechHelp() {
-                        if(techHelpModal) {
-                            techHelpModal.classList.remove('hidden');
-                            document.body.style.overflow = 'hidden';
-                            setTimeout(() => {
-                                techHelpModal.classList.remove('opacity-0');
-                            }, 10);
-                        }
-                    }
-        
-                    function closeTechHelp() {
-                        if(techHelpModal) {
-                            techHelpModal.classList.add('opacity-0');
-                            setTimeout(() => {
-                                techHelpModal.classList.add('hidden');
-                                document.body.style.overflow = '';
-                            }, 300);
-                        }
-                    }
-        
-                    if(techHelpBtn) {
-                        techHelpBtn.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            openTechHelp();
-                        });
-                    }
-        
-                    if(closeTechHelpModal) {
-                        closeTechHelpModal.addEventListener('click', closeTechHelp);
-                    }
-        
-                    if(techHelpModal) {
-                        techHelpModal.addEventListener('click', (e) => {
-                            if (e.target === techHelpModal) {
-                                closeTechHelp();
-                            }
-                        });
-                    }
-                    
-                    if(techHelpCta) {
-                        techHelpCta.addEventListener('click', () => {
-                            closeTechHelp();
-                        });
-                    }
                 });
             }
-            
-            // Обработка успешной отправки формы
+
             if (hiddenFrame) {
                 hiddenFrame.addEventListener('load', function() {
-                    try {
-                        // Если форма успешно отправлена, показываем сообщение с анимацией
-                        if (leadForm) leadForm.classList.add('hidden');
-                        if (successMessage) {
-                            successMessage.classList.remove('hidden');
-                            successMessage.classList.add('animate-bounce-in');
-                        }
-                    } catch (error) {
-                        console.error('Ошибка обработки ответа:', error);
+                    if (leadForm) leadForm.classList.add('hidden');
+                    if (successMessage) {
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('animate-bounce-in');
                     }
                 });
             }
+
+            // ---- MODAL: TECH HELP ----
+            const techHelpBtn = document.getElementById('techHelpBtn');
+            const techHelpModal = document.getElementById('techHelpModal');
+            const closeTechHelpModal = document.getElementById('closeTechHelpModal');
+            const techHelpCta = techHelpModal ? techHelpModal.querySelector('.open-registration-form') : null;
+
+            function openTechHelp() {
+                if (techHelpModal) {
+                    techHelpModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => { techHelpModal.classList.remove('opacity-0'); }, 10);
+                }
+            }
+
+            function closeTechHelp() {
+                if (techHelpModal) {
+                    techHelpModal.classList.add('opacity-0');
+                    setTimeout(() => {
+                        techHelpModal.classList.add('hidden');
+                        if (!leadModal || leadModal.classList.contains('hidden')) {
+                            document.body.style.overflow = '';
+                        }
+                    }, 300);
+                }
+            }
+
+            if (techHelpBtn) techHelpBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openTechHelp();
+            });
+
+            if (closeTechHelpModal) closeTechHelpModal.addEventListener('click', closeTechHelp);
+            
+            if (techHelpModal) techHelpModal.addEventListener('click', (e) => {
+                if (e.target === techHelpModal) closeTechHelp();
+            });
+
+            if (techHelpCta) {
+                techHelpCta.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeTechHelp();
+                    setTimeout(openLeadModal, 310); // Open after close transition
+                });
+            }
+
+            // ---- GLOBAL KEYDOWN LISTENER ----
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (leadModal && !leadModal.classList.contains('hidden')) closeLeadModalFunc();
+                    if (techHelpModal && !techHelpModal.classList.contains('hidden')) closeTechHelp();
+                }
+            });
         });
     </script>
 </body>
