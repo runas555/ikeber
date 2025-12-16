@@ -596,10 +596,15 @@
     </button>
     
     <!-- Iframe Modal -->
-    <!-- ИЗМЕНЕНИЕ: Структура модального окна полностью переработана для полноэкранного режима -->
+    <!-- ИЗМЕНЕНИЕ: Добавлен лоадер и обновлена структура iframe -->
     <div id="iframeModal" class="hidden fixed inset-0 bg-slate-900 z-[100] transition-opacity duration-300">
-        <!-- Сам iframe, который заполняет всё пространство -->
-        <iframe id="demoIframe" class="w-full h-full border-0" title="Демо-версия"></iframe>
+        <!-- НОВЫЙ ЭЛЕМЕНТ: Лоадер -->
+        <div id="iframeLoader" class="absolute inset-0 flex items-center justify-center bg-slate-900 z-[105]">
+            <i class="fas fa-spinner fa-spin text-cyan-400 text-5xl"></i>
+        </div>
+        
+        <!-- Сам iframe, который теперь имеет классы для плавного появления -->
+        <iframe id="demoIframe" class="w-full h-full border-0 opacity-0 transition-opacity duration-500" title="Демо-версия"></iframe>
         
         <!-- Кнопка закрытия, расположенная поверх iframe -->
         <button id="closeIframeModalBtn" class="fixed top-4 right-4 z-[110] w-12 h-12 bg-slate-800/60 backdrop-blur-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-700/80 transition-all flex items-center justify-center">
@@ -751,21 +756,38 @@
         const iframeModal = document.getElementById('iframeModal');
         const closeIframeBtn = document.getElementById('closeIframeModalBtn');
         const demoIframe = document.getElementById('demoIframe');
+        const iframeLoader = document.getElementById('iframeLoader'); // <<< ИЗМЕНЕНИЕ: Получаем лоадер
         
         let lastScrollY = 0;
 
+        // <<< ИЗМЕНЕНИЕ: Добавляем обработчик события 'load' для iframe
+        // Этот код скроет лоадер и покажет iframe, когда он будет готов.
+        demoIframe.addEventListener('load', () => {
+            iframeLoader.style.display = 'none'; // Скрываем лоадер
+            demoIframe.classList.remove('opacity-0'); // Плавно показываем iframe
+        });
+
         function openModal(url) {
             lastScrollY = window.scrollY;
-            demoIframe.src = url;
+            
+            // <<< ИЗМЕНЕНИЕ: Показываем лоадер и скрываем iframe перед загрузкой
+            iframeLoader.style.display = 'flex'; // Убеждаемся, что лоадер видим
+            demoIframe.classList.add('opacity-0'); // Скрываем iframe
+            
+            demoIframe.src = url; // Начинаем загрузку
             iframeModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             iframeModal.classList.add('hidden');
-            demoIframe.src = 'about:blank';
+            demoIframe.src = 'about:blank'; // Останавливаем загрузку и очищаем iframe
             document.body.style.overflow = '';
             window.scrollTo(0, lastScrollY);
+
+            // <<< ИЗМЕНЕНИЕ: Сбрасываем состояние, чтобы лоадер появился при следующем открытии
+            iframeLoader.style.display = 'flex';
+            demoIframe.classList.add('opacity-0');
         }
 
         openModalButtons.forEach(button => {
