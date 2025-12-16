@@ -255,15 +255,15 @@
                         Запустите готовое приложение для магазина. Ваши постоянные клиенты будут заказывать у вас, а не у гигантов вроде Ozon.
                     </p>
 
-                    <div class="flex items-center gap-4 mb-8 bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 backdrop-blur-sm max-w-fit mx-auto md:mx-0 animate-fade-in">
-                        <div class="w-12 h-12 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 border border-amber-500/30">
+                    <button id="techHelpBtn" class="flex items-center gap-4 mb-8 bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 backdrop-blur-sm max-w-fit mx-auto md:mx-0 animate-fade-in hover:bg-slate-800/60 hover:border-amber-500/50 transition-all duration-300 group cursor-pointer text-left transform hover:scale-[1.02]">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 border border-amber-500/30 group-hover:border-amber-500/60 transition-colors">
                             <i class="fas fa-user-tie text-amber-400 text-xl"></i>
                         </div>
                         <div class="text-left">
-                            <p class="text-white font-bold text-sm">Не разбираетесь в технологиях?</p>
-                            <p class="text-slate-400 text-sm">Наш специалист настроит всё за вас!</p>
+                            <p class="text-white font-bold text-sm group-hover:text-amber-400 transition-colors">Не разбираетесь в технологиях?</p>
+                            <p class="text-slate-400 text-sm">Нажмите, чтобы узнать, как мы поможем</p>
                         </div>
-                    </div>
+                    </button>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#demo" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 text-center glow-effect">
@@ -622,6 +622,75 @@
     </div>
     <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
 
+    <!-- Tech Help Modal -->
+    <div id="techHelpModal" class="hidden fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-slate-800 rounded-2xl max-w-2xl w-full border border-slate-700 shadow-2xl relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+            
+            <button id="closeTechHelpModal" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors z-10 w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-700/50">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="p-8 relative z-0">
+                <div class="text-center mb-10">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-500/20 rotate-3">
+                        <i class="fas fa-user-astronaut text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">Мы берем технологии на себя</h3>
+                    <p class="text-slate-400 text-lg">Вы занимаетесь бизнесом, а технические вопросы решает наш специалист.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                    <div class="bg-slate-700/30 p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-cyan-400">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">Настройка сервера</h4>
+                            <p class="text-sm text-slate-400">Вам не нужно знать, что такое хостинг или DNS. Мы всё настроим.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-700/30 p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-pink-400">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">Подключение бота</h4>
+                            <p class="text-sm text-slate-400">Создадим и настроим Telegram-бота для приема заказов.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-700/30 p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-purple-400">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">Загрузка товаров</h4>
+                            <p class="text-sm text-slate-400">Поможем правильно заполнить карточки первых товаров.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-700/30 p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-green-400">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">Обучение</h4>
+                            <p class="text-sm text-slate-400">Лично покажем, как пользоваться админ-панелью.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 shadow-lg hover:shadow-cyan-500/25 open-registration-form w-full md:w-auto">
+                        Оставить заявку на подключение
+                    </button>
+                    <p class="mt-4 text-sm text-slate-500">Это бесплатно и ни к чему не обязывает</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Модальное окно формы заявки -->
     <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
         <div class="bg-slate-800/90 backdrop-blur-md rounded-2xl max-w-sm w-full border border-slate-700/50 shadow-2xl animate-fade-in">
@@ -798,6 +867,56 @@
                 closeModal();
             }
         });
+
+        // Tech Help Modal Logic
+        const techHelpBtn = document.getElementById('techHelpBtn');
+        const techHelpModal = document.getElementById('techHelpModal');
+        const closeTechHelpModal = document.getElementById('closeTechHelpModal');
+        const techHelpCta = techHelpModal ? techHelpModal.querySelector('.open-registration-form') : null;
+
+        function openTechHelp() {
+            if(techHelpModal) {
+                techHelpModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    techHelpModal.classList.remove('opacity-0');
+                }, 10);
+            }
+        }
+
+        function closeTechHelp() {
+            if(techHelpModal) {
+                techHelpModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    techHelpModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        }
+
+        if(techHelpBtn) {
+            techHelpBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openTechHelp();
+            });
+        }
+
+        if(closeTechHelpModal) {
+            closeTechHelpModal.addEventListener('click', closeTechHelp);
+        }
+
+        if(techHelpModal) {
+            techHelpModal.addEventListener('click', (e) => {
+                if (e.target === techHelpModal) closeTechHelp();
+            });
+        }
+
+        // Close tech modal when opening registration from within it
+        if(techHelpCta) {
+            techHelpCta.addEventListener('click', () => {
+                closeTechHelp();
+            });
+        }
 
         // Логика формы заявки
         document.addEventListener('DOMContentLoaded', function() {
