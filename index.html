@@ -629,8 +629,8 @@
             <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
             
-            <button id="closeTechHelpModal" class="absolute top-2 right-2 md:top-4 md:right-4 text-slate-400 hover:text-white transition-colors z-10 w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-700/50">
-                <i class="fas fa-times text-xl"></i>
+            <button id="closeTechHelpModal" class="absolute top-3 right-3 text-slate-300 hover:text-white transition-colors z-[60] w-12 h-12 flex items-center justify-center rounded-full bg-slate-900/50 backdrop-blur-sm hover:bg-slate-700 cursor-pointer border border-slate-600/50 shadow-lg">
+                <i class="fas fa-times text-2xl"></i>
             </button>
 
             <div class="p-6 md:p-8 relative z-0">
@@ -642,9 +642,9 @@
                     <p class="text-slate-400 text-sm md:text-lg">Вы занимаетесь бизнесом, а технические вопросы решает наш специалист.</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-3 md:gap-4">
-                        <div class="w-8 h-8 md:w-10 md:h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-cyan-400">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 mb-8 md:mb-10">
+                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-5">
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-cyan-400 mr-2">
                             <i class="fas fa-server text-sm md:text-base"></i>
                         </div>
                         <div>
@@ -652,8 +652,8 @@
                             <p class="text-xs md:text-sm text-slate-400">Вам не нужно знать, что такое хостинг или DNS. Мы всё настроим.</p>
                         </div>
                     </div>
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-3 md:gap-4">
-                        <div class="w-8 h-8 md:w-10 md:h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-pink-400">
+                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-5">
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-pink-400 mr-2">
                             <i class="fas fa-robot text-sm md:text-base"></i>
                         </div>
                         <div>
@@ -661,8 +661,8 @@
                             <p class="text-xs md:text-sm text-slate-400">Создадим и настроим Telegram-бота для приема заказов.</p>
                         </div>
                     </div>
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-3 md:gap-4">
-                        <div class="w-8 h-8 md:w-10 md:h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-purple-400">
+                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-5">
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-purple-400 mr-2">
                             <i class="fas fa-box-open text-sm md:text-base"></i>
                         </div>
                         <div>
@@ -670,8 +670,8 @@
                             <p class="text-xs md:text-sm text-slate-400">Поможем правильно заполнить карточки первых товаров.</p>
                         </div>
                     </div>
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-3 md:gap-4">
-                        <div class="w-8 h-8 md:w-10 md:h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-green-400">
+                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-5">
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-green-400 mr-2">
                             <i class="fas fa-graduation-cap text-sm md:text-base"></i>
                         </div>
                         <div>
@@ -902,7 +902,11 @@
         }
 
         if(closeTechHelpModal) {
-            closeTechHelpModal.addEventListener('click', closeTechHelp);
+            closeTechHelpModal.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeTechHelp();
+            });
         }
 
         if(techHelpModal) {
