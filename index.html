@@ -251,20 +251,9 @@
                     <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">
                         Хватит терять клиентов из-за <span class="gradient-text">маркетплейсов</span>
                     </h1>
-                    <p class="text-xl text-slate-400 mb-6 max-w-2xl mx-auto md:mx-0">
+                    <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto md:mx-0">
                         Запустите готовое приложение для магазина. Ваши постоянные клиенты будут заказывать у вас, а не у гигантов вроде Ozon.
                     </p>
-
-                    <button id="techHelpBtn" class="flex items-center gap-4 mb-8 bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 backdrop-blur-sm max-w-fit mx-auto md:mx-0 animate-fade-in hover:bg-slate-800/60 hover:border-amber-500/50 transition-all duration-300 group cursor-pointer text-left transform hover:scale-[1.02]">
-                        <div class="w-12 h-12 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 border border-amber-500/30 group-hover:border-amber-500/60 transition-colors">
-                            <i class="fas fa-user-tie text-amber-400 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <p class="text-white font-bold text-sm group-hover:text-amber-400 transition-colors">Не разбираетесь в технологиях?</p>
-                            <p class="text-slate-400 text-sm">Нажмите, чтобы узнать, как мы поможем</p>
-                        </div>
-                    </button>
-
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#demo" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full font-bold transition duration-300 text-center glow-effect">
                             Смотреть демо
@@ -307,7 +296,7 @@
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Всё, что нужно для онлайн-продаж <span class="gradient-text">в одном месте</span></h2>
                     <p class="text-xl text-slate-400 max-w-3xl mx-auto">
-                        Мы продумали каждую деталь, чтобы вы могли сосредоточиться на бизнесе. А если технологии — не ваше сильное место, наш специалист поможет на каждом этапе.
+                        Мы продумали каждую деталь, чтобы вы могли сосредоточиться на бизнесе, а не на технических сложностях.
                     </p>
                 </div>
                 
@@ -408,7 +397,7 @@
                         <div class="absolute top-4 left-4 text-2xl font-bold text-cyan-400">01</div>
                         <i class="fas fa-user-plus text-4xl text-slate-300 mb-4"></i>
                         <h3 class="text-xl font-bold mb-3">Регистрация</h3>
-                        <p class="text-slate-400 text-sm">Оставьте заявку — наш специалист сам всё зарегистрирует и настроит, если вы не хотите разбираться.</p>
+                        <p class="text-slate-400 text-sm">Вы оставляете заявку, мы создаем для вас сайт и админ-панель. Это занимает пару часов.</p>
                     </div>
                     <div class="relative bg-slate-800/60 rounded-xl p-6 pt-14 text-center card-hover border border-transparent hover:border-pink-500/50">
                         <div class="absolute top-4 left-4 text-2xl font-bold text-pink-400">02</div>
@@ -472,7 +461,6 @@
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Заказы в Telegram-бот</span></li>
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Базовая SEO-оптимизация</span></li>
                             <li class="flex items-start"><i class="fas fa-check text-green-400 mr-3 mt-1"></i><span>Управление через Google Таблицы</span></li>
-                            <li class="flex items-start"><i class="fas fa-user-tie text-amber-400 mr-3 mt-1"></i><span class="text-white font-medium">Помощь специалиста с запуском</span></li>
                         </ul>
                         <a href="#" class="open-tariff-form mt-auto w-full border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-bold transition duration-300 text-center" data-tariff="Начальный">Начать бесплатно</a>
                     </div>
@@ -585,7 +573,7 @@
             <div class="container mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Готовы вернуть своих клиентов и увеличить прибыль?</h2>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-                    Присоединяйтесь к десяткам магазинов, которые уже успешно продают онлайн. Даже если вы никогда не работали с сайтами — наш специалист сделает запуск простым и понятным.
+                    Присоединяйтесь к десяткам магазинов, которые уже успешно продают онлайн с нашей помощью. Запуск займет всего один день.
                 </p>
                 <a href="#pricing" class="inline-block bg-white hover:bg-slate-200 text-slate-900 px-8 py-4 rounded-full font-bold transition duration-300 shadow-lg">
                     Выбрать тариф и начать
@@ -621,78 +609,6 @@
         </button>
     </div>
     <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
-
-    <!-- Tech Help Modal -->
-    <div id="techHelpModal" class="hidden fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 transition-opacity duration-300" style="opacity: 0;">
-        <div class="bg-slate-800 rounded-2xl max-w-2xl w-full border border-slate-700 shadow-2xl relative overflow-hidden my-auto animate-scale-up">
-            <!-- Заголовок и кнопка закрытия -->
-            <div class="flex justify-between items-center p-6 border-b border-slate-700/50">
-                <h3 class="text-xl font-bold text-white">Мы берем технологии на себя</h3>
-                <button id="closeTechHelpModal" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            
-            <div class="p-6 md:p-8 relative z-0">
-                <!-- Decorative background elements -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
-                
-                <div class="text-center mb-6 md:mb-10">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg shadow-orange-500/20 rotate-3">
-                        <i class="fas fa-user-astronaut text-2xl md:text-3xl text-white"></i>
-                    </div>
-                    <p class="text-slate-400 text-sm md:text-lg">Вы занимаетесь бизнесом, а технические вопросы решает наш специалист.</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-cyan-400">
-                            <i class="fas fa-server text-base md:text-lg"></i>
-                        </div>
-                        <div class="pl-2">
-                            <h4 class="font-bold text-white text-sm md:text-base mb-1">Настройка сервера</h4>
-                            <p class="text-xs md:text-sm text-slate-400 leading-relaxed">Вам не нужно знать, что такое хостинг или DNS. Мы всё настроим.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-pink-400">
-                            <i class="fas fa-robot text-base md:text-lg"></i>
-                        </div>
-                        <div class="pl-2">
-                            <h4 class="font-bold text-white text-sm md:text-base mb-1">Подключение бота</h4>
-                            <p class="text-xs md:text-sm text-slate-400 leading-relaxed">Создадим и настроим Telegram-бота для приема заказов.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-purple-400">
-                            <i class="fas fa-box-open text-base md:text-lg"></i>
-                        </div>
-                        <div class="pl-2">
-                            <h4 class="font-bold text-white text-sm md:text-base mb-1">Загрузка товаров</h4>
-                            <p class="text-xs md:text-sm text-slate-400 leading-relaxed">Поможем правильно заполнить карточки первых товаров.</p>
-                        </div>
-                    </div>
-                    <div class="bg-slate-700/30 p-4 md:p-5 rounded-xl border border-slate-700/50 flex items-start gap-4">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-green-400">
-                            <i class="fas fa-graduation-cap text-base md:text-lg"></i>
-                        </div>
-                        <div class="pl-2">
-                            <h4 class="font-bold text-white text-sm md:text-base mb-1">Обучение</h4>
-                            <p class="text-xs md:text-sm text-slate-400 leading-relaxed">Лично покажем, как пользоваться админ-панелью.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <button class="bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold transition duration-300 shadow-lg hover:shadow-cyan-500/25 open-registration-form w-full md:w-auto text-sm md:text-base">
-                        Оставить заявку на подключение
-                    </button>
-                    <p class="mt-4 text-xs md:text-sm text-slate-500">Это бесплатно и ни к чему не обязывает</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Модальное окно формы заявки -->
     <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
@@ -871,9 +787,8 @@
             }
         });
 
-        // ALL MODAL LOGIC IS HANDLED INSIDE DOMCONTENTLOADED FOR RELIABILITY
+        // Логика формы заявки
         document.addEventListener('DOMContentLoaded', function() {
-            // ---- MODAL: LEAD FORM ----
             const leadModal = document.getElementById('leadModal');
             const closeLeadModal = document.getElementById('closeLeadModal');
             const leadForm = document.getElementById('leadForm');
@@ -884,56 +799,81 @@
             const submitText = document.getElementById('submitText');
             const submitSpinner = document.getElementById('submitSpinner');
 
+            // Функции для работы с модальным окном формы
             function openLeadModal() {
-                if (leadModal) {
-                    leadModal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                    setTimeout(() => { leadModal.style.opacity = '1'; }, 10);
-                }
+                leadModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                // Анимация появления
+                setTimeout(() => {
+                    leadModal.style.opacity = '1';
+                }, 10);
             }
 
             function closeLeadModalFunc() {
-                if (leadModal) {
-                    leadModal.style.opacity = '0';
-                    setTimeout(() => {
-                        leadModal.classList.add('hidden');
-                        document.body.style.overflow = '';
-                        resetForm();
-                    }, 300);
-                }
+                leadModal.style.opacity = '0';
+                setTimeout(() => {
+                    leadModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    resetForm();
+                }, 300);
             }
 
+            // Валидация формы
             function validateForm() {
                 let isValid = true;
+                
+                // Очистка предыдущих ошибок
                 clearErrors();
+                
+                // Валидация имени
                 const name = document.getElementById('name').value.trim();
-                if (!name) { showError('nameError', 'Введите ваше имя'); isValid = false; }
+                if (!name) {
+                    showError('nameError', 'Введите ваше имя');
+                    isValid = false;
+                }
+                
+                // Валидация телефона
                 const phone = document.getElementById('phone').value;
                 const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-                if (!phoneRegex.test(phone.replace(/\D/g, ''))) { showError('phoneError', 'Введите корректный номер телефона'); isValid = false; }
+                if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
+                    showError('phoneError', 'Введите корректный номер телефона');
+                    isValid = false;
+                }
+                
+                // Валидация email
                 const email = document.getElementById('email').value;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) { showError('emailError', 'Введите корректный email'); isValid = false; }
+                if (!emailRegex.test(email)) {
+                    showError('emailError', 'Введите корректный email');
+                    isValid = false;
+                }
+                
                 return isValid;
             }
 
+            // Показать ошибку с анимацией
             function showError(elementId, message) {
                 const errorElement = document.getElementById(elementId);
                 if (errorElement) {
                     errorElement.textContent = message;
                     errorElement.classList.remove('hidden');
                     errorElement.classList.add('animate-shake');
-                    setTimeout(() => { errorElement.classList.remove('animate-shake'); }, 500);
+                    setTimeout(() => {
+                        errorElement.classList.remove('animate-shake');
+                    }, 500);
                 }
             }
 
+            // Очистить ошибки
             function clearErrors() {
-                document.querySelectorAll('[id$="Error"]').forEach(el => {
-                    el.classList.add('hidden');
-                    el.textContent = '';
+                const errorElements = document.querySelectorAll('[id$="Error"]');
+                errorElements.forEach(element => {
+                    element.classList.add('hidden');
+                    element.textContent = '';
                 });
             }
 
+            // Сброс формы
             function resetForm() {
                 if (leadForm) leadForm.reset();
                 clearErrors();
@@ -944,114 +884,124 @@
                 if (submitSpinner) submitSpinner.classList.add('opacity-0');
             }
 
-            function openLeadModalWithTariff(tariff) {
-                openLeadModal();
-                const freeTrialText = document.getElementById('freeTrialText');
-                if (freeTrialText) {
-                    freeTrialText.classList.toggle('hidden', tariff !== 'Начальный');
-                }
-                const tariffSelect = document.getElementById('tariff');
-                if (tariffSelect) {
-                    tariffSelect.value = tariff;
-                }
-            }
-            
-            document.querySelectorAll('a[href="#pricing"], .open-tariff-form, .open-registration-form').forEach(button => {
-                // Check if the button is inside the tech help modal to avoid double-binding
-                if (!button.closest('#techHelpModal')) {
+            // Открытие модального окна при клике на кнопки "Попробовать бесплатно"
+            document.querySelectorAll('a[href="#pricing"]').forEach(button => {
+                // Проверяем, содержит ли кнопка текст "Попробовать бесплатно"
+                if (button.textContent.includes('Попробовать бесплатно')) {
                     button.addEventListener('click', function(e) {
                         e.preventDefault();
-                        e.stopPropagation();
-                        const tariff = this.getAttribute('data-tariff');
-                        if (tariff) {
-                            openLeadModalWithTariff(tariff);
-                        } else {
-                            openLeadModal();
-                        }
+                        openLeadModal();
                     });
                 }
             });
 
-            if (closeLeadModal) closeLeadModal.addEventListener('click', closeLeadModalFunc);
-            if (closeSuccess) closeSuccess.addEventListener('click', closeLeadModalFunc);
-            if (leadModal) leadModal.addEventListener('click', (e) => {
-                if (e.target === leadModal) closeLeadModalFunc();
+            // Открытие модального окна с выбранным тарифом при клике на кнопки в тарифах
+            document.querySelectorAll('.open-tariff-form').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tariff = this.getAttribute('data-tariff');
+                    openLeadModalWithTariff(tariff);
+                });
             });
 
+            // Открытие модального окна при клике на шаг "Регистрация"
+            document.querySelectorAll('.open-registration-form').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openLeadModal();
+                });
+            });
+
+            // Функция открытия формы с выбранным тарифом
+            function openLeadModalWithTariff(tariff) {
+                openLeadModal();
+                // Показываем текст о бесплатном пробном периоде только для первого тарифа
+                const freeTrialText = document.getElementById('freeTrialText');
+                if (freeTrialText) {
+                    if (tariff === 'Начальный') {
+                        freeTrialText.classList.remove('hidden');
+                    } else {
+                        freeTrialText.classList.add('hidden');
+                    }
+                }
+                // Устанавливаем выбранный тариф в форме
+                setTimeout(() => {
+                    const tariffSelect = document.getElementById('tariff');
+                    if (tariffSelect) {
+                        tariffSelect.value = tariff;
+                    }
+                }, 100);
+            }
+
+            // Функция открытия формы (базовая)
+            function openLeadModal() {
+                leadModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                // Показываем текст о бесплатном пробном периоде по умолчанию
+                const freeTrialText = document.getElementById('freeTrialText');
+                if (freeTrialText) {
+                    freeTrialText.classList.remove('hidden');
+                }
+                // Анимация появления
+                setTimeout(() => {
+                    leadModal.style.opacity = '1';
+                }, 10);
+            }
+            
+            // Закрытие модального окна
+            if (closeLeadModal) {
+                closeLeadModal.addEventListener('click', closeLeadModalFunc);
+            }
+            if (closeSuccess) {
+                closeSuccess.addEventListener('click', closeLeadModalFunc);
+            }
+            
+            // Закрытие по клику на фон
+            if (leadModal) {
+                leadModal.addEventListener('click', function(e) {
+                    if (e.target === leadModal) {
+                        closeLeadModalFunc();
+                    }
+                });
+            }
+            
+            // Закрытие по ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && leadModal && !leadModal.classList.contains('hidden')) {
+                    closeLeadModalFunc();
+                }
+            });
+            
+            // Обработка отправки формы
             if (leadForm) {
                 leadForm.addEventListener('submit', function(e) {
                     if (!validateForm()) {
                         e.preventDefault();
                         return;
                     }
+                    
+                    // Показываем спиннер и блокируем кнопку
                     if (submitText) submitText.textContent = 'Отправка...';
                     if (submitSpinner) submitSpinner.classList.remove('opacity-0');
                     if (submitBtn) submitBtn.disabled = true;
                 });
             }
-
+            
+            // Обработка успешной отправки формы
             if (hiddenFrame) {
                 hiddenFrame.addEventListener('load', function() {
-                    if (leadForm) leadForm.classList.add('hidden');
-                    if (successMessage) {
-                        successMessage.classList.remove('hidden');
-                        successMessage.classList.add('animate-bounce-in');
+                    try {
+                        // Если форма успешно отправлена, показываем сообщение с анимацией
+                        if (leadForm) leadForm.classList.add('hidden');
+                        if (successMessage) {
+                            successMessage.classList.remove('hidden');
+                            successMessage.classList.add('animate-bounce-in');
+                        }
+                    } catch (error) {
+                        console.error('Ошибка обработки ответа:', error);
                     }
                 });
             }
-
-            // ---- MODAL: TECH HELP ----
-            const techHelpBtn = document.getElementById('techHelpBtn');
-            const techHelpModal = document.getElementById('techHelpModal');
-            const closeTechHelpModal = document.getElementById('closeTechHelpModal');
-            const techHelpCta = techHelpModal ? techHelpModal.querySelector('.open-registration-form') : null;
-
-            function openTechHelp() {
-                if (techHelpModal) {
-                    techHelpModal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                    setTimeout(() => { techHelpModal.classList.remove('opacity-0'); }, 10);
-                }
-            }
-
-            function closeTechHelp() {
-                if (techHelpModal) {
-                    techHelpModal.classList.add('opacity-0');
-                    setTimeout(() => {
-                        techHelpModal.classList.add('hidden');
-                        if (!leadModal || leadModal.classList.contains('hidden')) {
-                            document.body.style.overflow = '';
-                        }
-                    }, 300);
-                }
-            }
-
-            if (techHelpBtn) techHelpBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openTechHelp();
-            });
-
-            if (closeTechHelpModal) closeTechHelpModal.addEventListener('click', closeTechHelp);
-            
-            if (techHelpModal) techHelpModal.addEventListener('click', (e) => {
-                if (e.target === techHelpModal) closeTechHelp();
-            });
-
-            if (techHelpCta) {
-                techHelpCta.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    closeTechHelp();
-                    setTimeout(openLeadModal, 310); // Open after close transition
-                });
-            }
-
-            // ---- GLOBAL KEYDOWN LISTENER ----
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    if (leadModal && !leadModal.classList.contains('hidden')) closeLeadModalFunc();
-                    if (techHelpModal && !techHelpModal.classList.contains('hidden')) closeTechHelp();
-                }
-            });
         });
     </script>
 </body>
