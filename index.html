@@ -623,7 +623,7 @@
     <!-- КОНЕЦ ИЗМЕНЕНИЯ -->
 
     <!-- Tech Help Modal -->
-    <div id="techHelpModal" class="hidden fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 overflow-y-auto">
+    <div id="techHelpModal" class="hidden fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 transition-opacity duration-300 overflow-y-auto">
         <div class="bg-slate-800 rounded-2xl max-w-2xl w-full border border-slate-700 shadow-2xl relative overflow-hidden my-auto animate-scale-up">
             <!-- Close button now absolute to this container, ensuring visibility -->
             <button id="closeTechHelpModal" class="absolute top-2 right-2 text-slate-300 hover:text-white transition-all z-10 w-12 h-12 flex items-center justify-center rounded-full bg-slate-900/50 backdrop-blur-sm hover:bg-slate-700 cursor-pointer border border-slate-600/50 shadow-lg active:scale-95">
@@ -1007,13 +1007,13 @@
                 if (techHelpModal) {
                     techHelpModal.classList.remove('hidden');
                     document.body.style.overflow = 'hidden';
-                    setTimeout(() => { techHelpModal.classList.remove('opacity-0'); }, 10);
+                    setTimeout(() => { techHelpModal.style.opacity = '1'; }, 10);
                 }
             }
 
             function closeTechHelp() {
                 if (techHelpModal) {
-                    techHelpModal.classList.add('opacity-0');
+                    techHelpModal.style.opacity = '0';
                     setTimeout(() => {
                         techHelpModal.classList.add('hidden');
                         if (!leadModal || leadModal.classList.contains('hidden')) {
