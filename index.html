@@ -868,60 +868,6 @@
             }
         });
 
-        // Tech Help Modal Logic
-        const techHelpBtn = document.getElementById('techHelpBtn');
-        const techHelpModal = document.getElementById('techHelpModal');
-        const closeTechHelpModal = document.getElementById('closeTechHelpModal');
-        const techHelpCta = techHelpModal ? techHelpModal.querySelector('.open-registration-form') : null;
-
-        function openTechHelp() {
-            if(techHelpModal) {
-                techHelpModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                setTimeout(() => {
-                    techHelpModal.classList.remove('opacity-0');
-                }, 10);
-            }
-        }
-
-        function closeTechHelp() {
-            if(techHelpModal) {
-                techHelpModal.classList.add('opacity-0');
-                setTimeout(() => {
-                    techHelpModal.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }, 300);
-            }
-        }
-
-        if(techHelpBtn) {
-            techHelpBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openTechHelp();
-            });
-        }
-
-        if(closeTechHelpModal) {
-            closeTechHelpModal.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                closeTechHelp();
-            });
-        }
-
-        if(techHelpModal) {
-            techHelpModal.addEventListener('click', (e) => {
-                if (e.target === techHelpModal) closeTechHelp();
-            });
-        }
-
-        // Close tech modal when opening registration from within it
-        if(techHelpCta) {
-            techHelpCta.addEventListener('click', () => {
-                closeTechHelp();
-            });
-        }
-
         // Логика формы заявки
         document.addEventListener('DOMContentLoaded', function() {
             const leadModal = document.getElementById('leadModal');
@@ -1119,6 +1065,56 @@
                     if (submitText) submitText.textContent = 'Отправка...';
                     if (submitSpinner) submitSpinner.classList.remove('opacity-0');
                     if (submitBtn) submitBtn.disabled = true;
+                    // Tech Help Modal Logic
+                    const techHelpBtn = document.getElementById('techHelpBtn');
+                    const techHelpModal = document.getElementById('techHelpModal');
+                    const closeTechHelpModal = document.getElementById('closeTechHelpModal');
+                    const techHelpCta = techHelpModal ? techHelpModal.querySelector('.open-registration-form') : null;
+        
+                    function openTechHelp() {
+                        if(techHelpModal) {
+                            techHelpModal.classList.remove('hidden');
+                            document.body.style.overflow = 'hidden';
+                            setTimeout(() => {
+                                techHelpModal.classList.remove('opacity-0');
+                            }, 10);
+                        }
+                    }
+        
+                    function closeTechHelp() {
+                        if(techHelpModal) {
+                            techHelpModal.classList.add('opacity-0');
+                            setTimeout(() => {
+                                techHelpModal.classList.add('hidden');
+                                document.body.style.overflow = '';
+                            }, 300);
+                        }
+                    }
+        
+                    if(techHelpBtn) {
+                        techHelpBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            openTechHelp();
+                        });
+                    }
+        
+                    if(closeTechHelpModal) {
+                        closeTechHelpModal.addEventListener('click', closeTechHelp);
+                    }
+        
+                    if(techHelpModal) {
+                        techHelpModal.addEventListener('click', (e) => {
+                            if (e.target === techHelpModal) {
+                                closeTechHelp();
+                            }
+                        });
+                    }
+                    
+                    if(techHelpCta) {
+                        techHelpCta.addEventListener('click', () => {
+                            closeTechHelp();
+                        });
+                    }
                 });
             }
             
