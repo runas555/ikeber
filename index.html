@@ -205,6 +205,44 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/104914008" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
+<style>
+    /* Стили для имитации смартфона */
+    .smartphone-mockup {
+        position: relative;
+        width: 280px;
+        height: 580px;
+        margin: 0 auto;
+        border: 12px solid #1e293b;
+        border-radius: 3rem;
+        background: #0f172a;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+    .smartphone-mockup::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 25px;
+        background: #1e293b;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        z-index: 10;
+    }
+    .smartphone-mockup img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @media (min-width: 768px) {
+        .smartphone-mockup {
+            width: 300px;
+            height: 620px;
+        }
+    }
+</style>
 
 </head>
 <body class="min-h-screen">
@@ -263,26 +301,18 @@
                 </div>
                 
                 <div class="hidden md:flex md:w-2/5 justify-center">
-                    <div class="relative bg-slate-800 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-sm border-4 border-slate-700/50">
-                        <div class="rounded-[2rem] overflow-hidden">
-                            <img src="main.png"
-                                 alt="IKEBER - мобильный интернет-магазин для локального бизнеса"
-                                 class="w-full h-full object-cover">
-                        </div>
+                    <div class="smartphone-mockup animate-float">
+                        <img src="main.png" alt="IKEBER - мобильный интернет-магазин">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Мокап для мобильных -->
+        <!-- Мокап для мобильных (показывается только на маленьких экранах) -->
         <section class="block md:hidden px-6 pb-16">
             <div class="container mx-auto flex justify-center">
-                 <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
-                    <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
-                        <img src="main.png"
-                             alt="IKEBER - интернет-магазин на мобильном устройстве"
-                             class="w-full h-full object-cover">
-                    </div>
+                 <div class="smartphone-mockup animate-float">
+                    <img src="main.png" alt="IKEBER - интернет-магазин на смартфоне">
                 </div>
             </div>
         </section>
@@ -350,12 +380,9 @@
             <div class="container mx-auto">
                 <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                     <div class="lg:w-1/2 flex justify-center">
-                        <div class="relative bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-2 md:p-3 shadow-2xl animate-float w-full max-w-[220px] md:max-w-sm border-2 md:border-4 border-slate-700/50">
-                            <div class="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
-                                <img src="admin.png"
-                                     alt="IKEBER - админ-панель управления интернет-магазином"
-                                     class="w-full h-full object-cover">
-                            </div>
+                        <!-- Здесь админка может быть чуть шире, но тоже в стиле девайса -->
+                        <div class="relative bg-slate-800 rounded-[2rem] p-3 shadow-2xl border-4 border-slate-700/50 max-w-md">
+                            <img src="admin.png" alt="IKEBER - админ-панель" class="rounded-[1.5rem] w-full">
                         </div>
                     </div>
                     <div class="lg:w-1/2">
