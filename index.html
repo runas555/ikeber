@@ -46,13 +46,22 @@
     <link rel="stylesheet" href="css/font-awesome.css">
 
     <style>
-        /* Скрытие полосы прокрутки внутри мокапов для эстетики */
+        /* Скрытие полосы прокрутки внутри мокапов */
         .iphone-screen::-webkit-scrollbar {
             display: none;
         }
         .iphone-screen {
             -ms-overflow-style: none;
             scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        /* Эффект свечения для корпуса */
+        .phone-glow {
+            box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.2);
+        }
+        .phone-glow-pink {
+            box-shadow: 0 0 40px -10px rgba(236, 72, 153, 0.2);
         }
     </style>
     
@@ -199,39 +208,48 @@
                 </div>
                 
                 <div class="hidden md:flex md:w-2/5 justify-center">
-                    <!-- Исправленный Смартфон Мокап -->
-                    <div class="relative bg-slate-900 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-[280px] border-[7px] border-slate-800/90 ring-1 ring-slate-700/50 shadow-cyan-500/10 h-[560px]">
+                    <!-- Современный Смартфон Мокап -->
+                    <div class="relative bg-slate-900 rounded-[3.5rem] p-3 shadow-2xl animate-float w-full max-w-[300px] border-[10px] border-slate-800 ring-2 ring-slate-700/50 phone-glow h-[600px]">
+                        <!-- Физические кнопки -->
+                        <div class="absolute -left-[12px] top-24 w-[3px] h-16 bg-slate-700 rounded-l-md"></div>
+                        <div class="absolute -right-[12px] top-32 w-[3px] h-24 bg-slate-700 rounded-r-md"></div>
+
                         <!-- Динамический остров -->
-                        <div class="absolute top-5 left-1/2 -translate-x-1/2 w-16 h-5 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
+                        <div class="absolute top-5 left-1/2 -translate-x-1/2 w-20 h-6 bg-slate-900 rounded-full z-10 border border-slate-700/30 flex items-center justify-end px-3">
+                            <div class="w-2 h-2 rounded-full bg-slate-800"></div>
+                        </div>
                         
-                        <!-- Экран с внутренним скроллом -->
-                        <div class="rounded-[1.8rem] overflow-y-auto h-full bg-slate-800 relative iphone-screen">
-                            <img src="main.png"
-                                 alt="IKEBER - мобильный интернет-магазин для локального бизнеса"
-                                 class="w-full h-auto object-top">
+                        <!-- Экран -->
+                        <div class="rounded-[2.5rem] overflow-hidden h-full bg-slate-800 relative">
+                            <div class="h-full overflow-y-auto iphone-screen">
+                                <img src="main.png"
+                                     alt="IKEBER - мобильный интернет-магазин"
+                                     class="w-full h-auto object-top">
+                            </div>
                         </div>
                         
                         <!-- Кнопка снизу -->
-                        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-slate-700/50 rounded-full"></div>
+                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-slate-700/50 rounded-full"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Мокап для мобильных -->
+        <!-- Мокап для мобильных устройств -->
         <section class="block md:hidden px-6 pb-16">
             <div class="container mx-auto flex justify-center">
-                 <!-- Исправленный Смартфон Мокап Мобильный -->
-                 <div class="relative bg-slate-900 rounded-[2.5rem] p-2 shadow-2xl animate-float w-full max-w-[220px] border-[5px] border-slate-800/90 ring-1 ring-slate-700/50 h-[450px]">
-                    <div class="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-4 bg-slate-900 rounded-full z-10 border border-slate-700/20"></div>
+                 <div class="relative bg-slate-900 rounded-[3rem] p-2 shadow-2xl animate-float w-full max-w-[240px] border-[8px] border-slate-800 ring-1 ring-slate-700/50 h-[480px]">
+                    <div class="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-5 bg-slate-900 rounded-full z-10 border border-slate-700/20"></div>
                     
-                    <div class="rounded-[1.8rem] overflow-y-auto h-full bg-slate-800 iphone-screen">
-                        <img src="main.png"
-                             alt="IKEBER - интернет-магазин на мобильном устройстве"
-                             class="w-full h-auto object-top">
+                    <div class="rounded-[2.2rem] overflow-hidden h-full bg-slate-800 relative">
+                        <div class="h-full overflow-y-auto iphone-screen">
+                            <img src="main.png"
+                                 alt="IKEBER - интернет-магазин на мобильном"
+                                 class="w-full h-auto object-top">
+                        </div>
                     </div>
                     
-                    <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-1 bg-slate-700/40 rounded-full"></div>
+                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-slate-700/40 rounded-full"></div>
                 </div>
             </div>
         </section>
@@ -299,17 +317,19 @@
             <div class="container mx-auto">
                 <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                     <div class="lg:w-1/2 flex justify-center">
-                        <!-- Исправленный Админ Смартфон Мокап -->
-                        <div class="relative bg-slate-900 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-[280px] border-[7px] border-slate-800/90 ring-1 ring-slate-700/50 shadow-pink-500/10 h-[560px]">
-                            <div class="absolute top-5 left-1/2 -translate-x-1/2 w-16 h-5 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
+                        <!-- Современный Админ Мокап -->
+                        <div class="relative bg-slate-900 rounded-[3.5rem] p-3 shadow-2xl animate-float w-full max-w-[300px] border-[10px] border-slate-800 ring-2 ring-slate-700/50 phone-glow-pink h-[600px]">
+                            <div class="absolute top-5 left-1/2 -translate-x-1/2 w-20 h-6 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
                             
-                            <div class="rounded-[1.8rem] overflow-y-auto h-full bg-slate-800 iphone-screen">
-                                <img src="admin.png"
-                                     alt="IKEBER - админ-панель управления интернет-магазином"
-                                     class="w-full h-auto object-top">
+                            <div class="rounded-[2.5rem] overflow-hidden h-full bg-slate-800 relative">
+                                <div class="h-full overflow-y-auto iphone-screen">
+                                    <img src="admin.png"
+                                         alt="IKEBER - админ-панель управления"
+                                         class="w-full h-auto object-top">
+                                </div>
                             </div>
                             
-                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-slate-700/50 rounded-full"></div>
+                            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-slate-700/50 rounded-full"></div>
                         </div>
                     </div>
                     <div class="lg:w-1/2">
@@ -565,12 +585,9 @@
     <!-- Модальное окно формы заявки -->
     <div id="leadModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
         <div class="bg-slate-800/90 backdrop-blur-md rounded-2xl max-w-sm w-full border border-slate-700/50 shadow-2xl animate-fade-in">
-            <!-- Заголовок и кнопка закрытия -->
             <div class="flex justify-between items-center p-6 border-b border-slate-700/50">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-lg flex items-center justify-center">
-                        
-                    </div>
+                    <div class="w-8 h-8 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-lg flex items-center justify-center"></div>
                     <div>
                         <h3 class="text-xl font-bold text-white">Начать с IKEBER</h3>
                         <p id="freeTrialText" class="text-sm text-green-400 hidden">Бесплатно на 3 дня</p>
@@ -581,78 +598,59 @@
                 </button>
             </div>
             
-            <!-- Форма с прямым action для обхода CORS -->
             <form id="leadForm" action="https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec" method="POST" target="hiddenFrame" class="p-6 space-y-4">
-                <!-- Имя -->
                 <div class="animate-slide-up" style="animation-delay: 0.1s">
                     <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Имя *</label>
-                    <input type="text" name="name" id="name" required
-                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
-                           placeholder="Ваше имя">
+                    <input type="text" name="name" id="name" required class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="Ваше имя">
                     <div id="nameError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
-                <!-- Телефон -->
                 <div class="animate-slide-up" style="animation-delay: 0.2s">
                     <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Телефон *</label>
-                    <input type="tel" name="phone" id="phone" required
-                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
-                           placeholder="+7 (999) 123-45-67">
+                    <input type="tel" name="phone" id="phone" required class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="+7 (999) 123-45-67">
                     <div id="phoneError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
-                <!-- Email -->
                 <div class="animate-slide-up" style="animation-delay: 0.3s">
                     <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
-                    <input type="email" name="email" id="email" required
-                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
-                           placeholder="your@email.com">
+                    <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="your@email.com">
                     <div id="emailError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
-                <!-- Тариф -->
                 <div class="animate-slide-up" style="animation-delay: 0.4s">
                     <label for="tariff" class="block text-sm font-medium text-slate-300 mb-2">Интересующий тариф</label>
-                    <select name="tariff" id="tariff"
-                            class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300">
+                    <select name="tariff" id="tariff" class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300">
                         <option value="Начальный">Начальный - 3000₽/мес</option>
                         <option value="Логистика">Весь контроль - 10000₽/мес</option>
                         <option value="Маркетинг Плюс">Маркетинг Плюс - 15000₽/мес</option>
                     </select>
                 </div>
                 
-                <!-- Скрытые поля -->
                 <input type="hidden" name="source" value="Сайт">
                 
-                <!-- Кнопка отправки -->
                 <div class="pt-2 animate-slide-up" style="animation-delay: 0.5s">
-                    <button type="submit" id="submitBtn"
-                            class="w-full bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center gap-2">
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center gap-2">
                         <span id="submitText">Отправить заявку</span>
                         <i id="submitSpinner" class="fas fa-spinner fa-spin opacity-0"></i>
                     </button>
                 </div>
             </form>
             
-            <!-- Скрытый iframe для обработки ответа -->
             <iframe name="hiddenFrame" class="hidden"></iframe>
             
-            <!-- Сообщение об успехе -->
             <div id="successMessage" class="hidden p-6 text-center animate-fade-in">
                 <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <i class="fas fa-check text-white text-2xl"></i>
                 </div>
                 <h4 class="text-xl font-bold text-white mb-2">Заявка отправлена!</h4>
                 <p class="text-slate-300 mb-4">Мы свяжемся с вами в ближайшее время</p>
-                <button id="closeSuccess" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300 transform hover:scale-105">
-                    Закрыть
-                </button>
+                <button id="closeSuccess" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300 transform hover:scale-105">Закрыть</button>
             </div>
         </div>
     </div>
 
    <script>
-        // Back to Top Button
+        // Поведение кнопки Back to Top
         const backToTopButton = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
@@ -663,7 +661,7 @@
         });
         backToTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-        // Mobile Menu Toggle
+        // Переключатель мобильного меню
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuIcon = document.getElementById('mobileMenuIcon');
@@ -681,7 +679,7 @@
             });
         });
 
-        // Smooth Scroll for Anchor Links & Logo
+        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -693,14 +691,14 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Offset for sticky header
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Iframe Modal Logic
+        // Работа с Iframe модальным окном
         const openModalButtons = document.querySelectorAll('.open-modal-btn');
         const iframeModal = document.getElementById('iframeModal');
         const closeIframeBtn = document.getElementById('closeIframeModalBtn');
@@ -736,9 +734,7 @@
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 const url = e.currentTarget.dataset.iframeSrc;
-                if (url) {
-                    openModal(url);
-                }
+                if (url) openModal(url);
             });
         });
 
@@ -749,7 +745,7 @@
             }
         });
 
-        // Логика формы заявки
+        // Логика формы лидов
         document.addEventListener('DOMContentLoaded', function() {
             const leadModal = document.getElementById('leadModal');
             const closeLeadModal = document.getElementById('closeLeadModal');
@@ -764,9 +760,7 @@
             function openLeadModal() {
                 leadModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
-                setTimeout(() => {
-                    leadModal.style.opacity = '1';
-                }, 10);
+                setTimeout(() => { leadModal.style.opacity = '1'; }, 10);
             }
 
             function closeLeadModalFunc() {
@@ -782,43 +776,23 @@
                 let isValid = true;
                 clearErrors();
                 const name = document.getElementById('name').value.trim();
-                if (!name) {
-                    showError('nameError', 'Введите ваше имя');
-                    isValid = false;
-                }
+                if (!name) { showError('nameError', 'Введите ваше имя'); isValid = false; }
                 const phone = document.getElementById('phone').value;
                 const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-                if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
-                    showError('phoneError', 'Введите корректный номер телефона');
-                    isValid = false;
-                }
+                if (!phoneRegex.test(phone.replace(/\D/g, ''))) { showError('phoneError', 'Введите корректный номер'); isValid = false; }
                 const email = document.getElementById('email').value;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    showError('emailError', 'Введите корректный email');
-                    isValid = false;
-                }
+                if (!emailRegex.test(email)) { showError('emailError', 'Введите корректный email'); isValid = false; }
                 return isValid;
             }
 
             function showError(elementId, message) {
-                const errorElement = document.getElementById(elementId);
-                if (errorElement) {
-                    errorElement.textContent = message;
-                    errorElement.classList.remove('hidden');
-                    errorElement.classList.add('animate-shake');
-                    setTimeout(() => {
-                        errorElement.classList.remove('animate-shake');
-                    }, 500);
-                }
+                const err = document.getElementById(elementId);
+                if (err) { err.textContent = message; err.classList.remove('hidden'); }
             }
 
             function clearErrors() {
-                const errorElements = document.querySelectorAll('[id$="Error"]');
-                errorElements.forEach(element => {
-                    element.classList.add('hidden');
-                    element.textContent = '';
-                });
+                document.querySelectorAll('[id$="Error"]').forEach(el => { el.classList.add('hidden'); });
             }
 
             function resetForm() {
@@ -833,10 +807,7 @@
 
             document.querySelectorAll('a[href="#pricing"]').forEach(button => {
                 if (button.textContent.includes('Попробовать бесплатно')) {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        openLeadModal();
-                    });
+                    button.addEventListener('click', (e) => { e.preventDefault(); openLeadModal(); });
                 }
             });
 
@@ -844,59 +815,21 @@
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     const tariff = this.getAttribute('data-tariff');
-                    openLeadModalWithTariff(tariff);
-                });
-            });
-
-            document.querySelectorAll('.open-registration-form').forEach(element => {
-                element.addEventListener('click', function(e) {
-                    e.preventDefault();
                     openLeadModal();
+                    const freeText = document.getElementById('freeTrialText');
+                    if (freeText) { tariff === 'Начальный' ? freeText.classList.remove('hidden') : freeText.classList.add('hidden'); }
+                    setTimeout(() => { document.getElementById('tariff').value = tariff; }, 100);
                 });
             });
 
-            function openLeadModalWithTariff(tariff) {
-                openLeadModal();
-                const freeTrialText = document.getElementById('freeTrialText');
-                if (freeTrialText) {
-                    if (tariff === 'Начальный') {
-                        freeTrialText.classList.remove('hidden');
-                    } else {
-                        freeTrialText.classList.add('hidden');
-                    }
-                }
-                setTimeout(() => {
-                    const tariffSelect = document.getElementById('tariff');
-                    if (tariffSelect) {
-                        tariffSelect.value = tariff;
-                    }
-                }, 100);
-            }
-            
-            if (closeLeadModal) {
-                closeLeadModal.addEventListener('click', closeLeadModalFunc);
-            }
-            if (closeSuccess) {
-                closeSuccess.addEventListener('click', closeLeadModalFunc);
-            }
+            if (closeLeadModal) closeLeadModal.addEventListener('click', closeLeadModalFunc);
+            if (closeSuccess) closeSuccess.addEventListener('click', closeLeadModalFunc);
             if (leadModal) {
-                leadModal.addEventListener('click', function(e) {
-                    if (e.target === leadModal) {
-                        closeLeadModalFunc();
-                    }
-                });
+                leadModal.addEventListener('click', (e) => { if (e.target === leadModal) closeLeadModalFunc(); });
             }
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && leadModal && !leadModal.classList.contains('hidden')) {
-                    closeLeadModalFunc();
-                }
-            });
             if (leadForm) {
                 leadForm.addEventListener('submit', function(e) {
-                    if (!validateForm()) {
-                        e.preventDefault();
-                        return;
-                    }
+                    if (!validateForm()) { e.preventDefault(); return; }
                     if (submitText) submitText.textContent = 'Отправка...';
                     if (submitSpinner) submitSpinner.classList.remove('opacity-0');
                     if (submitBtn) submitBtn.disabled = true;
@@ -904,15 +837,8 @@
             }
             if (hiddenFrame) {
                 hiddenFrame.addEventListener('load', function() {
-                    try {
-                        if (leadForm) leadForm.classList.add('hidden');
-                        if (successMessage) {
-                            successMessage.classList.remove('hidden');
-                            successMessage.classList.add('animate-bounce-in');
-                        }
-                    } catch (error) {
-                        console.error('Ошибка обработки ответа:', error);
-                    }
+                    if (leadForm) leadForm.classList.add('hidden');
+                    if (successMessage) successMessage.classList.remove('hidden');
                 });
             }
         });
