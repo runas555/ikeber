@@ -44,6 +44,17 @@
     <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/manrope.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+
+    <style>
+        /* Скрытие полосы прокрутки внутри мокапов для эстетики */
+        .iphone-screen::-webkit-scrollbar {
+            display: none;
+        }
+        .iphone-screen {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -81,53 +92,6 @@
     }
     </script>
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Создание интернет-магазинов",
-      "provider": {
-        "@type": "Organization",
-        "name": "IKEBER"
-      },
-      "description": "Готовое решение для создания интернет-магазинов с AI-помощником, SEO-оптимизацией и интеграцией с доставкой",
-      "areaServed": "RU",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Тарифы IKEBER",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Начальный тариф"
-            },
-            "price": "3000",
-            "priceCurrency": "RUB"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Логистика тариф"
-            },
-            "price": "10000",
-            "priceCurrency": "RUB"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Маркетинг Плюс тариф"
-            },
-            "price": "15000",
-            "priceCurrency": "RUB"
-          }
-        ]
-      }
-    }
-    </script>
-    
     <!-- FAQ Schema for better CTR -->
     <script type="application/ld+json">
     {
@@ -157,34 +121,6 @@
             "@type": "Answer",
             "text": "IKEBER автоматически оптимизирует ваш магазин для поисковых систем. Также вы можете использовать QR-коды в оффлайн-магазине и автоответчик в WhatsApp."
           }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Главная",
-          "item": "https://ikeber.ru"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Возможности",
-          "item": "https://ikeber.ru#features"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Тарифы",
-          "item": "https://ikeber.ru#pricing"
         }
       ]
     }
@@ -263,19 +199,20 @@
                 </div>
                 
                 <div class="hidden md:flex md:w-2/5 justify-center">
-                    <!-- Смартфон Мокап -->
-                    <div class="relative bg-slate-900 rounded-[3rem] p-3 shadow-2xl animate-float w-full max-w-[300px] border-[8px] border-slate-800/90 ring-1 ring-slate-700/50 shadow-cyan-500/10">
+                    <!-- Исправленный Смартфон Мокап -->
+                    <div class="relative bg-slate-900 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-[280px] border-[7px] border-slate-800/90 ring-1 ring-slate-700/50 shadow-cyan-500/10 h-[560px]">
                         <!-- Динамический остров -->
-                        <div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-6 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
+                        <div class="absolute top-5 left-1/2 -translate-x-1/2 w-16 h-5 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
                         
-                        <div class="rounded-[2.2rem] overflow-hidden aspect-[9/19] bg-slate-800 relative">
+                        <!-- Экран с внутренним скроллом -->
+                        <div class="rounded-[1.8rem] overflow-y-auto h-full bg-slate-800 relative iphone-screen">
                             <img src="main.png"
                                  alt="IKEBER - мобильный интернет-магазин для локального бизнеса"
-                                 class="w-full h-full object-cover">
+                                 class="w-full h-auto object-top">
                         </div>
                         
-                        <!-- Кнопка/Полоска снизу -->
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-slate-700/50 rounded-full"></div>
+                        <!-- Кнопка снизу -->
+                        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-slate-700/50 rounded-full"></div>
                     </div>
                 </div>
             </div>
@@ -284,17 +221,17 @@
         <!-- Мокап для мобильных -->
         <section class="block md:hidden px-6 pb-16">
             <div class="container mx-auto flex justify-center">
-                 <!-- Смартфон Мокап Мобильный -->
-                 <div class="relative bg-slate-900 rounded-[2.5rem] p-2 shadow-2xl animate-float w-full max-w-[240px] border-[6px] border-slate-800/90 ring-1 ring-slate-700/50">
-                    <div class="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-4 bg-slate-900 rounded-full z-10 border border-slate-700/20"></div>
+                 <!-- Исправленный Смартфон Мокап Мобильный -->
+                 <div class="relative bg-slate-900 rounded-[2.5rem] p-2 shadow-2xl animate-float w-full max-w-[220px] border-[5px] border-slate-800/90 ring-1 ring-slate-700/50 h-[450px]">
+                    <div class="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-4 bg-slate-900 rounded-full z-10 border border-slate-700/20"></div>
                     
-                    <div class="rounded-[1.8rem] overflow-hidden aspect-[9/19] bg-slate-800">
+                    <div class="rounded-[1.8rem] overflow-y-auto h-full bg-slate-800 iphone-screen">
                         <img src="main.png"
                              alt="IKEBER - интернет-магазин на мобильном устройстве"
-                             class="w-full h-full object-cover">
+                             class="w-full h-auto object-top">
                     </div>
                     
-                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-slate-700/40 rounded-full"></div>
+                    <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-1 bg-slate-700/40 rounded-full"></div>
                 </div>
             </div>
         </section>
@@ -362,17 +299,17 @@
             <div class="container mx-auto">
                 <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
                     <div class="lg:w-1/2 flex justify-center">
-                        <!-- Админ Смартфон Мокап -->
-                        <div class="relative bg-slate-900 rounded-[3rem] p-3 shadow-2xl animate-float w-full max-w-[300px] border-[8px] border-slate-800/90 ring-1 ring-slate-700/50 shadow-pink-500/10">
-                            <div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-6 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
+                        <!-- Исправленный Админ Смартфон Мокап -->
+                        <div class="relative bg-slate-900 rounded-[2.5rem] p-3 shadow-2xl animate-float w-full max-w-[280px] border-[7px] border-slate-800/90 ring-1 ring-slate-700/50 shadow-pink-500/10 h-[560px]">
+                            <div class="absolute top-5 left-1/2 -translate-x-1/2 w-16 h-5 bg-slate-900 rounded-full z-10 border border-slate-700/30"></div>
                             
-                            <div class="rounded-[2.2rem] overflow-hidden aspect-[9/19] bg-slate-800">
+                            <div class="rounded-[1.8rem] overflow-y-auto h-full bg-slate-800 iphone-screen">
                                 <img src="admin.png"
                                      alt="IKEBER - админ-панель управления интернет-магазином"
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-auto object-top">
                             </div>
                             
-                            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-slate-700/50 rounded-full"></div>
+                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-slate-700/50 rounded-full"></div>
                         </div>
                     </div>
                     <div class="lg:w-1/2">
