@@ -594,7 +594,21 @@
                 
                 <input type="hidden" name="source" value="Сайт">
                 
-                <div class="pt-2 animate-slide-up" style="animation-delay: 0.5s">
+                <div class="animate-slide-up" style="animation-delay: 0.5s">
+                    <div class="flex items-start space-x-3 p-3 bg-slate-800/50 rounded-lg border border-slate-700">
+                        <input type="checkbox" id="privacyCheckbox" name="privacyCheckbox" required class="mt-1 w-5 h-5 text-cyan-500 bg-slate-700 border-slate-600 rounded focus:ring-cyan-500 focus:ring-2">
+                        <label for="privacyCheckbox" class="text-sm text-slate-300">
+                            Я соглашаюсь с 
+                            <a href="privacy-policy.html" target="_blank" class="text-cyan-400 hover:text-cyan-300 underline transition-colors">
+                                Политикой конфиденциальности
+                            </a> 
+                            и даю согласие на обработку моих персональных данных *
+                        </label>
+                    </div>
+                    <div id="privacyError" class="hidden text-red-400 text-sm mt-1 ml-8"></div>
+                </div>
+                
+                <div class="pt-2 animate-slide-up" style="animation-delay: 0.6s">
                     <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white py-3 px-6 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center gap-2">
                         <span id="submitText">Отправить заявку</span>
                         <i id="submitSpinner" class="fas fa-spinner fa-spin opacity-0"></i>
