@@ -763,6 +763,8 @@
                 const email = document.getElementById('email').value;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) { showError('emailError', 'Введите корректный email'); isValid = false; }
+                const privacyCheckbox = document.getElementById('privacyCheckbox');
+                if (!privacyCheckbox.checked) { showError('privacyError', 'Необходимо согласие с политикой конфиденциальности'); isValid = false; }
                 return isValid;
             }
 
