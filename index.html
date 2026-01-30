@@ -431,7 +431,6 @@
                     <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Имя *</label>
                     <input type="text" name="name" id="name" required 
                            autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"
-                           onpaste="return false;" ondrop="return false;"
                            class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="Ваше имя">
                     <div id="nameError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
@@ -440,7 +439,6 @@
                     <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Телефон *</label>
                     <input type="tel" name="phone" id="phone" required 
                            autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"
-                           onpaste="return false;" ondrop="return false;"
                            class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="+7 (999) 123-45-67">
                     <div id="phoneError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
@@ -449,7 +447,6 @@
                     <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
                     <input type="email" name="email" id="email" required 
                            autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"
-                           onpaste="return false;" ondrop="return false;"
                            class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="your@email.com">
                     <div id="emailError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
@@ -625,17 +622,10 @@
 
                 // Считаем только реальные нажатия клавиш
                 el.addEventListener('keydown', (e) => {
-                    // Игнорируем функциональные клавиши (Tab, Shift и т.д.), кроме Backspace
-                    // Если длина ключа 1 (буква/цифра) или это Backspace - считаем за ввод
+                    // Игнорируем функциональные клавиши, кроме Backspace
                     if (e.key.length === 1 || e.key === 'Backspace') {
                         manualTypingTracker[id]++;
                     }
-                });
-
-                // Дополнительная блокировка через JS (если html атрибуты обойдут)
-                el.addEventListener('paste', (e) => {
-                    e.preventDefault();
-                    // Можно показать предупреждение, если нужно
                 });
             });
 
@@ -677,19 +667,25 @@
                 const emailVal = emailEl.value.trim();
 
                 // --- ЛОГИКА ПРОВЕРКИ РУЧНОГО ВВОДА ---
-                // Если поле заполнено, но счетчик нажатий подозрительно мал (или равен 0)
-                // Значит была автовставка или автозаполнение браузером
-                
-                let detectedAutoFill = false;
+                // Если поле заполнено, но счетчик нажатий подозрительно мал (меньше 2)
+                // Значит была автовставка или копипаст
 
-                if (nameVal.length > 0 && manualTypingTracker.name < 2) detectedAutoFill = true;
-                if (phoneVal.length > 0 && manualTypingTracker.phone < 2) detectedAutoFill = true;
-                if (emailVal.length > 0 && manualTypingTracker.email < 2) detectedAutoFill = true;
-
-                if (detectedAutoFill) {
-                    showError('generalError', 'Обнаружена автовставка. Пожалуйста, введите данные вручную.');
-                    return false;
+                if (nameVal.length > 0 && manualTypingTracker.name < 2) {
+                    showError('nameError', 'Введите вручную (проверка на робота)');
+                    isValid = false;
                 }
+                
+                if (phoneVal.length > 0 && manualTypingTracker.phone < 2) {
+                    showError('phoneError', 'Введите вручную (проверка на робота)');
+                    isValid = false;
+                }
+
+                if (emailVal.length > 0 && manualTypingTracker.email < 2) {
+                    showError('emailError', 'Введите вручную (проверка на робота)');
+                    isValid = false;
+                }
+
+                if (!isValid) return false; // Прерываем, если обнаружена вставка
                 // -------------------------------------
 
                 if (!nameVal) { showError('nameError', 'Введите ваше имя'); isValid = false; }
