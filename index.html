@@ -420,7 +420,7 @@
                 </button>
             </div>
             
-            <form id="leadForm" action="https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec" method="POST" target="hiddenFrame" class="p-6 space-y-4">
+            <form id="leadForm" action="https://script.google.com/macros/s/AKfycbxU92k16CCm4M3tpvSKdHirrls2ZFTFbdVV-9fHZVxyqnWZms7lVM9kGadH9mYH4cD9/exec" method="POST" target="hiddenFrame" class="p-6 space-y-4" autocomplete="off">
                 
                 <!-- Honeypot (Ловушка для ботов) -->
                 <div class="hidden absolute opacity-0 -z-50" aria-hidden="true">
@@ -429,19 +429,28 @@
 
                 <div class="animate-slide-up" style="animation-delay: 0.1s">
                     <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Имя *</label>
-                    <input type="text" name="name" id="name" required class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="Ваше имя">
+                    <input type="text" name="name" id="name" required 
+                           autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"
+                           onpaste="return false;" ondrop="return false;"
+                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="Ваше имя">
                     <div id="nameError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
                 <div class="animate-slide-up" style="animation-delay: 0.2s">
                     <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Телефон *</label>
-                    <input type="tel" name="phone" id="phone" required class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="+7 (999) 123-45-67">
+                    <input type="tel" name="phone" id="phone" required 
+                           autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"
+                           onpaste="return false;" ondrop="return false;"
+                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="+7 (999) 123-45-67">
                     <div id="phoneError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
                 <div class="animate-slide-up" style="animation-delay: 0.3s">
                     <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
-                    <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="your@email.com">
+                    <input type="email" name="email" id="email" required 
+                           autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"
+                           onpaste="return false;" ondrop="return false;"
+                           class="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300" placeholder="your@email.com">
                     <div id="emailError" class="hidden text-red-400 text-sm mt-1"></div>
                 </div>
                 
@@ -602,22 +611,40 @@
             const submitSpinner = document.getElementById('submitSpinner');
             const generalError = document.getElementById('generalError');
 
-            // Переменные для защиты от ботов
-            let formOpenedAt = 0;
-            let userInteractionDetected = false;
+            // Объект для отслеживания "настоящего" ручного ввода
+            const manualTypingTracker = {
+                name: 0,
+                phone: 0,
+                email: 0
+            };
 
-            // Слушаем ввод пользователя в реальном времени
-            const formInputs = leadForm.querySelectorAll('input, select');
-            formInputs.forEach(input => {
-                // Если пользователь нажимает клавишу или кликает мышкой по полю
-                input.addEventListener('keydown', () => { userInteractionDetected = true; });
-                input.addEventListener('mousedown', () => { userInteractionDetected = true; });
+            // Настройка полей для отслеживания ручного ввода
+            ['name', 'phone', 'email'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+
+                // Считаем только реальные нажатия клавиш
+                el.addEventListener('keydown', (e) => {
+                    // Игнорируем функциональные клавиши (Tab, Shift и т.д.), кроме Backspace
+                    // Если длина ключа 1 (буква/цифра) или это Backspace - считаем за ввод
+                    if (e.key.length === 1 || e.key === 'Backspace') {
+                        manualTypingTracker[id]++;
+                    }
+                });
+
+                // Дополнительная блокировка через JS (если html атрибуты обойдут)
+                el.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    // Можно показать предупреждение, если нужно
+                });
             });
 
+
             function openLeadModal() {
-                // Сбрасываем таймер и флаг при открытии
-                formOpenedAt = Date.now();
-                userInteractionDetected = false;
+                // Сбрасываем счетчики при открытии
+                manualTypingTracker.name = 0;
+                manualTypingTracker.phone = 0;
+                manualTypingTracker.email = 0;
                 
                 leadModal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -637,41 +664,41 @@
                 let isValid = true;
                 clearErrors();
 
-                // --- ЗАЩИТА ОТ БОТОВ START ---
-                
-                // 1. Проверка Honeypot (скрытого поля)
+                // 1. Проверка Honeypot
                 const botCheck = document.getElementById('b_check');
-                if (botCheck && botCheck.value !== '') {
-                    console.log('Bot detected: Honeypot filled');
-                    return false; // Молча блокируем
-                }
+                if (botCheck && botCheck.value !== '') return false;
 
-                // 2. Проверка времени заполнения (минимум 2 секунды)
-                const timeElapsed = Date.now() - formOpenedAt;
-                if (timeElapsed < 2000) {
-                    showError('generalError', 'Пожалуйста, заполняйте форму внимательнее (слишком быстрая отправка).');
+                const nameEl = document.getElementById('name');
+                const phoneEl = document.getElementById('phone');
+                const emailEl = document.getElementById('email');
+
+                const nameVal = nameEl.value.trim();
+                const phoneVal = phoneEl.value.trim();
+                const emailVal = emailEl.value.trim();
+
+                // --- ЛОГИКА ПРОВЕРКИ РУЧНОГО ВВОДА ---
+                // Если поле заполнено, но счетчик нажатий подозрительно мал (или равен 0)
+                // Значит была автовставка или автозаполнение браузером
+                
+                let detectedAutoFill = false;
+
+                if (nameVal.length > 0 && manualTypingTracker.name < 2) detectedAutoFill = true;
+                if (phoneVal.length > 0 && manualTypingTracker.phone < 2) detectedAutoFill = true;
+                if (emailVal.length > 0 && manualTypingTracker.email < 2) detectedAutoFill = true;
+
+                if (detectedAutoFill) {
+                    showError('generalError', 'Обнаружена автовставка. Пожалуйста, введите данные вручную.');
                     return false;
                 }
+                // -------------------------------------
 
-                // 3. Проверка на "ручной" ввод
-                // Если не было ни одного клика или нажатия клавиши, считаем это скриптом
-                if (!userInteractionDetected) {
-                    showError('generalError', 'Обнаружена автоматическая отправка. Пожалуйста, введите данные вручную.');
-                    return false;
-                }
+                if (!nameVal) { showError('nameError', 'Введите ваше имя'); isValid = false; }
                 
-                // --- ЗАЩИТА ОТ БОТОВ END ---
-
-                const name = document.getElementById('name').value.trim();
-                if (!name) { showError('nameError', 'Введите ваше имя'); isValid = false; }
-                
-                const phone = document.getElementById('phone').value;
                 const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-                if (!phoneRegex.test(phone.replace(/\D/g, ''))) { showError('phoneError', 'Введите корректный номер'); isValid = false; }
+                if (!phoneRegex.test(phoneVal.replace(/\D/g, ''))) { showError('phoneError', 'Введите корректный номер'); isValid = false; }
                 
-                const email = document.getElementById('email').value;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) { showError('emailError', 'Введите корректный email'); isValid = false; }
+                if (!emailRegex.test(emailVal)) { showError('emailError', 'Введите корректный email'); isValid = false; }
                 
                 const privacyCheckbox = document.getElementById('privacyCheckbox');
                 if (!privacyCheckbox.checked) { showError('privacyError', 'Необходимо согласие с политикой конфиденциальности'); isValid = false; }
